@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ac_main_statebar_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/main_header_state_bar_icon_width"
+            android:layout_height="@dimen/main_header_state_bar_icon_height"
+            android:src="@drawable/tv_header_personal" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_header_state_bar_icon_height"
+        android:layout_marginLeft="@dimen/main_header_state_bar_divider_margin_left"
+        android:layout_marginRight="@dimen/main_header_state_bar_divider_margin_right"
+        android:src="@drawable/tv_header_diving" />
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/main_header_state_bar_icon_width"
+            android:layout_height="@dimen/main_header_state_bar_icon_height"
+            android:src="@drawable/tv_header_search" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_header_state_bar_icon_height"
+        android:layout_marginLeft="@dimen/main_header_state_bar_divider_margin_left"
+        android:layout_marginRight="@dimen/main_header_state_bar_divider_margin_right"
+        android:src="@drawable/tv_header_diving" />
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/main_header_state_bar_icon_width"
+            android:layout_height="@dimen/main_header_state_bar_icon_height"
+            android:src="@drawable/tv_header_setting" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_header_state_bar_icon_height"
+        android:layout_marginLeft="@dimen/main_header_state_bar_divider_margin_left"
+        android:layout_marginRight="@dimen/main_header_state_bar_divider_margin_right"
+        android:src="@drawable/tv_header_diving" />
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/main_header_state_bar_icon_width"
+            android:layout_height="@dimen/main_header_state_bar_icon_height"
+            android:src="@drawable/tv_header_wifi" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_header_state_bar_icon_height"
+        android:layout_marginLeft="@dimen/main_header_state_bar_divider_margin_left"
+        android:layout_marginRight="@dimen/main_header_state_bar_divider_margin_right"
+        android:src="@drawable/tv_header_diving" />
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.ppfuns.ppfunstv.view.TimeTextView
+            android:id="@+id/ac_main_statebar_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:textSize="@dimen/main_header_state_bar_time_fontsize"
+            android:typeface="sans" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_header_state_bar_icon_height"
+        android:layout_marginLeft="@dimen/main_header_state_bar_divider_margin_left"
+        android:layout_marginRight="@dimen/main_header_state_bar_divider_margin_right"
+        android:src="@drawable/tv_header_diving"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/ac_main_statebar_city_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="深圳"
+            android:textSize="@dimen/main_header_state_bar_time_fontsize" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/main_header_state_bar_icon_height"
+        android:layout_marginLeft="@dimen/main_header_state_bar_divider_margin_left"
+        android:layout_marginRight="@dimen/main_header_state_bar_divider_margin_right"
+        android:src="@drawable/tv_header_diving"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/ac_main_statebar_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/ac_main_statebar_weather_icon"
+            android:layout_width="@dimen/main_header_state_bar_icon_width"
+            android:layout_height="@dimen/main_header_state_bar_icon_height"
+            android:src="@drawable/cloud" />
+
+        <TextView
+            android:id="@+id/ac_main_statebar_weather_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/ac_main_statebar_weather_icon"
+            android:fontFamily="monospace"
+            android:text="15~20℃"
+            android:textSize="@dimen/main_header_state_bar_time_fontsize" />
+    </RelativeLayout>
+
+
+</LinearLayout>

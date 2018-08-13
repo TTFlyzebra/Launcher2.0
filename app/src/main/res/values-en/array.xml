@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="age_range">
+        <item>0-3 years</item>
+        <item>3-6 years</item>
+        <item>>6 years</item>
+    </string-array>
+
+    <string-array name="sex">
+        <item>boy</item>
+        <item>girl</item>
+    </string-array>
+
+</resources>

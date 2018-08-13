@@ -1,0 +1,280 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="NavLayoutContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/navlayout_container_margin_right</item>
+        <item name="android:layout_marginTop">@dimen/navlayout_container_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/navlayout_container_margin_left</item>
+    </style>
+
+    <style name="NavLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/navlayout_height</item>
+    </style>
+
+    <style name="CellItemImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:src">@drawable/tv_live_video_cover</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="CellItemTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/cell_item_textview_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/cell_item_textview_margin_left</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/cell_item_textview_font_size</item>
+        <item name="android:layout_marginBottom">@dimen/DIMEN_10PX</item>
+        <item name="android:layout_marginTop">@dimen/DIMEN_10PX</item>
+        <item name="android:background">@null</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="CellItemTextViewNo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/cell_item_textview_font_size</item>
+        <item name="android:layout_marginBottom">@dimen/DIMEN_10PX</item>
+        <item name="android:layout_marginTop">@dimen/DIMEN_10PX</item>
+        <item name="android:background">@null</item>
+        <!--<item name="android:focusable">true</item>-->
+        <!--<item name="android:focusableInTouchMode">true</item>-->
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="SecondTextInfoStyle" parent="CellItemTextView">
+        <item name="android:paddingBottom">@dimen/DIMEN_4PX</item>
+        <item name="android:paddingTop">-8dp</item>
+    </style>
+
+    <style name="CellItemTextBg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/tv_mask</item>
+    </style>
+
+    <style name="HeaderLayoutLogo">
+        <item name="android:layout_width">@dimen/headerlayout_logo_width</item>
+        <item name="android:layout_height">@dimen/headerlayout_logo_height</item>
+        <item name="android:layout_marginLeft">@dimen/headerlayout_logo_margin_left</item>
+        <item name="android:layout_marginTop">@dimen/headerlayout_logo_margin_top</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="LiveCellVideoView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/livecell_videoview_margin</item>
+        <item name="android:layout_marginTop">@dimen/livecell_videoview_margin</item>
+        <item name="android:layout_marginRight">@dimen/livecell_videoview_margin</item>
+        <item name="android:layout_marginBottom">@dimen/livecell_videoview_margin</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="LiveCellTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:focusable">false</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+    <style name="LiveCellBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:src">@drawable/tv_live_video_cover</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="LiveCellTipInfoContainer">
+        <item name="android:layout_width">@dimen/livecell_tipinfo_container_width</item>
+        <item name="android:layout_height">@dimen/DIMEN_150PX</item>
+        <item name="android:background">@null</item>
+        <!--@mipmap/tv_tip_box_rl-->
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="LiveCellTipInfoText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">@dimen/cell_item_textview_font_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="TabItemImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="TabItemImageFocus">
+        <item name="android:layout_width">@dimen/tab_item_focus_image_width</item>
+        <item name="android:layout_height">@dimen/tab_item_focus_image_height</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="TabItemBg">
+        <item name="android:layout_width">@dimen/DIMEN_158PX</item>//130 @dimen/tab_item_bg_width
+        <item name="android:layout_height">@dimen/DIMEN_88PX</item>//55
+    </style>
+
+    <style name="TabItemText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/DIMEN_30PX</item>
+        <item name="android:layout_marginRight">@dimen/DIMEN_30PX</item>
+        <item name="android:layout_marginTop">@dimen/DIMEN_9PX</item>
+        <item name="android:layout_marginBottom">@dimen/DIMEN_10PX</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/DIMEN_36PX</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="HeaderLayoutIcon">
+        <item name="android:layout_width">@dimen/main_header_state_bar_icon_width</item>
+        <item name="android:layout_height">@dimen/main_header_state_bar_icon_height</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="Transparent" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+
+    <style name="MyDialogStyle">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="AnimationActivity">
+        <item name="android:activityOpenEnterAnimation">@anim/tv_anim_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/back_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/back_exit</item>
+    </style>
+
+    <!--界面模糊popupWindow显示退出效果-->
+    <style name="BlurWindow">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="DialogStyle" parent="Base.Theme.AppCompat">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+
+    <style name="video_progressbar_style">
+        <item name="android:maxWidth">43.0dip</item>
+        <item name="android:maxHeight">43.0dip</item>
+        <item name="android:minWidth">43.0dip</item>
+        <item name="android:minHeight">43.0dip</item>
+    </style>
+
+    <style name="set_stuta_gridview_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:columnWidth">@dimen/set_status_gridview_item_width</item>
+        <item name="android:numColumns">5</item>
+        <item name="android:layout_marginTop">@dimen/set_status_line_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/DIMEN_92PX</item>
+        <item name="android:layout_marginRight">@dimen/DIMEN_92PX</item>
+    </style>
+
+    <style name="set_stuta_gridview_item">
+        <item name="android:layout_width">@dimen/set_status_gridview_item_width</item>
+        <item name="android:layout_height">@dimen/set_status_gridview_item_height</item>
+    </style>
+
+    <style name="time_theme_textview_35px">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/DIMEN_35PX</item>
+    </style>
+
+    <style name="time_theme_edittext">
+        <item name="android:layout_width">@dimen/DIMEN_138PX</item>
+        <item name="android:layout_height">@dimen/DIMEN_112PX</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:hint">00</item>
+        <item name="android:maxLength">2</item>
+        <item name="android:background">@drawable/selector_theme_edittext</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+    <style name="time_theme_arrow_ll">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="time_theme_arrow_up">
+        <item name="android:layout_width">@dimen/DIMEN_62PX</item>
+        <item name="android:layout_height">@dimen/DIMEN_56PX</item>
+        <item name="android:gravity">center</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/selector_theme_up_arrow</item>
+    </style>
+
+    <style name="time_theme_arrow_down" parent="time_theme_arrow_up">
+        <item name="android:layout_marginTop">-10dp</item>
+        <item name="android:background">@drawable/selector_theme_down_arrow</item>
+    </style>
+
+    <style name="MyInfo" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/my_back</item>
+    </style>
+
+    <style name="loadingDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>

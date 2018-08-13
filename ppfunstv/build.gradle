@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.ppfuns.toolkit'
+//apply plugin: 'repoUploader'
+
+//toolkit {
+//    projectName 'ppfunstv'
+//}
+//
+//uploaderConfig {
+//    artifact = 'ppfunstv'
+//    group = 'com.ppfuns.ppfunstv'
+//    version = '1.0.79'
+//    repositoryUrl = 'http://192.168.1.12:8088/repository/ppfuns-release/'
+//    userName = 'ppfuns'
+//    password = '123'
+//    ext {
+//        description = "ui lib"
+//    }
+//}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('libs/core-3.2.0.jar')
+    compile files('libs/android_hided_sdk.jar')
+        compile 'com.android.support:leanback-v17:25.3.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.google.android.exoplayer:exoplayer:r2.2.0'
+    compile 'com.umeng.analytics:analytics:5.6.7'
+    compile 'org.greenrobot:eventbus:3.0.0'
+}

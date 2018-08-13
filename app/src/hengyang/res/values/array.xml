@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!--myInfoNames,myInfoActions,myInfoImages请一起修改-->
+    <string-array name="myInfoNames">
+        <item>@string/my_watch_history</item>
+        <item>@string/my_pay_history</item>
+        <item>@string/my_app</item>
+        <item>@string/my_download</item>
+    </string-array>
+    <!--myInfoNames,myInfoActions,myInfoImages请一起修改-->
+    <string-array name="myInfoActions">
+        <item>com.ppfuns.vod.action.ACTION_VIEW_RECORD|collectRecordId=(int)0</item>
+        <item>com.ppfuns.pay.action.RECORD_DETAIL</item>
+        <item>com.dangbeimarket.action.act.myapps|name=我的应用</item>
+        <item>com.ppfuns.launcher.my.download</item>
+    </string-array>
+    <!--myInfoNames,myInfoActions,myInfoImages请一起修改-->
+    <string-array name="myInfoImages">
+        <item>@drawable/my_watch_history</item>
+        <item>@drawable/my_pay_history</item>
+        <item>@drawable/my_app</item>
+        <item>@drawable/my_download</item>
+    </string-array>
+
+
+
+</resources>

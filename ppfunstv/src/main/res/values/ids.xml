@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tv_id_01" type="id"/>
+    <item name="tv_id_02" type="id"/>
+    <item name="tv_id_03" type="id"/>
+    <item name="tv_id_04" type="id"/>
+    <item name="tv_id_05" type="id"/>
+</resources>

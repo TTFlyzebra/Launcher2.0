@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customs="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFF"
+    android:padding="2dp">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tv_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.ppfuns.ppfunstv.view.FlyViewPager.NaviForViewPager
+        android:id="@+id/tv_count_vp"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        customs:TvCircelColor1="#000"
+        customs:TvCircelColor2="#BF22FF00"
+        customs:TvCircelWidth="12dp" />
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+             android:id="@+id/content"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/fl_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/set_status_top_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/set_status_top_layout_height"
+            android:layout_marginTop="@dimen/set_status_top_layout_margin_top"
+            android:alpha="0.5"
+            android:gravity="center_horizontal"
+            >
+
+            <com.ppfuns.ppfunstv.view.DateView
+                android:id="@+id/set_status_top_time_info"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="12:28"
+                android:textSize="@dimen/set_status_top_time_text_size"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <!--<View-->
+                <!--android:id="@+id/status_division_two"-->
+                <!--android:layout_width="@dimen/set_status_division_width"-->
+                <!--android:layout_height="@dimen/set_status_division_height"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="@dimen/set_status_margin_left"-->
+                <!--android:layout_toRightOf="@+id/set_status_top_date"-->
+                <!--android:background="@color/white"-->
+                <!--/>-->
+
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/set_status_top_weather"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="@dimen/set_status_margin_left"-->
+                <!--android:layout_toRightOf="@+id/status_division_two"-->
+                <!--&gt;-->
+
+                <!--<com.ppfuns.launcher.view.WeatherView-->
+                    <!--android:id="@+id/set_status_top_weather_icon"-->
+                    <!--android:layout_width="100px"-->
+                    <!--android:layout_height="80px"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/weather01"/>-->
+
+                <!--<com.ppfuns.launcher.view.TemperatureTextView-->
+                    <!--android:id="@+id/set_status_top_weather_temperature"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:layout_marginLeft="@dimen/set_status_margin_left"-->
+                    <!--android:layout_toRightOf="@id/set_status_top_weather_icon"-->
+                    <!--android:text="15~20℃"-->
+                    <!--android:textSize="@dimen/set_status_top_date_text_size"/>-->
+
+                <!--<com.ppfuns.launcher.view.AreaTextView-->
+                    <!--android:id="@+id/set_status_top_weather_place"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@+id/set_status_top_weather_temperature"-->
+                    <!--android:layout_marginLeft="@dimen/set_status_margin_left"-->
+                    <!--android:layout_marginTop="@dimen/set_status_top_date_week_margin_top"-->
+                    <!--android:layout_toRightOf="@id/set_status_top_weather_icon"-->
+                    <!--android:fontFamily="monospace"-->
+                    <!--android:text="海南"-->
+                    <!--android:textSize="@dimen/set_status_top_date_week_text_size"/>-->
+            <!--</RelativeLayout>-->
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/ac_set_top_division"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/set_status_line_height"
+            android:layout_below="@+id/set_status_top_layout"
+            android:layout_marginLeft="@dimen/set_status_line_margin"
+            android:layout_marginRight="@dimen/set_status_line_margin"
+            android:layout_marginTop="@dimen/set_status_line_margin_top"
+            android:alpha="0.5"
+            android:background="@color/white"
+            />
+
+        <GridView
+            android:id="@+id/ac_set_gridview"
+            style="@style/set_stuta_gridview_style"
+            android:layout_below="@+id/ac_set_top_division"
+            android:descendantFocusability="beforeDescendants"
+            android:listSelector="@drawable/selector_set_item"
+            android:scrollbars="none"
+            />
+
+    </RelativeLayout>
+</FrameLayout>

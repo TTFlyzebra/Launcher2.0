@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/back_door_padding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_svn_version"
+            android:textSize="@dimen/back_door_text_size" />
+
+        <TextView
+            android:id="@+id/back_door_svn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="556"
+            android:textSize="@dimen/back_door_text_size" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/back_door_template"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_80PX"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_template"
+            android:textSize="@dimen/back_door_text_size" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/back_door_sounds_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_80PX"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_select_sound"
+            android:textSize="@dimen/back_door_text_size" />
+
+        <RadioGroup
+            android:id="@+id/back_door_sound"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/back_door_set_child_age_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_80PX"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_child_age_range"
+            android:textSize="@dimen/back_door_text_size" />
+        <RadioGroup
+            android:id="@+id/back_door_child_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/back_door_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_sound"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_close_sound" />
+
+        <Button
+            android:id="@+id/btn_circulation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_open_circulation"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_door_update" />
+
+        <Button
+            android:id="@+id/btn_shake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_door_open_shake" />
+
+        <Button
+            android:id="@+id/btn_debug"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_door_open_debug" />
+
+        <Button
+            android:id="@+id/btn_update_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_door_open_update_tip" />
+        <Button
+            android:id="@+id/btn_check_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_version" />
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/backdoor_setting"
+            />
+        <Button
+            android:id="@+id/btn_proper_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proper_url"/>
+        <Button
+            android:id="@+id/btn_blur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blur_setting"/>
+        <Button
+            android:id="@+id/btn_setting_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开设置"/>
+
+        <Button
+            android:id="@+id/btn_app_lists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="app 列表"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back_door_alpha"
+            android:textSize="@dimen/back_door_text_size" />
+
+        <ProgressBar
+            android:id="@+id/pb_alpha"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="@dimen/DIMEN_450PX"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/DIMEN_40PX"
+            android:paddingLeft="@dimen/DIMEN_30PX"
+            android:paddingRight="@dimen/DIMEN_30PX"
+            android:max="100"
+            android:progress="50"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/selector_rect"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

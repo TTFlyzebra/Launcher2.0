@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_back"
+    android:orientation="vertical"
+    tools:context=".ui.MyInfoActivity">
+
+    <ImageView
+        android:id="@+id/my_pic"
+        android:layout_width="@dimen/DIMEN_210PX"
+        android:layout_height="@dimen/DIMEN_210PX"
+        android:src="@drawable/my_pic"
+        android:layout_marginTop="@dimen/DIMEN_81PX"
+        android:layout_gravity="center_horizontal"
+    />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DIMEN_60PX"
+        android:layout_marginTop="@dimen/DIMEN_30PX"
+        android:layout_below="@id/my_pic"
+        >
+        <TextView
+            android:id="@+id/my_user_id"
+            android:layout_width="@dimen/DIMEN_0PX"
+            android:layout_height="match_parent"
+            android:text="@string/my_user_id"
+            android:textColor="@color/white"
+            android:gravity="right|center_vertical"
+            android:textSize="@dimen/DIMEN_30PX"
+            android:layout_weight="1"
+            android:layout_marginRight="@dimen/DIMEN_30PX"
+            />
+
+        <TextView
+            android:id="@+id/my_smart_card_id"
+            android:layout_width="@dimen/DIMEN_0PX"
+            android:layout_height="match_parent"
+            android:text="@string/my_smart_card_id"
+            android:layout_marginLeft="@dimen/DIMEN_30PX"
+            android:textColor="@color/white"
+            android:gravity="left|center_vertical"
+            android:textSize="@dimen/DIMEN_30PX"
+            android:layout_toRightOf="@id/my_user_id"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/my_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="@dimen/DIMEN_300PX"
+        android:numColumns="4"
+        android:layout_marginTop="@dimen/DIMEN_100PX"
+        android:listSelector="@drawable/selector_set_item"
+        android:layout_below="@+id/ac_set_top_division"
+        android:scrollbars="none"
+        android:descendantFocusability="beforeDescendants"
+        android:horizontalSpacing="@dimen/DIMEN_1PX"
+        android:layout_marginLeft="@dimen/DIMEN_90PX"
+        android:layout_marginRight="@dimen/DIMEN_90PX"
+        />
+
+</LinearLayout>

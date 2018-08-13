@@ -1,0 +1,9 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_focused="true">
+        <bitmap android:src="@drawable/tv_album_btn_focus" />
+    </item>
+    <item >
+        <bitmap android:src="@drawable/tv_album_btn_normal" />
+    </item>
+</selector>

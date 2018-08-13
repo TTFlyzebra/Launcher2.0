@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/set_stuta_gridview_item"
+    >
+
+    <ImageView
+        android:id="@+id/set_grid_item_image"
+        android:layout_width="@dimen/DIMEN_119PX"
+        android:layout_height="@dimen/DIMEN_110PX"
+        android:layout_marginTop="@dimen/status_grid_tiem_image_margin_top"
+        android:scaleType="fitXY"
+        android:focusable="false"
+        android:layout_centerHorizontal="true"
+        />
+    
+    <TextView
+        android:id="@+id/set_grid_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/status_grid_tiem_text_width"
+        android:layout_marginTop="@dimen/status_grid_tiem_text_margin_top"
+        android:layout_marginBottom="@dimen/status_grid_tiem_text_margin_bottom"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/status_grid_tiem_text_size"
+        android:text="我的"
+        android:layout_below="@+id/set_grid_item_image"
+        />
+</RelativeLayout>

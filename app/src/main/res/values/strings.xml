@@ -1,0 +1,97 @@
+<resources>
+    <string name="app_name">Launcher</string>
+    <string name="str_sunday">星期日</string>
+    <string name="str_monday">星期一</string>
+    <string name="str_tuesday">星期二</string>
+    <string name="str_wednesday">星期三</string>
+    <string name="str_thursday">星期四</string>
+    <string name="str_friday">星期五</string>
+    <string name="str_saturday">星期六</string>
+
+    <string name="aaa_not_auth">未授权</string>
+    <string name="aaa_error">授权异常</string>
+    <string name="confirm">确定</string>
+    <string name="underdevelopment">该功能正在开发中...</string>
+    <string name="ads_data_err">广告数据异常</string>
+    <string name="ads_jump_err">广告跳转异常</string>
+    <string name="app_not_install">未安装对应的应用</string>
+    <string name="data_err">前端配置数据错误</string>
+    <string name="data_is_null">前端配置交互数据为空</string>
+    <string name="live_start_err">进入直播失败</string>
+    <string name="tvpage_no_data">本页面没有数据</string>
+
+    <string name="back_door_svn_version">SVN版本 </string>
+    <string name="back_door_template">选择模板 </string>
+    <string name="back_door_select_sound">选择声音 </string>
+    <string name="back_door_child_age_range">选择儿童年龄段</string>
+    <string name="back_door_change_template">更换模板</string>
+    <string name="back_door_update">开始更新</string>
+    <string name="back_door_update_tip">开始更新版本</string>
+    <string name="back_door_open_sound">打开声音</string>
+    <string name="back_door_close_sound">关闭声音</string>
+    <string name="back_door_open_circulation">打开循环</string>
+    <string name="back_door_close_circulation">关闭循环</string>
+    <string name="back_door_open_shake">打开抖动</string>
+    <string name="back_door_close_shake">关闭抖动</string>
+    <string name="back_door_open_debug">打开debug</string>
+    <string name="back_door_close_debug">关闭debug</string>
+    <string name="back_door_open_update_tip">打开更新提示</string>
+    <string name="back_door_close_update_tip">关闭更新提示</string>
+    <string name="template_not_found">未找到对应模板</string>
+    <string name="template_is_the_same">选择的模板跟当前相同,不进行模板切换</string>
+    <string name="template_is_null">模板数据为空</string>
+    <string name="back_door_alpha">请调整非聚焦状态下alpha值(%3.2f)</string>
+    <string name="check_version">查看应用版本</string>
+
+    <string name="tip_switch_ui">切换模板中</string>
+    <string name="tip_switch_wall_paper">切换壁纸中,请稍后...</string>
+    <string name="tip_child_ui_is_same">选择界面与当前一致,不进行切换</string>
+    <string name="tip_show_status_set">连续按两次上键进入状态栏页面</string>
+
+    <string name="stuta_my">我  的</string>
+    <string name="stuta_search">搜  索</string>
+    <string name="stuta_setting">设  置</string>
+    <string name="stuta_network">网  络</string>
+    <string name="status_info">消  息</string>
+    <string name="status_usb">USB</string>
+    <string name="marquee_default_text">Android Studio 是一个Android开发环境，基于IntelliJ IDEA. 类似 Eclipse ADT，Android Studio 提供了集成的 Android 开发工具用于开发和调试</string>
+
+
+    <string name="live_no_signal">无信号</string>
+    <string name="live_no_card">未插卡</string>
+    <string name="live_play_fail">播放失败</string>
+    <string name="live_no_auth">未授权</string>
+    <string name="live_no_program">本地无节目请搜索</string>
+    <string name="live_no_assign_program">无指定节目</string>
+
+    <string name="default_area_name">深圳</string>
+    <string name="ui_version_child">儿童版</string>
+    <string name="ui_version_public">大众版</string>
+
+    <string name="my_user_id">用户ID:%s</string>
+    <string name="my_smart_card_id">智能卡:%s</string>
+    <string name="my_watch_history">观看历史</string>
+    <string name="my_pay_history">消费历史</string>
+    <string name="my_time_theme">时段主题</string>
+    <string name="my_app">我的应用</string>
+    <string name="my_download">下载</string>
+    <string name="my_download_tip">温馨提示：请扫描二维码下载聚视界应用</string>
+    <string name="hour">小时</string>
+    <string name="one_template">只有一个模板,不必切换</string>
+
+    <string name="data_err_0_24">数字不合法,请输入数字0-24</string>
+    <string name="time_theme_describle">您可以根据喜好在不同时段切换盒子主题,默认主题为大众版</string>
+    <string name="time_theme_cur_theme_describle">当前已设定时段主题:</string>
+    <string name="time_theme_continue_time">持续时间:</string>
+    <string name="time_theme_start_time">开始时间:</string>
+    <string name="time_theme_time">始终时间:%1$s%2$s-%3$s%4$s</string>
+    <string name="cur_day">当天</string>
+    <string name="next_day">隔天</string>
+
+    <string name="no_recent_app">最近还没有使用过噢</string>
+    <string name="data_loading">正在加载...</string>
+    <string name="cell_page_no">%1$d/%2$d</string>
+    <string name="backdoor_setting">原生设置</string>
+    <string name="proper_url">环境设置</string>
+    <string name="blur_setting">关闭高斯模糊</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ppfuns.ppfunstv.view.TvView.CellView.SubScriptView
+        android:id="@+id/tv_iv_cell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/tv_cell_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+
+        android:background="@drawable/tv_title_bg_shape"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:id="@+id/tv_tv_cell"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="@dimen/tv_force_text_linespacingextra"
+            android:paddingBottom="@dimen/tv_force_text_padding_bottom"
+            android:paddingLeft="@dimen/tv_force_text_padding_left"
+            android:paddingRight="@dimen/tv_force_text_padding_right"
+            android:paddingTop="@dimen/tv_force_text_padding_top"
+            android:text="直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播直播"
+            android:textColor="#FFF"
+            android:textSize="20px" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+    <!--<item android:top="4px" android:left="6px" android:right="6px" android:bottom="5px">-->
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <corners android:radius="12px"/>
+            <stroke android:width="4px" android:color="#FF0000"/>
+        </shape>
+    <!--</item>-->
+
+    <!--<item>-->
+        <!--<shape>-->
+            <!--<corners android:radius="16px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#14ffffff"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:top="1px" android:left="1px" android:right="1px" android:bottom="1px">-->
+        <!--<shape>-->
+            <!--<corners android:radius="15px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#35ffffff"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:top="2px" android:left="2px" android:right="2px" android:bottom="2px">-->
+        <!--<shape>-->
+            <!--<corners android:radius="14px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#50ffffff"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:top="3px" android:left="3px" android:right="3px" android:bottom="3px">-->
+        <!--<shape>-->
+            <!--<corners android:radius="13px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#59ffffff"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:top="4px" android:left="4px" android:right="4px" android:bottom="4px">-->
+        <!--<shape>-->
+            <!--<corners android:radius="12px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#86ffffff"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:top="5px" android:left="5px" android:right="5px" android:bottom="5px">-->
+        <!--<shape>-->
+            <!--<corners android:radius="11px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#b7ffffff"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+    <!--<item android:top="6px" android:left="6px" android:right="6px" android:bottom="6px">-->
+        <!--<shape>-->
+            <!--<corners android:radius="10px"></corners>-->
+            <!--<stroke-->
+                <!--android:width="1px"-->
+                <!--android:color="#fffFFF"></stroke>-->
+        <!--</shape>-->
+    <!--</item>-->
+
+<!--</layer-list>-->

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NaviForViewPager">
+        <attr name="CircelWidth" format="dimension" />
+        <attr name="CircelColor1" format="color" />
+        <attr name="CircelColor2" format="color" />
+    </declare-styleable>
+	
+    <declare-styleable name="TextViewWithTTF">
+        <attr name="ttf_name" format="string" />
+    </declare-styleable>
+    
+    <!-- 倒影控件属性 -->
+    <declare-styleable name="reflectItemView">
+        <attr name="isReflect"  format="boolean" />
+        <attr name="isShape"  format="boolean" />
+        <attr name="reflect_height"  format="dimension" />
+        <attr name="radius"  format="dimension" />
+        <attr name="refle_spacing"  format="dimension" />
+    </declare-styleable>
+    
+    <!-- 顶层控件属性 -->
+    <declare-styleable name="MainUpView">
+        <attr name="upImageRes"  format="reference" />
+        <attr name="shadowImageRes"  format="reference" />
+    </declare-styleable>
+    
+    <!-- 标签控件 -->
+     <declare-styleable name="LabelView">
+        <!-- 设置文字内容 -->
+        <attr name="lv_text" format="string"/>
+        <!-- 设置文字颜色,默认#ffffff -->
+        <attr name="lv_text_color" format="color"/>
+        <!-- 设置文字大小,默认11sp -->
+        <attr name="lv_text_size" format="dimension"/>
+        <!-- 设置文字是否支持加粗,默认true -->
+        <attr name="lv_text_bold" format="boolean"/>
+        <!-- 设置文字是否支持全部大写,默认true-->
+        <attr name="lv_text_all_caps" format="boolean"/>
+        <!-- 设置背景颜色,默认"#FF4081"-->
+        <attr name="lv_background_color" format="color"/>
+        <!-- 设置LabelView所在矩形最小宽高,默认mFillTriangle?35dp:50dp-->
+        <attr name="lv_min_size" format="dimension"/>
+        <!-- 设置文字上下padding,默认3.5dp,mFillTriangle为true时无效-->
+        <attr name="lv_padding" format="dimension"/>
+        <!-- 设置LabelView方向 -->
+        <attr name="lv_gravity" format="enum">
+            <enum name="TOP_LEFT" value="51"/>
+            <enum name="TOP_RIGHT" value="53"/>
+            <enum name="BOTTOM_LEFT" value="83"/>
+            <enum name="BOTTOM_RIGHT" value="85"/>
+        </attr>
+        <!-- 设置是否填充三角区域,默认false -->
+        <attr name="lv_fill_triangle" format="boolean"/>
+    </declare-styleable>
+    
+    <declare-styleable name="TvTabHost">
+        <attr name="cursorRes" format="reference" />
+        <attr name="textColorDefault" format="color" />
+        <attr name="textColorSelected" format="color" />
+        <attr name="titleWidth" format="dimension"/>
+        <attr name="titleHeight" format="dimension"/>
+        <attr name="titleSpace" format="dimension"/>
+        <attr name="textSize" format="dimension" />
+        <attr name="dividerHeight" format="dimension"/>
+        <attr name="durationScroll" format="integer"/>
+        <attr name="scalable" format="boolean"/>
+        <attr name="scale" format="float"/>
+        <attr name="animationType">
+            <enum name="DEFAULT" value="0"/>
+            <enum name="TRANSLATE" value="1"/>
+        </attr>
+        <attr name="durationLarge" format="integer"/>
+        <attr name="durationSmall" format="integer"/>
+        <attr name="delay" format="integer" />
+        <attr name="cursorWidth" format="dimension"/>
+        <attr name="cursorHeight" format="dimension"/>
+        <attr name="cursorMarginLeft" format="dimension"/>
+        <attr name="cursorMarginTop" format="dimension"/>
+        <attr name="cursorMarginRight" format="dimension"/>
+        <attr name="cursorMarginBottom" format="dimension"/>
+    </declare-styleable>
+
+    <!-- 跑马灯 -->
+    <declare-styleable name="MarqueeView">
+        <attr name="marqueebackground" format="color"/>
+        <attr name="textcolor" format="color" />
+        <attr name="textsize" format="dimension" />
+        <attr name="isRepeat" format="boolean" />
+        <attr name="speed" format="integer"/>
+        <attr name="startPoint" format="integer">
+            <enum name="start" value="0"/>
+            <enum name="end" value="1"/>
+        </attr>
+        <attr name="direction" format="integer">
+            <enum name="right" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="up" value="2"/>
+            <enum name="down" value="3"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

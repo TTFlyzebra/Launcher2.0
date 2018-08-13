@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rl_blur"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="@dimen/DIMEN_1351PX"
+        android:layout_height="@dimen/DIMEN_315PX"
+        android:layout_centerInParent="true"
+        android:background="@mipmap/tip_box_rl">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/DIMEN_45PX"
+            android:layout_marginTop="@dimen/DIMEN_40PX"
+            android:gravity="left"
+            android:text="@string/back_door_template"
+            android:textSize="@dimen/DIMEN_40PX"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/DIMEN_15PX"
+            android:layout_marginRight="@dimen/DIMEN_15PX"
+            android:layout_marginTop="@dimen/DIMEN_85PX">
+
+            <LinearLayout
+                android:id="@+id/ll_template_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_message"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

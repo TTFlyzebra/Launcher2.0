@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ppfuns.ppfunstv.view.TvView.CellView.SubScriptView
+        android:id="@+id/live_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY" />
+
+    <VideoView
+        android:id="@+id/iv_cell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/live_cover_rl"
+        android:layout_width="200px"
+        android:layout_height="150px"
+        android:layout_centerInParent="true"
+        android:background="@null"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/live_cover_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+</merge>

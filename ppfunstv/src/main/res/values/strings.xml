@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">ppfunstv</string>
+    <string name="tv_up_version_nav_msg">正在更新导航菜单......</string>
+    <string name="tv_up_version_cell_msg">正在更新动态页面......</string>
+    <string name="tv_up_version_image_start">开始更新图片......</string>
+    <string name="tv_up_version_ok">更新完成.</string>
+    <string name="tv_up_version_image_ok">更新成功.</string>
+    <string name="tv_up_version_image_faile">更新失败.</string>
+    <string name="tv_up_version_image_noimg">错误的图片地址.</string>
+    <string name="tv_up_version_image_finish">图片更新完成.</string>
+    <string name="tv_str_sunday">星期日</string>
+    <string name="tv_str_monday">星期一</string>
+    <string name="tv_str_tuesday">星期二</string>
+    <string name="tv_str_wednesday">星期三</string>
+    <string name="tv_str_thursday">星期四</string>
+    <string name="tv_str_friday">星期五</string>
+    <string name="tv_str_saturday">星期六</string>
+
+    <string name="tv_tip_show_status_set">连续按两次上键进入状态栏页面</string>
+
+    <string name="tv_aaa_not_auth">未授权</string>
+    <string name="tv_confirm">确定</string>
+    <string name="tv_tvpage_no_data">本页面没有数据</string>
+
+    <string name="tv_data_err">前端未配置数据</string>
+    <string name="tv_data_is_null">前端配置交互数据为空</string>
+    <string name="tv_live_start_err">进入直播失败</string>
+    <string name="tv_cell_page_no">%1$d/%2$d</string>
+    <string name="tv_app_not_install">未安装对应的应用</string>
+
+    <string name="tv_live_no_signal">无信号</string>
+    <string name="tv_live_no_card">未插卡</string>
+    <string name="tv_live_play_fail">播放失败</string>
+    <string name="tv_live_no_auth">未授权</string>
+    <string name="tv_live_no_program">本地无节目请搜索</string>
+    <string name="tv_live_no_assign_program">无指定节目</string>
+    <string name="actionSetinngNetwork">activity|com.guoantvbox.cs.systemsetting|com.yinhe.csga_net_setting.MainActivity_Net</string>
+    <string name="actionSettings">package|com.guoantvbox.cs.systemsetting</string>
+</resources>

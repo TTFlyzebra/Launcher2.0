@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'android-apt'
+//apply plugin: 'com.ppfuns.toolkit'
+
+//toolkit{
+//    projectName 'launcher'
+//}
+
+//获取当前编译时间
+def releaseTime() {
+    def time = new Date().format("yyyyMMdd", TimeZone.getTimeZone("GMT+08:00"))
+    println time
+    return time
+}
+
+//获取svn版本号
+def getSvnVersion(){
+    def int verCode = 0
+    def versionPropsFile = file("src/main/assets/user_config.properties")
+    if (versionPropsFile.canRead()) {
+
+        Properties versionProps = new Properties()
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        verCode = versionProps['svn_version'].toInteger()
+    }
+
+    return verCode
+}
+
+def getVerName() {
+    def int svnVersion = getSvnVersion()
+    if (svnVersion == 0){
+        return "内部开发版本"
+    } else {
+        return svnVersion
+    }
+}
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '26.0.3'
+    useLibrary 'org.apache.http.legacy'
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        releaseConfig {
+            keyAlias 'android.keystore'
+            keyPassword 'ppfuns123'
+            storeFile file('./sign/android.keystore')
+            storePassword 'ppfuns123'
+        }
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('./sign/platform.keystore')
+            storePassword 'android'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            zipAlignEnabled true
+            shrinkResources true //无效资源不要打包进release版本
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releaseConfig
+        }
+    }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            if (variant.buildType.name.equals('release')) {
+                def releaseApkName = applicationId + '_release_' + getVerName()+"_"+versionName+"_"+releaseTime() + '.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+        }
+    }
+
+    sourceSets {
+        productFlavors {//分支信息，程序里添加分支项时名称及包名必须于该处定义一致
+            hengyang {
+                applicationId "com.ppfuns.launcher"
+                minSdkVersion 17
+                targetSdkVersion 25
+                versionCode getSvnVersion()
+                versionName "v1.0.0"
+            }
+            alliance{
+                //com.alliance.homeshell
+                applicationId "com.alliance.homeshell"
+                minSdkVersion 17
+                targetSdkVersion 25
+                versionCode getSvnVersion()
+                versionName "v1.0.0"
+            }
+        }
+
+        hengyang {
+            res.srcDirs =['src/hengyang/res']
+            java.srcDirs = ['src/hengyang/java']
+        }
+
+        alliance{
+            res.srcDirs =['src/alliance/res']
+            java.srcDirs = ['src/alliance/java']
+        }
+    }
+
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    compile 'com.google.code.gson:gson:2.8.1'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.support:palette-v7:25.3.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.umeng.analytics:analytics:5.6.7'
+    compile project(path: ':ppfunstv')
+}

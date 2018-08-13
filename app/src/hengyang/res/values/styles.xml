@@ -1,0 +1,54 @@
+<resources>
+
+    <style name="HeaderLayoutLogo">
+        <item name="android:layout_width">@dimen/DIMEN_218PX</item>
+        <item name="android:layout_height">@dimen/DIMEN_55PX</item>
+        <item name="android:layout_marginLeft">@dimen/DIMEN_125PX</item>
+        <item name="android:layout_marginTop">@dimen/DIMEN_62PX</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+
+    <style name="HeaderLayoutIconLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/DIMEN_75PX</item>
+        <item name="android:layout_marginRight">@dimen/DIMEN_100PX</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="HeaderLayoutIcon">
+        <item name="android:layout_width">@dimen/DIMEN_124PX</item>
+        <item name="android:layout_height">@dimen/DIMEN_55PX</item>
+        <item name="android:layout_marginRight">@dimen/DIMEN_10PX</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="HeaderLayoutTextAlpha">
+        <item name="android:alpha">0.5</item>
+    </style>
+    <style name="HeaderLayoutTimeText" parent="HeaderLayoutTextAlpha">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="HeaderLayoutTextView" parent="HeaderLayoutTextAlpha">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="HeaderLayoutLine">
+        <item name="android:layout_width">@dimen/DIMEN_2PX</item>
+        <item name="android:layout_height">@dimen/DIMEN_47PX</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:src">@drawable/tv_header_diving</item>
+        <item name="android:layout_marginLeft">@dimen/DIMEN_10PX</item>
+        <item name="android:layout_marginRight">@dimen/DIMEN_10PX</item>
+    </style>
+
+</resources>

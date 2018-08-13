@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/tip_box_bg"
+    >
+
+    <LinearLayout
+        android:layout_width="@dimen/DIMEN_876PX"
+        android:layout_height="@dimen/DIMEN_613PX"
+        android:orientation="horizontal"
+        android:background="@mipmap/child_ui_box"
+        android:layout_centerInParent="true"
+        >
+
+        <LinearLayout
+            android:layout_width="@dimen/DIMEN_280PX"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/DIMEN_140PX"
+            android:layout_marginLeft="@dimen/DIMEN_80PX"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/DIMEN_208PX"
+                android:orientation="horizontal"
+                >
+                
+                <ImageView
+                    android:id="@+id/iv_radio_boy"
+                    android:layout_width="@dimen/DIMEN_58PX"
+                    android:layout_height="@dimen/DIMEN_58PX"
+                    android:src="@mipmap/child_raido_out"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/ll_boy"
+                    android:layout_width="@dimen/DIMEN_228PX"
+                    android:layout_height="@dimen/DIMEN_208PX"
+                    android:background="@drawable/selector_set_child_sex"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_boy"
+                        android:layout_width="@dimen/DIMEN_172PX"
+                        android:layout_height="@dimen/DIMEN_152PX"
+                        android:src="@mipmap/child_boy"
+                        android:layout_centerInParent="true"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/DIMEN_208PX"
+                android:layout_marginTop="-10dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_radio_girl"
+                    android:layout_width="@dimen/DIMEN_58PX"
+                    android:layout_height="@dimen/DIMEN_58PX"
+                    android:src="@mipmap/child_raido_on"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/ll_girl"
+                    android:layout_width="@dimen/DIMEN_228PX"
+                    android:layout_height="@dimen/DIMEN_208PX"
+                    android:background="@drawable/selector_set_child_sex"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    >
+                    <ImageView
+                        android:id="@+id/iv_girl"
+                        android:layout_width="@dimen/DIMEN_172PX"
+                        android:layout_height="@dimen/DIMEN_152PX"
+                        android:src="@mipmap/child_girl"
+                        android:layout_centerInParent="true"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/DIMEN_438PX"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/child_0"
+                android:layout_width="@dimen/DIMEN_438PX"
+                android:layout_height="@dimen/DIMEN_148PX"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_marginTop="@dimen/DIMEN_150PX"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/selector_set_child_ui"
+                >
+                <ImageView
+                    android:id="@+id/iv_child0"
+                    android:layout_width="@dimen/DIMEN_365PX"
+                    android:layout_height="@dimen/DIMEN_78PX"
+                    android:src="@mipmap/child_ui0"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/child_1"
+                android:layout_width="@dimen/DIMEN_438PX"
+                android:layout_height="@dimen/DIMEN_148PX"
+                android:layout_marginTop="-20dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/selector_set_child_ui"
+                >
+                <ImageView
+                    android:id="@+id/iv_child1"
+                    android:layout_width="@dimen/DIMEN_365PX"
+                    android:layout_height="@dimen/DIMEN_78PX"
+                    android:src="@mipmap/child_ui1"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/child_2"
+                android:layout_width="@dimen/DIMEN_438PX"
+                android:layout_height="@dimen/DIMEN_148PX"
+                android:layout_marginTop="-20dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/selector_set_child_ui"
+                >
+                <ImageView
+                    android:id="@+id/iv_child2"
+                    android:layout_width="@dimen/DIMEN_365PX"
+                    android:layout_height="@dimen/DIMEN_78PX"
+                    android:src="@mipmap/child_ui2"
+                    android:layout_centerInParent="true"
+                    android:scaleType="fitXY"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+        </LinearLayout>
+</RelativeLayout>

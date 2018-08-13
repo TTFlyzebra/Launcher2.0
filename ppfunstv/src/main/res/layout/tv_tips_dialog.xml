@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tv_blur_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+    <RelativeLayout
+        android:layout_width="950px"
+        android:layout_height="318px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/tv_tip_box_rl">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40px"
+            android:textSize="40px"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/tv_btn_confirm"
+                android:layout_width="258px"
+                android:layout_height="152px"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/tv_album_btn_bg"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="#FFF"
+                android:textSize="40px"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/tv_btn_retry"
+                android:layout_width="258px"
+                android:layout_height="152px"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/tv_album_btn_bg"
+                android:gravity="center"
+                android:text="重试"
+                android:textColor="#FFF"
+                android:textSize="40px"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/tv_btn_cancel"
+                android:layout_width="258px"
+                android:layout_height="152px"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@id/tv_btn_retry"
+                android:background="@drawable/tv_album_btn_bg"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="#FFF"
+                android:textSize="40px"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

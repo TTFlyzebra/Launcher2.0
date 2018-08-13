@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ppfuns.ppfunstv.view.TvView.CellView.SubScriptView
+        android:id="@+id/tv_iv_cell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/tv_cell_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_iv_cell"
+        android:layout_marginTop="6px"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_tv_cell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="#7DFFFFFF"
+            android:textSize="20px" />
+
+
+        <TextView
+            android:id="@+id/tv_tv_cell2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="center"
+            android:maxLines="2"
+            android:textColor="#7DFFFFFF"
+            android:textSize="16.6px" />
+    </LinearLayout>
+
+</merge>

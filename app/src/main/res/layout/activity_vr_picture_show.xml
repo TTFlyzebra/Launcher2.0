@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ppfuns.launcher.ui.VrPictureShowActivity">
+
+  <!--  <ImageView
+        android:layout_width="@dimen/DIMEN_1000PX"
+        android:layout_height="@dimen/DIMEN_800PX"
+        android:id="@+id/image_show"
+        android:layout_marginTop="@dimen/DIMEN_50PX"
+        android:layout_marginLeft="@dimen/DIMEN_50PX"
+        android:layout_marginBottom="@dimen/DIMEN_50PX"
+        android:layout_marginRight="@dimen/DIMEN_50PX"
+        />
+    <TextView
+        android:layout_width="@dimen/DIMEN_1000PX"
+        android:layout_height="@dimen/DIMEN_200PX"
+        android:id="@+id/text_show"
+        android:layout_below="@+id/image_show"
+        android:layout_marginTop="@dimen/DIMEN_50PX"
+        android:layout_marginLeft="@dimen/DIMEN_50PX"
+        android:layout_marginBottom="@dimen/DIMEN_50PX"
+        android:layout_marginRight="@dimen/DIMEN_50PX"/>-->
+
+    <ImageView
+        android:layout_width="1280dp"
+        android:layout_height="720dp"
+        android:scaleType="fitXY"
+        android:id="@+id/image_show"
+        />
+
+
+</RelativeLayout>

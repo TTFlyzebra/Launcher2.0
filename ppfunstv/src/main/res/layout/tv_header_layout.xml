@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentTop="true">
+
+    <ImageView
+        android:id="@+id/tv_header_logo"
+        android:layout_width="145px"
+        android:layout_height="66px"
+        android:layout_marginLeft="78px"
+        android:layout_marginTop="58px"
+        android:scaleType="fitXY"
+        android:src="@drawable/tv_header_logo" />
+
+    <ImageView
+        android:id="@+id/tv_head_serarch"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_marginLeft="78px"
+        android:layout_marginTop="58px"
+        android:src="@drawable/tv_ic_search" />
+
+    <ImageView
+        android:id="@+id/tv_head_filter"
+        android:layout_width="50px"
+        android:layout_height="50px"
+
+        android:layout_marginLeft="20px"
+        android:layout_marginTop="58px"
+        android:layout_toRightOf="@+id/tv_head_serarch"
+        android:src="@drawable/tv_ic_filter" />
+
+    <TextView
+        android:id="@+id/tv_head_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58px"
+        android:textColor="#FFF"
+        android:textSize="30px"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ac_main_statebar_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="50px"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_header_logo"
+        android:layout_marginEnd="65px"
+        android:layout_marginRight="100px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <!--<com.ppfuns.ppfunstv.view.MessageView-->
+        <!--android:id="@+id/tv_header_message"-->
+        <!--android:layout_width="83px"-->
+        <!--android:layout_height="36px"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginBottom="2px"-->
+        <!--android:layout_marginRight="10px"-->
+        <!--android:layout_marginTop="2px"-->
+        <!--android:layout_toRightOf="@+id/tv_header_usb"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/tv_header_message" />-->
+        <!--<com.ppfuns.ppfunstv.view.TvView.WeatherView-->
+        <!--android:paddingTop="5px"-->
+        <!--android:id="@+id/set_status_top_weather_icon"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scaleType="fitXY"-->
+        <!--android:src="@drawable/weather3" />-->
+
+        <!--<com.ppfuns.ppfunstv.view.TemperatureTextView-->
+        <!--android:id="@+id/set_status_top_weather_temperature"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="48px"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginLeft="10px"-->
+        <!--android:layout_toRightOf="@id/set_status_top_weather_icon"-->
+        <!--android:text="20~25℃"-->
+        <!--android:layout_marginTop="5px"-->
+        <!--android:textColor="#99ffffff"-->
+        <!--android:textSize="30px" />-->
+        <com.ppfuns.ppfunstv.view.WeatherTemView
+            android:id="@+id/weather_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="45px" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px">
+
+            <!--<com.ppfuns.ppfunstv.view.TvView.HeaderView.HeaderSearchView-->
+            <!--android:id="@+id/tv_header_search"-->
+            <!--android:layout_width="83px"-->
+            <!--android:layout_height="36px"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginBottom="2px"-->
+            <!--android:layout_marginRight="10px"-->
+            <!--android:layout_marginTop="2px"-->
+            <!--android:layout_toRightOf="@+id/tv_header_user"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/tv_header_search_unfocus" />-->
+            <!--<com.ppfuns.ppfunstv.view.TvView.HeaderView.HeaderSetView-->
+            <!--android:id="@+id/tv_header_setting"-->
+            <!--android:layout_width="83px"-->
+            <!--android:layout_height="36px"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginBottom="2px"-->
+            <!--android:layout_marginRight="10px"-->
+            <!--android:layout_marginTop="2px"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/tv_header_setting_unfocus" />-->
+            <com.ppfuns.ppfunstv.view.TvView.HeaderView.HeaderNetView
+                android:id="@+id/tv_header_wifi"
+                android:layout_width="27px"
+                android:layout_height="23px"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="2px"
+                android:layout_marginRight="15px"
+                android:layout_marginTop="2px"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+        <com.ppfuns.ppfunstv.view.DateView
+            android:layout_width="wrap_content"
+            android:layout_height="40px"
+            android:alpha="0.5" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TV_NaviForViewPager">
+        <attr name="TvCircelWidth" format="dimension" />
+        <attr name="TvCircelColor1" format="color" />
+        <attr name="TvCircelColor2" format="color" />
+    </declare-styleable>
+</resources>

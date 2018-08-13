@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_title_bg_shape_bottom_left_radius">16px</dimen>
+    <dimen name="tv_title_bg_shape_bottom_right_radius">16px</dimen>
+    <dimen name="tv_force_text_linespacingextra">2px</dimen>
+    <dimen name="tv_force_text_padding_left">16px</dimen>
+    <dimen name="tv_force_text_padding_right">16px</dimen>
+    <dimen name="tv_force_text_padding_top" >12.3px</dimen>
+    <dimen name="tv_force_text_padding_bottom" >12.3px</dimen>
+</resources>

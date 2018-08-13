@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/tv_cell_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/tv_mask"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_cell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10px"
+                android:layout_marginLeft="13px"
+                android:layout_marginRight="13px"
+                android:layout_marginTop="10px"
+                android:background="@null"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:paddingRight="50dp"
+                android:singleLine="true"
+                android:text="直"
+                android:textColor="#FFF"
+                android:textSize="24px" />
+
+            <TextView
+                android:id="@+id/tv_cell_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/tv_tv_cell"
+                android:layout_marginBottom="10px"
+                android:layout_marginTop="10px"
+                android:background="@null"
+                android:ellipsize="marquee"
+                android:gravity="right"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="1/4"
+                android:textColor="#FFF"
+                android:textSize="24px" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <com.ppfuns.ppfunstv.view.TvView.CellView.SubScriptView
+        android:id="@+id/tv_iv_cell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/tv_live_video_cover" />
+
+</merge>

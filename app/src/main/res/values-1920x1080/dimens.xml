@@ -1,0 +1,50 @@
+<resources>
+    <!--弹出菜单宽度-->
+    <dimen name="drawerlayout_width">400px</dimen>
+    <!--状态栏时间的字体大小-->
+    <dimen name="main_header_state_bar_time_fontsize">36px</dimen>
+    <!--状态栏图标宽高-->
+
+    <!--状态栏图标定位-->
+    <dimen name="main_header_state_bar_height">48px</dimen>
+    <dimen name="main_header_state_bar_margin_top">79px</dimen>
+    <dimen name="main_header_state_bar_margin_left">1280px</dimen>
+    <dimen name="main_header_state_bar_margin_right">100px</dimen>
+    <dimen name="main_header_state_bar_icon_width">39px</dimen>
+    <dimen name="main_header_state_bar_icon_height">36px</dimen>
+
+    <!--状态栏分割线宽高-->
+    <dimen name="main_header_state_bar_divider_width">2px</dimen>
+    <dimen name="main_header_state_bar_divider_height">16px</dimen>
+    <dimen name="main_header_state_bar_divider_margin_right">12px</dimen>
+    <dimen name="main_header_state_bar_divider_margin_left">12px</dimen>
+
+    <!--一级导航栏包裹控件布局-->
+    <dimen name="navlayout_container_margin_right">100px</dimen>//100px
+    <dimen name="navlayout_container_margin_left">100px</dimen>//100px
+    <dimen name="navlayout_container_margin_top">185px</dimen>//185px
+
+    <!--一级导航栏高度-->
+    <dimen name="navlayout_height">68px</dimen>//68px
+
+    <dimen name="cell_item_textview_height">80px</dimen>//80px
+    <dimen name="cell_item_textview_font_size">36px</dimen>//36px
+    <dimen name="cell_item_textview_margin_left">20px</dimen>//20px
+    <dimen name="cell_item_textview_bg_height">80px</dimen>//80px
+
+    <dimen name="headerlayout_logo_height">35px</dimen>//35px
+    <dimen name="headerlayout_logo_width">333px</dimen>//333px
+    <dimen name="headerlayout_logo_margin_left">110px</dimen>//110px
+    <dimen name="headerlayout_logo_margin_top">83px</dimen>//83px
+
+    <dimen name="livecell_tipinfo_container_width">300px</dimen>//300px
+    <dimen name="livecell_tipinfo_container_height">300px</dimen>//300px
+
+    <dimen name="livecell_videoview_margin">0px</dimen>//16px
+
+    <dimen name="tab_item_focus_image_width">216px</dimen>//216px
+    <dimen name="tab_item_focus_image_height">33px</dimen>//33px
+
+    <dimen name="tab_item_bg_width">130px</dimen>//130px
+    <dimen name="tab_item_bg_height">55px</dimen>//55px
+</resources>

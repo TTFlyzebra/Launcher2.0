@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_back"
+    >
+
+    <TextView
+        android:id="@+id/tv_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/DIMEN_69PX"
+        android:layout_marginLeft="@dimen/DIMEN_96PX"
+        android:text="@string/my_download"
+        android:textSize="@dimen/DIMEN_60PX"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_download"
+        android:layout_width="@dimen/DIMEN_1514PX"
+        android:layout_height="@dimen/DIMEN_763PX"
+        android:layout_marginLeft="@dimen/DIMEN_202PX"
+        android:layout_marginTop="@dimen/DIMEN_187PX"
+        android:background="@drawable/download_backgroud">
+
+        <ImageView
+            android:id="@+id/iv_android"
+            android:layout_width="@dimen/DIMEN_418PX"
+            android:layout_height="@dimen/DIMEN_418PX"
+            android:layout_marginLeft="@dimen/DIMEN_239PX"
+            android:layout_marginTop="@dimen/DIMEN_110PX"
+            android:src="@drawable/download_android"
+            />
+
+        <TextView
+            android:id="@+id/tv_android"
+            android:layout_width="@dimen/DIMEN_418PX"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_android"
+            android:layout_marginLeft="@dimen/DIMEN_239PX"
+            android:layout_marginTop="@dimen/DIMEN_20PX"
+            android:text="android"
+            android:textSize="@dimen/DIMEN_36PX"
+            android:gravity="center_horizontal"
+            />
+
+        <ImageView
+            android:id="@+id/iv_ios"
+            android:layout_toRightOf="@+id/iv_android"
+            android:layout_width="@dimen/DIMEN_418PX"
+            android:layout_height="@dimen/DIMEN_418PX"
+            android:layout_marginLeft="@dimen/DIMEN_200PX"
+            android:layout_marginTop="@dimen/DIMEN_110PX"
+            android:src="@drawable/under_develop"
+            />
+
+        <TextView
+            android:layout_width="@dimen/DIMEN_418PX"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_android"
+            android:layout_toRightOf="@+id/tv_android"
+            android:layout_marginLeft="@dimen/DIMEN_200PX"
+            android:layout_marginTop="@dimen/DIMEN_20PX"
+            android:text="ios"
+            android:textSize="@dimen/DIMEN_36PX"
+            android:gravity="center_horizontal"
+            />
+        
+        <TextView
+            android:id="@+id/tv_download_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DIMEN_621PX"
+            android:layout_marginLeft="@dimen/DIMEN_241PX"
+            android:text="@string/my_download_tip"
+            android:textSize="@dimen/DIMEN_36PX"
+            android:alpha="0.5"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>
