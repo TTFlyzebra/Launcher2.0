@@ -11,45 +11,45 @@ import java.util.Queue;
  * Created by FlyZebra on 2016/6/13.
  */
 public class CellEntity implements Serializable, Cloneable {
-    private int tabId;
-    private int cellId;
-    private int type;
-    private int x;
-    private int y;
-    private int width;
-    private int height;
-    private String imgUrl;
-    private String action;
-    private boolean needAuth;
-    private ArrayList<StateStyleEntity> stateStyle;
-    private ArrayList<AnimationEntity> animation;
-    private String font;
-    private String text;
-    private int textx;
-    private int texty;
-    private int textw;
-    private int texth;
-    private int size;
-    private String color;
-    private String adsId;
-    private int sort;
-    private List<SubScript> subScripts;
-    private List<CellEntity> subCellList;
-    private boolean canFocus = true;
-    private int imageMarginTop;
+    public int tabId;
+    public int cellId;
+    public int type;
+    public int x;
+    public int y;
+    public int width;
+    public int height;
+    public String imgUrl;
+    public String action;
+    public boolean needAuth;
+    public ArrayList<StateStyleEntity> stateStyle;
+    public ArrayList<AnimationEntity> animation;
+    public String font;
+    public String text;
+    public int textx;
+    public int texty;
+    public int textw;
+    public int texth;
+    public int size;
+    public String color;
+    public String adsId;
+    public int sort;
+    public List<SubScript> subScripts;
+    public List<CellEntity> subCellList;
+    public boolean canFocus = true;
+    public int imageMarginTop;
 
 
-    private int carouselPosition;//位置
-    private int carouselTime;//轮播一次需要时间
-    private int carouselType;//轮播方向
-    private int focusType;//区别焦点框图片
-    private int focusZorder;//指定焦点框Z轴顺序 0为在最顶层
-    private int focusScale;//指定焦点框是否放大 0为放大 1为不放大
-    private String imgUrlBg;//背景图片
+    public int carouselPosition;//位置
+    public int carouselTime;//轮播一次需要时间
+    public int carouselType;//轮播方向
+    public int focusType;//区别焦点框图片
+    public int focusZorder;//指定焦点框Z轴顺序 0为在最顶层
+    public int focusScale;//指定焦点框是否放大 0为放大 1为不放大
+    public String imgUrlBg;//背景图片
 
-    private int maxTextLine;//台词鉴赏控件，文字全部最多显示多少行
-    private int minTextLine;//刚开始显示多少行
-    private String textMaskColor;//遮罩颜色
+    public int maxTextLine;//台词鉴赏控件，文字全部最多显示多少行
+    public int minTextLine;//刚开始显示多少行
+    public String textMaskColor;//遮罩颜色
 
     public String getTextMaskColor() {
         return textMaskColor;
@@ -75,20 +75,20 @@ public class CellEntity implements Serializable, Cloneable {
         this.minTextLine = minTextLine;
     }
 
-    private int left;
-    private int right;
-    private int up;
-    private int down;
+    public int left;
+    public int right;
+    public int up;
+    public int down;
 
-    private Queue<Integer> lefts;
-    private Queue<Integer> rights;
-    private Queue<Integer> ups;
-    private Queue<Integer> downs;
+    public Queue<Integer> lefts;
+    public Queue<Integer> rights;
+    public Queue<Integer> ups;
+    public Queue<Integer> downs;
 
-    private String extendData;
+    public String extendData;
 
-    private int showImageNum;
-    private int showRows;
+    public int showImageNum;
+    public int showRows;
 
     public Integer getTabId() {
         return tabId;
@@ -509,11 +509,11 @@ public class CellEntity implements Serializable, Cloneable {
      * Created by FlyZebra on 2016/8/10.
      */
     static class PopupBitmapData implements Cloneable {
-        private int x;
-        private int y;
-        private String imgUrl;
+        public int x;
+        public int y;
+        public String imgUrl;
         //动画插值器
-        private float animInsertor = 1.0f;
+        public float animInsertor = 1.0f;
 
         public PopupBitmapData(int x, int y, String imgUrl, float animInsertor) {
             this.x = x;

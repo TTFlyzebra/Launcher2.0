@@ -2,6 +2,7 @@ package com.ppfuns.ppfunstv.data;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by lenovo on 2016/6/13.
@@ -14,9 +15,9 @@ public class CellBean implements Serializable{
      * cellList : [{"tabId":10001,"cellId":10001,"type":1,"x":200,"y":200,"width":100,"height":100,"stateStly":[{"state":1,"size":30,"color":"#ffff0000","alpah":0.5},{"state":2,"size":30,"color":"#ffff00ff","alpah":0.5}],"imgUrl":"http://aaa.bbb.png","intent":"","animation":[{"state":0,"type":"moveBy","delay":0,"duration":100},{"state":1,"type":"moveBy","delay":0,"duration":100}]},{"tabId":10001,"cellId":10002,"type":3,"x":400,"y":200,"width":100,"height":100,"stateStly":[{"state":1,"size":30,"color":"#ffff0000","alpah":0.5},{"state":2,"size":30,"color":"#ffff00ff","alpah":0.5}],"imgUrl":"http://aaa.bbb.png","intent":"","animation":[{"state":0,"type":"moveBy","delay":0,"duration":100},{"state":1,"type":"moveBy","delay":0,"duration":100}]},{"tabId":10001,"cellId":10001,"type":1,"x":600,"y":200,"width":100,"height":100,"stateStly":[{"state":1,"size":30,"color":"#ffff0000","alpah":0.5},{"state":2,"size":30,"color":"#ffff00ff","alpah":0.5}],"imgUrl":"http://aaa.bbb.png","intent":"","animation":[{"state":0,"type":"moveBy","delay":0,"duration":100},{"state":1,"type":"moveBy","delay":0,"duration":100}]}]
      */
 
-    private String msg;
-    private int ret;
-    private ArrayList<CellEntity> cellList;
+    public String msg;
+    public int ret;
+    public List<CellEntity> cellList;
 
     public void setMsg(String msg) {
         this.msg = msg;
@@ -38,7 +39,7 @@ public class CellBean implements Serializable{
         return ret;
     }
 
-    public ArrayList<CellEntity> getCellList() {
+    public List<CellEntity> getCellList() {
         return cellList;
     }
 

@@ -14,7 +14,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -29,22 +28,23 @@ import com.ppfuns.launcher.service.AAAServiceConnect;
 import com.ppfuns.launcher.utils.AppUtil;
 import com.ppfuns.launcher.utils.BackdoorUtil;
 import com.ppfuns.launcher.utils.FlyLog;
-import com.ppfuns.launcher.utils.GsonUtils;
 import com.ppfuns.launcher.utils.MemoryManager;
 import com.ppfuns.launcher.utils.SPUtil;
-import com.ppfuns.launcher.utils.TemplateUtil;
 import com.ppfuns.launcher.utils.WallPaperUtils;
 import com.ppfuns.launcher.view.ChangeTemplateDialog;
 import com.ppfuns.marqueeservice.IMarqueeService;
+import com.ppfuns.ppfunstv.bean.PageBean;
+import com.ppfuns.ppfunstv.bean.ThemeBean;
+import com.ppfuns.ppfunstv.chache.IUpdataVersion2;
+import com.ppfuns.ppfunstv.chache.UpdataVersion2;
 import com.ppfuns.ppfunstv.data.CellBean;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.data.ControlBean;
-import com.ppfuns.ppfunstv.data.TemplateBean;
+import com.ppfuns.ppfunstv.data.TabEntity;
 import com.ppfuns.ppfunstv.data.TemplateEntity;
 import com.ppfuns.ppfunstv.module.EventMessage;
 import com.ppfuns.ppfunstv.module.UpdataVersion.DiskCache;
 import com.ppfuns.ppfunstv.module.UpdataVersion.IDiskCache;
-import com.ppfuns.ppfunstv.module.UpdataVersion.IUpdataVersion;
 import com.ppfuns.ppfunstv.module.UpdataVersion.UpdataVersion;
 import com.ppfuns.ppfunstv.service.MarqueeService;
 import com.ppfuns.ppfunstv.utils.BehavioralUtil;
@@ -77,10 +77,9 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-public class LauncherActivity extends BaseActivity implements IUpdataVersion.CheckCacheResult, IUpdataVersion.UpResult, IOnKeyDownOutEnvent {
+public class LauncherActivity extends BaseActivity implements IUpdataVersion2.CheckCacheResult, IUpdataVersion2.UpResult, IOnKeyDownOutEnvent {
 
     private static final int MSG_UPDATE = 0x1;//更新消息
     private static final int MSG_UPDATE_TIME_THEME = 5000;//根据配置(状态栏-我的-UI定制)更换界面
@@ -91,7 +90,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
     private static String TAG = "LauncherActivity";
     public FrameLayout mActivityRoot;
     public BaseTvView mTvView;
-    public IUpdataVersion iUpDataVersion;
+    public IUpdataVersion2 iUpDataVersion;
     public IDiskCache iDiskCache;
     //鉴权服务
     public AAAServiceConnect aaaServiceConnect;
@@ -131,12 +130,12 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
                 case MSG_UPDATE_TIME_THEME:
                     //TODO 判断为哪个分支
                     //如果为阿里分支,此片代码需要完善
-                    if ("".equals("ALI")) {
-                        String retInfo = TemplateUtil.updateTimeTheme(mContext, iUpDataVersion, mHandler, MSG_UPDATE_TIME_THEME);
-                        if (!TextUtils.isEmpty(retInfo)) {
-                            showChangelTemplateTipAndReport(retInfo);
-                        }
-                    }
+//                    if ("".equals("ALI")) {
+//                        String retInfo = TemplateUtil.updateTimeTheme(mContext, iUpDataVersion, mHandler, MSG_UPDATE_TIME_THEME);
+//                        if (!TextUtils.isEmpty(retInfo)) {
+//                            showChangelTemplateTipAndReport(retInfo);
+//                        }
+//                    }
                     break;
                 case MSG_DELAY_PLAY: {
                     if (mTvView != null) {
@@ -188,46 +187,35 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
         //NOTE:此类必须在Activity中实例化，TvPageLayout加载图片需调用其缓存
         //从磁盘读取已升级成功的数据，如磁盘没有升级数据，加载APK发布版本的数据
         iDiskCache = new DiskCache().init(this);
-
+        iUpDataVersion = new UpdataVersion2(getApplicationContext(), iDiskCache);
 
         /**
          * 播放开机动画，延时更新
          */
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                iUpDataVersion.getCacheData(LauncherActivity.this);
-            }
-        }, mAnimTime);
+//        mHandler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                iUpDataVersion.getCacheData(LauncherActivity.this);
+//            }
+//        }, mAnimTime);
 
         mHandler.sendEmptyMessageDelayed(MSG_DELAY_UPDATE_VERSION, Constants.DELAY_UPDATE_VERSION_TIME);
         FlyLog.d("onCreate end....");
 
         initAdsModule();
         init();
-        iUpDataVersion = new UpdataVersion(getApplicationContext(), iDiskCache) {
-            @Override
-            public void initApi() {
-                String url = SystemPropertiesProxy.get(mContext, SystemPropertiesProxy.Property.URL_BASE, "http://192.168.1.81:9020");
-                String areaCode = SystemPropertiesProxy.get(mContext, SystemPropertiesProxy.Property.AREA_CODE, "0");
-                String version = com.ppfuns.ppfunstv.utils.AppUtil.getVersionName(mContext);
-                String tokenJson = aaaServiceConnect.query(Constants.AAA_TOKEN_QUERY_KEY);
-                String token = "";
-                if (!TextUtils.isEmpty(tokenJson)) {
-                    AAAServiceConnect.TokenBean tokenBean = GsonUtils.json2Object(tokenJson, AAAServiceConnect.TokenBean.class);
-                    if (tokenBean != null)
-                        token = tokenBean.result;
-                }
-
-                this.token = token;
-                ApiUrl = TextUtils.isEmpty(url) ? "http://192.168.1.81:9020" : url;
-                ApiVersion = "/api/ui-operation/api/v/launcher_version.json?areaCode=" + areaCode + "&type=launcher&version=" + version;
-                ApiTemplate = "/api/ui-operation/api/v/launcher_tab.json?areaCode=" + areaCode + "&type=launcher&version=" + version;
-                ApiCellList = "/api/ui-operation/api/v/launcher_cell.json?" + "tabId=";
-                ApiResource = "/api/ui-operation/api/v/launcher_resource.json?" + "templateId=";
-            }
-        };
+        String themeName = (String) SPUtil.get(this, "themeName", "Launcher-AP1");
+        String url =  "http://192.168.1.119:801/uiweb";
+        String token = "1234567890";
+        String ApiTheme = "/api/app?type=%s&themeName=%s&version=%s";
+        String type = "launcher";
+        String version = AppUtil.getVersionName(this);
+        if (!TextUtils.isEmpty(themeName) && !themeName.equals(themeName)) {
+            iUpDataVersion.initApi(url, ApiTheme, type, themeName, version, token);
+        }
         binded = bindService(new Intent(mContext, MarqueeService.class), conn, mContext.BIND_AUTO_CREATE);
+
+        iUpDataVersion.forceUpVersion(this);
     }
 
     @Override
@@ -404,7 +392,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
                     String curId = mTemplateEntity.getTemplateId() + "";
                     BehavioralUtil.reportTemplateEvent(mContext, curName, curId);
                     FlyLog.d("updataView end....");
-                    TemplateUtil.setSimpleTemplateInfo(mContext, iUpDataVersion.getTemplateBean());
+//                    TemplateUtil.setSimpleTemplateInfo(mContext, iUpDataVersion.getTemplateBean());
                 }
                 hideLoadingDialogDelay(5000);
                 isUpdataViewRunning = false;
@@ -472,7 +460,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
                 FlyLog.d(TAG + " backdoor,show marquee...");
                 return false;
             } else if (event.getKeyCode() == KeyEvent.KEYCODE_MENU || event.getKeyCode() == KeyEvent.KEYCODE_M) {
-                showChangeTemplateDialog();
+//                showChangeTemplateDialog();
             }
         }
         //测试用代码，升级后门
@@ -555,7 +543,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
         EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_QRCODE));
         EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_RECENT_APP));
         BehavioralUtil.reportInEvent(mContext);
-        updataView(needUPtemplateEntity, needUPcellBeanList, needUPcontrolBean);
+//        updataView(needUPtemplateEntity, needUPcellBeanList, needUPcontrolBean);
         FlyLog.d("onResume end....");
     }
 
@@ -632,17 +620,20 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
     /**
      * 数据已在线程中进行正确性检测，无需再做判断，加载完缓存数据再执行版本更新
      *
-     * @param templateEntity
-     * @param cellBeanList
      */
+//    @Override
+//    public void getCacheDataOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+//        FlyLog.d();
+//        this.needUPtemplateEntity = templateEntity;
+//        this.needUPcellBeanList = cellBeanList;
+//        this.needUPcontrolBean = controlBean;
+//        isUpdata = true;
+//        updataView(templateEntity, cellBeanList, controlBean);
+//    }
+
     @Override
-    public void getCacheDataOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
-        FlyLog.d();
-        this.needUPtemplateEntity = templateEntity;
-        this.needUPcellBeanList = cellBeanList;
-        this.needUPcontrolBean = controlBean;
-        isUpdata = true;
-        updataView(templateEntity, cellBeanList, controlBean);
+    public void getCacheDataOK(ThemeBean themeBean) {
+        FlyLog.d(""+themeBean);
     }
 
     @Override
@@ -655,14 +646,60 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
     /**
      * 以下为线程中检测是否有版本更新所返回的信息数据结果
      */
+//    @Override
+//    public void upVersionOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+//        FlyLog.d();
+//        this.needUPtemplateEntity = templateEntity;
+//        this.needUPcellBeanList = cellBeanList;
+//        this.needUPcontrolBean = controlBean;
+//        isUpdata = true;
+//        updataView(templateEntity, cellBeanList, controlBean);
+//    }
+
     @Override
-    public void upVersionOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
-        FlyLog.d();
-        this.needUPtemplateEntity = templateEntity;
-        this.needUPcellBeanList = cellBeanList;
-        this.needUPcontrolBean = controlBean;
+    public void upVersionOK(ThemeBean themeBean) {
+        TemplateEntity templateEntity = new TemplateEntity();
+        templateEntity.templateId = themeBean.themeId;
+        templateEntity.templateName = themeBean.themeName;
+        templateEntity.isdefault = "true";
+        templateEntity.backgroundImage = themeBean.imageurl;
+        templateEntity.backgroundColor = "#00000000";
+        templateEntity.x = 0;
+        templateEntity.y = 0;
+        templateEntity.tabList = new ArrayList<>();
+        List<CellBean> cellBeanList = new ArrayList<>();
+        for(PageBean pageBean:themeBean.pageList){
+            TabEntity tabEntity = new TabEntity();
+            tabEntity.name = pageBean.pageName;
+            templateEntity.tabList.add(tabEntity);
+
+            CellBean cellBean = new CellBean();
+            cellBean.cellList = converPageList(pageBean.cellList);
+            cellBeanList.add(cellBean);
+        }
+
+        ControlBean controlBean = new ControlBean();
         isUpdata = true;
         updataView(templateEntity, cellBeanList, controlBean);
+    }
+
+    private List<CellEntity> converPageList(List<com.ppfuns.ppfunstv.bean.CellBean> cellList) {
+        List<CellEntity> cellEntities = new ArrayList<>();
+        for(com.ppfuns.ppfunstv.bean.CellBean cell:cellList){
+            try {
+                CellEntity cellEntity = new CellEntity();
+                cellEntity.imgUrl = cell.images.get(0).url;
+                cellEntity.x = cell.x;
+                cellEntity.y = cell.y;
+                cellEntity.width = cell.width;
+                cellEntity.height = cell.height;
+                cellEntity.text = cell.texts.get(0).text.getText();
+                cellEntities.add(cellEntity);
+            }catch (Exception e){
+                FlyLog.e(e.toString());
+            }
+        }
+        return cellEntities;
     }
 
     @Override
@@ -734,7 +771,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
                 return;
             }
             showChangelTemplateTipAndReport(mContext.getString(R.string.tip_switch_ui));
-            iUpDataVersion.switchTemplate();
+//            iUpDataVersion.switchTemplate();
         } else if (EventMessage.MSG_UPDATE_SOUND_INDEX == msg.index) {
             soundIndex = (int) SPUtil.get(this, SPUtil.FILE_CONFIG, SPUtil.CONFIG_SOUND_INDEX, defaultSoundIndex);
             FlyLog.d(TAG + " change sound --sound index;" + soundIndex);
@@ -774,42 +811,42 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
      * 显示切换模板提示框
      */
     private void showChangeTemplateDialog() {
-        FlyLog.i(TAG + "showChangeTemplateDialog");
-        Map<Integer, String> data = new ArrayMap<>();
-        TemplateBean bean = iUpDataVersion.getTemplateBean();
-        if (bean != null && bean.getTemplate() != null) {
-            for (TemplateEntity entity : bean.getTemplate()) {
-                if (entity.getIsdefault().equals("true")) {
-                    data.put(entity.getTemplateId(), entity.getTemplateName());
-                }
-            }
-        } else {
-            FlyLog.e(TAG + "template is null,no data to show change template dialog...");
-            return;
-        }
-        if (data == null || data.size() < 2) {
-            ToastUtils.showMessage(mContext, R.string.one_template);
-            return;//只有一个模板时不显示切换模板
-        }
-        if (mChangeTemplateDialog == null) {
-            mChangeTemplateDialog = new ChangeTemplateDialog(this);
-        }
-        if (mChangeTemplateDialog.isShowing()) {
-            mChangeTemplateDialog.dismiss();
-        }
-        boolean isBlur = Boolean.parseBoolean(SystemPropertiesProxy.get(mContext, com.ppfuns.ppfunstv.constant.Constants.Property.DIALOG_BLUR, "false"));
-        View view = getWindow().getDecorView();
-        if (!isBlur) {
-            mChangeTemplateDialog.setIsBlur(false);
-            mChangeTemplateDialog.setView(view);
-            mChangeTemplateDialog.setData(data);
-            mChangeTemplateDialog.show();
-        } else {
-            mChangeTemplateDialog.setIsBlur(true);
-            mChangeTemplateDialog.setView(view);
-            mChangeTemplateDialog.setData(data);
-            mChangeTemplateDialog.show();
-        }
+//        FlyLog.i(TAG + "showChangeTemplateDialog");
+//        Map<Integer, String> data = new ArrayMap<>();
+//        TemplateBean bean = iUpDataVersion.getTemplateBean();
+//        if (bean != null && bean.getTemplate() != null) {
+//            for (TemplateEntity entity : bean.getTemplate()) {
+//                if (entity.getIsdefault().equals("true")) {
+//                    data.put(entity.getTemplateId(), entity.getTemplateName());
+//                }
+//            }
+//        } else {
+//            FlyLog.e(TAG + "template is null,no data to show change template dialog...");
+//            return;
+//        }
+//        if (data == null || data.size() < 2) {
+//            ToastUtils.showMessage(mContext, R.string.one_template);
+//            return;//只有一个模板时不显示切换模板
+//        }
+//        if (mChangeTemplateDialog == null) {
+//            mChangeTemplateDialog = new ChangeTemplateDialog(this);
+//        }
+//        if (mChangeTemplateDialog.isShowing()) {
+//            mChangeTemplateDialog.dismiss();
+//        }
+//        boolean isBlur = Boolean.parseBoolean(SystemPropertiesProxy.get(mContext, com.ppfuns.ppfunstv.constant.Constants.Property.DIALOG_BLUR, "false"));
+//        View view = getWindow().getDecorView();
+//        if (!isBlur) {
+//            mChangeTemplateDialog.setIsBlur(false);
+//            mChangeTemplateDialog.setView(view);
+//            mChangeTemplateDialog.setData(data);
+//            mChangeTemplateDialog.show();
+//        } else {
+//            mChangeTemplateDialog.setIsBlur(true);
+//            mChangeTemplateDialog.setView(view);
+//            mChangeTemplateDialog.setData(data);
+//            mChangeTemplateDialog.show();
+//        }
     }
 
     @Override
@@ -865,15 +902,15 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
             String action = intent.getAction();
             if (Constants.Action.CHANGE_TEMPLATE.equals(action) || Constants.Action.SPEECH_SWITCH_UI.equals(action)) {
                 //切换模板
-                String name = intent.getStringExtra(Constants.KEY_TEMPLATE_NAME);
-                int id = intent.getIntExtra(Constants.KEY_TEMPLATE_ID, -1);
-                if (isLoading()) {
-                    return;
-                }
-                String info = TemplateUtil.changeTemplate(mContext, iUpDataVersion, id, name);
-                if (!TextUtils.isEmpty(info)) {
-                    showChangelTemplateTipAndReport(info);
-                }
+//                String name = intent.getStringExtra(Constants.KEY_TEMPLATE_NAME);
+//                int id = intent.getIntExtra(Constants.KEY_TEMPLATE_ID, -1);
+//                if (isLoading()) {
+//                    return;
+//                }
+//                String info = TemplateUtil.changeTemplate(mContext, iUpDataVersion, id, name);
+//                if (!TextUtils.isEmpty(info)) {
+//                    showChangelTemplateTipAndReport(info);
+//                }
             } else if (Constants.Action.CHILD_CHANGE_UI.endsWith(action)) {
                 //儿童版内部切换ui
                 int ageIndex = intent.getIntExtra("ageIndex", -1);

@@ -21,20 +21,20 @@ public class TemplateEntity implements Serializable{
      * tabList:
      */
 
-    private int templateId;//模版Id
-    private String templateName;//模版名称
-    private String templateCode; //棋版编码
-    private String isdefault;//是否是默认显示的主模板；true/false
-    private String resolution;//模版分辨率
-    private String templateDetail;//模板描述
-    private String backgroundImage;//模版对应壁纸url
-    private String backgroundColor;//模版对应背景颜色，格式:#FFFFFF
-    private int x;//X坐标
-    private int y;//Y坐标
-    private ArrayList<TabEntity> tabList;
-    private String type;
-    private int defaultTabId;
-    private int defaultCellId;
+    public int templateId;//模版Id
+    public String templateName;//模版名称
+    public String templateCode; //棋版编码
+    public String isdefault;//是否是默认显示的主模板；true/false
+    public String resolution;//模版分辨率
+    public String templateDetail;//模板描述
+    public String backgroundImage;//模版对应壁纸url
+    public String backgroundColor;//模版对应背景颜色，格式:#FFFFFF
+    public int x;//X坐标
+    public int y;//Y坐标
+    public ArrayList<TabEntity> tabList;
+    public String type;
+    public int defaultTabId;
+    public int defaultCellId;
 
     public int getTemplateId() {
         return templateId;

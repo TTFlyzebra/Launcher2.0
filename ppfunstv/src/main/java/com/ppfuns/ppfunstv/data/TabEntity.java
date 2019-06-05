@@ -10,20 +10,20 @@ import java.util.ArrayList;
  * Created by Administrator on 2016/6/13.
  */
 public class TabEntity implements Comparable,Serializable{
-    private int id;
-    private String name;
-    private String color1;
-    private String color2;
-    private int marging;
-    private int sort;
-    private String bgUrl;
-    private ArrayList<StateStyleEntity> stateStyle;
-    private ArrayList<AnimationEntity> animation;
-    private int left;
-    private int right;
-    private int up;
-    private int down;
-    private String font;
+    public int id;
+    public String name;
+    public String color1 = "#FFFFFF";
+    public String color2 = "#0000FF";
+    public int marging;
+    public int sort;
+    public String bgUrl;
+    public ArrayList<StateStyleEntity> stateStyle;
+    public ArrayList<AnimationEntity> animation;
+    public int left;
+    public int right;
+    public int up;
+    public int down;
+    public String font;
 
     public int getLeft() {
         return left;

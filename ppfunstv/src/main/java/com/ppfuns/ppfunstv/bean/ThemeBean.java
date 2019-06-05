@@ -10,6 +10,7 @@ import java.util.List;
  * Describ:
  **/
 public class ThemeBean {
+    public int themeId;
     public static int filterColor = 0xFF0370E5;
     public static int normalColor = 0xFFFFFFFF;
     public String themeName;

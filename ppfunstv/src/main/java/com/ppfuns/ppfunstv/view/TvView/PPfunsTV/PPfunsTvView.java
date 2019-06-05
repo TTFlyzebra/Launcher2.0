@@ -26,8 +26,6 @@ import com.ppfuns.ppfunstv.view.TvView.NavView.NavLayout;
 
 import java.util.List;
 
-import static android.support.v4.view.PagerAdapter.POSITION_NONE;
-
 /**
  * 主应用动态布局控件，实现功能
  * 1.各种按键消息传递响应
@@ -145,7 +143,7 @@ public class PPfunsTvView extends BaseTvView {
 
         //创建添加顶部状态栏菜单
         if (isCreateHeaderLayout) {
-            addHeaderView(context, mHeaderLayout, screenScale);
+//            addHeaderView(context, mHeaderLayout, screenScale);
         }
         //创建导航菜单
         if (mTabEntityList != null && isCreateNavLayout) {
