@@ -10,7 +10,7 @@ import com.ppfuns.ppfunstv.data.FlyBean;
 import com.ppfuns.ppfunstv.module.BitmapCache;
 import com.ppfuns.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.view.TvView.CellView.PopupCellView.IPopupAnimatView;
 import com.ppfuns.ppfunstv.view.TvView.CellView.PopupCellView.PopupAnimatView;
 
@@ -105,7 +105,7 @@ public class TvPageViewItemFactory {
     //解析备注中的值
     public static void handleExtend(Context context, CellEntity cell) {
         if (!TextUtils.isEmpty(cell.getExtendData())) {
-            FlyBean flyBean = GsonUtils.json2Object(cell.getExtendData(), FlyBean.class);
+            FlyBean flyBean = GsonUtil.json2Object(cell.getExtendData(), FlyBean.class);
             if (flyBean != null) {
                 float scaleScreen = DisplayUtils.getMetrices((Activity) context).widthPixels / 1920f;
                 if (flyBean.getType() != 0) {

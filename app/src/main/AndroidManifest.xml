@@ -40,13 +40,11 @@
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
             <intent-filter android:priority="0">
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity

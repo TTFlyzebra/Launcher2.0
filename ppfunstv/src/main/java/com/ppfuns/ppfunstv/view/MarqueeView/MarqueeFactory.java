@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.ppfuns.ppfunstv.data.MarqueeEntity;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 
 import java.util.Map;
@@ -20,7 +20,7 @@ public class MarqueeFactory {
         IMarquee marquee = null;
         String text = "";
         if(mq.getText()!=null){
-            Map<String, String> str = GsonUtils.json2Map(mq.getText());
+            Map<String, String> str = GsonUtil.json2Map(mq.getText());
             text = Utils.getLocalLanguageString(str);
         }
 

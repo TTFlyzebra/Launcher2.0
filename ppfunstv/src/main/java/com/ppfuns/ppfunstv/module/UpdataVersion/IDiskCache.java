@@ -62,6 +62,16 @@ public interface IDiskCache {
 
 
     /**
+     * NOTE:有网络请求，要求在线程中执行
+     * 从网络地址imgUrl下载图片并存入磁盘
+     *
+     * @param imgUrl 图片地址
+     * @return
+     */
+    boolean saveBitmapFromImgurl( String imgUrl);
+
+
+    /**
      * 删除本地保存的文件
      *
      * @param url

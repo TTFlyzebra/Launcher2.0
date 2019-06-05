@@ -12,8 +12,8 @@ import com.ppfuns.launcher.utils.GsonUtils;
 import com.ppfuns.launcher.utils.SystemPropertiesProxy;
 import com.ppfuns.ppfunstv.constant.Constants;
 import com.ppfuns.ppfunstv.data.AreaInfoEntity;
+import com.ppfuns.ppfunstv.http.FlyOkHttp;
 import com.ppfuns.ppfunstv.http.IHttp;
-import com.ppfuns.ppfunstv.http.MyOkHttp;
 import com.ppfuns.ppfunstv.module.EventMessage;
 
 import org.greenrobot.eventbus.EventBus;
@@ -72,7 +72,7 @@ public class AreaTextView extends TextView{
 //        String ip = IpAddressUtil.getLocalHostIp();
 //        Log.d(TAG,"ip:"+ip);
         url += "58.60.3.130";
-        MyOkHttp.getInstance().getString(url, Constants.API_STORE_KEY_NAME, Constants.API_STORE_KEY, Constants.API_STORE_TAG_AREA, new IHttp.HttpResult() {
+        FlyOkHttp.getInstance().getString(url, Constants.API_STORE_KEY_NAME, Constants.API_STORE_KEY, Constants.API_STORE_TAG_AREA, new IHttp.HttpResult() {
             @Override
             public void succeed(Object object) {
                 if(object != null){

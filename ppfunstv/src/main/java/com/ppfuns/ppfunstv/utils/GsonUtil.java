@@ -15,7 +15,7 @@ import java.util.Map;
  *
  * Created by FlyZebra on 2016/4/23.
  */
-public class GsonUtils {
+public class GsonUtil {
     private static Gson gson = null;
     static {
         if(gson == null){

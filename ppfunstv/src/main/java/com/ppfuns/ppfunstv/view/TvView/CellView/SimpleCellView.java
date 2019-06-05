@@ -21,7 +21,7 @@ import com.ppfuns.ppfunstv.data.StateStyleEntity;
 import com.ppfuns.ppfunstv.module.BitmapCache;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.FontManager;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.TvView.CellView.CellClickAction.ActionFactory;
 
@@ -76,7 +76,7 @@ public class SimpleCellView extends TvPageItemView {
      */
     @Override
     public void initView() {
-        mLangMap = GsonUtils.json2Map(mCell.getText());
+        mLangMap = GsonUtil.json2Map(mCell.getText());
         inflate(mContext, R.layout.tv_cell_item, this);
         mImageView = (SubScriptView) findViewById(R.id.tv_iv_cell);
         mTvInfo = (TextView) findViewById(R.id.tv_tv_cell);

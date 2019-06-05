@@ -16,12 +16,12 @@ import com.ppfuns.ppfunstv.data.TabEntity;
 import com.ppfuns.ppfunstv.data.TemplateBean;
 import com.ppfuns.ppfunstv.data.TemplateEntity;
 import com.ppfuns.ppfunstv.data.VersionBean;
+import com.ppfuns.ppfunstv.http.FlyOkHttp;
 import com.ppfuns.ppfunstv.http.IHttp;
-import com.ppfuns.ppfunstv.http.MyOkHttp;
-import com.ppfuns.ppfunstv.utils.EncodeHelper;
+import com.ppfuns.ppfunstv.utils.EncodeUtil;
 import com.ppfuns.ppfunstv.utils.FileUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.SPUtil;
 
 import java.io.File;
@@ -169,7 +169,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
         if (TextUtils.isEmpty(mTemplateBeanJson)) {
             mTemplateBeanJson = getAssetsFileString(TEMPLATE_KEY);
         }
-        mTemplateBean = GsonUtils.json2Object(mTemplateBeanJson, TemplateBean.class);
+        mTemplateBean = GsonUtil.json2Object(mTemplateBeanJson, TemplateBean.class);
         return mTemplateBean;
     }
 
@@ -188,7 +188,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
             if (TextUtils.isEmpty(value)) {
                 value = getAssetsFileString(key);
             }
-            mCurrentControlBean = GsonUtils.json2Object(value, ControlBean.class);
+            mCurrentControlBean = GsonUtil.json2Object(value, ControlBean.class);
         }
         return mCurrentControlBean;
     }
@@ -213,7 +213,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                 if (TextUtils.isEmpty(json)) {
                     return null;
                 }
-                CellBean cell = GsonUtils.json2Object(json, CellBean.class);
+                CellBean cell = GsonUtil.json2Object(json, CellBean.class);
                 //TODO 前台数据错误处理
                 mCurrentCellBeanList.add(cell);
             }
@@ -240,7 +240,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
     @Override
     public void forceUpVersion(UpResult upResult) {
         FlyLog.d();
-        MyOkHttp.getInstance().cancelAll(HTTPTAG);
+        FlyOkHttp.getInstance().cancelAll(HTTPTAG);
         if (taskCollection != null) {
             for (AsyncTask task : taskCollection) {
                 task.cancel(true);
@@ -279,12 +279,12 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
      * @param urlAPI
      */
     private void checkVersion(final String urlAPI) {
-        MyOkHttp.getInstance().getString(urlAPI, HTTPTAG, new IHttp.HttpResult() {
+        FlyOkHttp.getInstance().getString(urlAPI, HTTPTAG, new IHttp.HttpResult() {
             @Override
             public void succeed(final Object object) {
                 String version = iDiskCache.getString(VERSION_KEY);
                 if (version != null) {
-                    VersionBean bean = GsonUtils.json2Object(version, VersionBean.class);
+                    VersionBean bean = GsonUtil.json2Object(version, VersionBean.class);
                     if (bean != null) {
                         localVersion = bean.getVersion();
                         if (bean.getVersionInterval() > UPDATE_MIN_IINTERVAL) {
@@ -294,7 +294,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                 }
                 String newVersion = null;
                 if (object != null) {
-                    VersionBean bean = GsonUtils.json2Object(object.toString(), VersionBean.class);
+                    VersionBean bean = GsonUtil.json2Object(object.toString(), VersionBean.class);
                     if (bean != null && bean.isValid()) {
                         newVersion = bean.getVersion();
                         if (bean.getVersionInterval() > UPDATE_MIN_IINTERVAL) {
@@ -350,11 +350,11 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
             }
         });
 
-        MyOkHttp.getInstance().getString(urlAPI, HTTPTAG, new IHttp.HttpResult() {
+        FlyOkHttp.getInstance().getString(urlAPI, HTTPTAG, new IHttp.HttpResult() {
             @Override
             public void succeed(Object object) {
                 mTemplateBeanJson = object.toString();
-                TemplateBean bean = GsonUtils.json2Object(mTemplateBeanJson, TemplateBean.class);
+                TemplateBean bean = GsonUtil.json2Object(mTemplateBeanJson, TemplateBean.class);
                 if (bean == null) {
                     mHandler.post(new Runnable() {
                         @Override
@@ -421,7 +421,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
             for (int i = 0; i < tabList.size(); i++) {
                 final String url = ApiUrl + ApiCellList + tabList.get(i).getId()+ String.format(tokenFromat, token);
                 final String key = ApiCellList + tabList.get(i).getId();
-                MyOkHttp.getInstance().getString(url, HTTPTAG, new IHttp.HttpResult() {
+                FlyOkHttp.getInstance().getString(url, HTTPTAG, new IHttp.HttpResult() {
                     @Override
                     public void succeed(Object object) {
                         if (object == null || object.equals("")) {
@@ -437,7 +437,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                             return;
                         }
                         String str = object.toString();
-                        CellBean cellBean = GsonUtils.json2Object(str, CellBean.class);
+                        CellBean cellBean = GsonUtil.json2Object(str, CellBean.class);
                         if (cellBean == null || !cellBean.isValid()) {
                             mHandler.post(new Runnable() {
                                 @Override
@@ -529,7 +529,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
             final int templateId = templateList.get(n).getTemplateId();
             final String url = ApiUrl + ApiResource + templateId+ String.format(tokenFromat, token);
             final String key = ApiResource + templateList.get(n).getTemplateId();
-            MyOkHttp.getInstance().getString(url, HTTPTAG, new IHttp.HttpResult() {
+            FlyOkHttp.getInstance().getString(url, HTTPTAG, new IHttp.HttpResult() {
                 @Override
                 public void succeed(Object object) {
                     if (object == null || object.equals("")) {
@@ -544,7 +544,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                         return;
                     }
                     String str = object.toString();
-                    ControlBean bean = GsonUtils.json2Object(str, ControlBean.class);
+                    ControlBean bean = GsonUtil.json2Object(str, ControlBean.class);
                     if (bean == null || !bean.isValid()) {
                         mHandler.post(new Runnable() {
                             @Override
@@ -563,7 +563,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                         mImageList.clear();
                         //添加待下载资源文件
                         for (Map.Entry<String, String> entry : mAllControlJsons.entrySet()) {
-                            ControlBean controlBean = GsonUtils.json2Object(entry.getValue(), ControlBean.class);
+                            ControlBean controlBean = GsonUtil.json2Object(entry.getValue(), ControlBean.class);
                             if (controlBean != null && controlBean.getLogo() != null && !TextUtils.isEmpty(controlBean.getLogo().getImgUrl())) {
                                 mImageList.add(controlBean.getLogo().getImgUrl());
                             }
@@ -716,7 +716,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
 
 
     public void cancelAllTasks() {
-        MyOkHttp.getInstance().cancelAll(HTTPTAG);
+        FlyOkHttp.getInstance().cancelAll(HTTPTAG);
         if (taskCollection != null) {
             for (AsyncTask task : taskCollection) {
                 task.cancel(true);
@@ -740,18 +740,18 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
         files.add("journal");
         mTemplateBean = getTemplateBean();
         if (mTemplateBean == null) return;
-        files.add(EncodeHelper.md5(VERSION_KEY) + ".0");
-        files.add(EncodeHelper.md5(TEMPLATE_KEY) + ".0");
+        files.add(EncodeUtil.md5(VERSION_KEY) + ".0");
+        files.add(EncodeUtil.md5(TEMPLATE_KEY) + ".0");
 
         List<TemplateEntity> templateList = mTemplateBean.getTemplate();
         if (templateList == null) return;
         for (int n = 0; n < templateList.size(); n++) {
             final List<TabEntity> tabList = templateList.get(n).getTabList();
             for (int i = 0; i < tabList.size(); i++) {
-                files.add(EncodeHelper.md5(ApiCellList + tabList.get(i).getId()) + ".0");
+                files.add(EncodeUtil.md5(ApiCellList + tabList.get(i).getId()) + ".0");
             }
             //添加资源文件
-            files.add(EncodeHelper.md5(ApiResource + templateList.get(n).getTemplateId()) + ".0");
+            files.add(EncodeUtil.md5(ApiResource + templateList.get(n).getTemplateId()) + ".0");
         }
 
         if (mAllCellBeanList == null) return;
@@ -760,7 +760,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
             List<CellEntity> cellList = mAllCellBeanList.get(i).getCellList();
             if (cellList != null) {
                 for (int j = 0; j < cellList.size(); j++) {
-                    files.add(EncodeHelper.md5(cellList.get(j).getImgUrl()) + ".0");
+                    files.add(EncodeUtil.md5(cellList.get(j).getImgUrl()) + ".0");
                 }
             }
         }
@@ -768,7 +768,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
         //添加logo和背景图片
         if (mImageList != null && mImageList.size() > 0) {
             for (String url : mImageList) {
-                files.add(EncodeHelper.md5(url) + ".0");
+                files.add(EncodeUtil.md5(url) + ".0");
             }
         }
 
@@ -847,7 +847,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
         String value = null;
         InputStream is = null;
         try {
-            is = mContext.getAssets().open(ASSETS_PATH + EncodeHelper.md5(key) + ".0");
+            is = mContext.getAssets().open(ASSETS_PATH + EncodeUtil.md5(key) + ".0");
             value = FileUtil.readFile(is);
         } catch (IOException e) {
             e.printStackTrace();

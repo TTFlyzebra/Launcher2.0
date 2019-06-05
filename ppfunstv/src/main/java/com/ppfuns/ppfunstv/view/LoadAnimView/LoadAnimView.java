@@ -4,12 +4,10 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
-import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.SystemUtils;
 
 import java.util.concurrent.ExecutorService;
@@ -54,7 +52,7 @@ public class LoadAnimView extends RelativeLayout {
     }
 
 
-    public void loadImageView(@DrawableRes int resID) {
+    public void loadImageView(int resID) {
         imageView = new ImageView(mContext);
         addView(imageView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         imageView.setImageResource(resID);
@@ -88,11 +86,9 @@ public class LoadAnimView extends RelativeLayout {
                     long startTime = SystemClock.elapsedRealtime();
                     float n = SystemUtils.getProcessCpuRate(COUNT_CPU_SLEEP);
                     long endTime = SystemClock.elapsedRealtime();
-                    FlyLog.d("startTime=%d,endTime=%d",startTime,endTime);
                     if((endTime-startTime)>COUNT_CPU_SLEEP+100) {
                         continue;
                     }
-                    FlyLog.d("current using CPU = %f, memory add = " + (useMemory2 - useMemory1), n);
                     if ((n < cpuUsed )|| count >= mWaitTime) {
                         count = 0;
                         mHandler.post(new Runnable() {

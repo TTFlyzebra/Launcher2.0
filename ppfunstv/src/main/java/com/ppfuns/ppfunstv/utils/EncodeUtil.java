@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
  * 字符串转码实现类，已实现MD5
  * Created by FlyZebra on 2016/6/22.
  */
-public class EncodeHelper {
+public class EncodeUtil {
 
     public static String md5(String key) {
         String cacheKey;

@@ -22,7 +22,7 @@ import com.ppfuns.ppfunstv.data.TabEntity;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.FontManager;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 
 import java.util.List;
@@ -59,7 +59,7 @@ public class NavItemView extends RelativeLayout{
     public NavItemView(Context context, TabEntity tab,int index){
         super(context,null);
         this.mTab = tab;
-        mLangMap = GsonUtils.json2Map(mTab.getName());
+        mLangMap = GsonUtil.json2Map(mTab.getName());
         init(context,index);
     }
 

@@ -580,7 +580,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
      */
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
+        super.onBackPressed();
     }
 
     @Override

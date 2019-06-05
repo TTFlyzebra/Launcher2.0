@@ -18,7 +18,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.LoopPlayView.CellChildView;
 import com.ppfuns.ppfunstv.view.LoopPlayView.ILoopPlayView;
@@ -177,7 +177,7 @@ public class SingleListCellView extends TvPageItemView {
             addView(menuTextView);
 
             String textStr = mCell.getText();
-            Map str = GsonUtils.json2Map(textStr);
+            Map str = GsonUtil.json2Map(textStr);
             menuTextView.setText(Utils.getLocalLanguageString(str));
 
 
@@ -209,7 +209,7 @@ public class SingleListCellView extends TvPageItemView {
                         e.printStackTrace();
                     }
                     String textStr = mCell.getSubCellList().get(num).getText();
-                    Map str = GsonUtils.json2Map(textStr);
+                    Map str = GsonUtil.json2Map(textStr);
                     ((CellChildView)itView).setText(Utils.getLocalLanguageString(str));
                 }
             })

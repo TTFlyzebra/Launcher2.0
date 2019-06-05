@@ -19,7 +19,7 @@ import com.ppfuns.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.FontManager;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.ReflectImageView;
 import com.ppfuns.ppfunstv.view.TvView.FocusAnimat.IAnimatView;
@@ -160,7 +160,7 @@ public class TextCellView extends TextView implements ITvPageItemView, IAnimatVi
 
 
             String textStr = mCell.getText();
-            Map str = GsonUtils.json2Map(textStr);
+            Map str = GsonUtil.json2Map(textStr);
             setText(Utils.getLocalLanguageString(str));
         }catch (Exception e){
             FlyLog.d(e.toString());

@@ -13,7 +13,7 @@ import com.ppfuns.ppfunstv.data.ActionEntity;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DialogUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.IntentParamParseHelper;
 import com.umeng.analytics.MobclickAgent;
 
@@ -44,7 +44,7 @@ public class ShopAction extends BaseAction {
      * @param cellEntity
      */
     public ShopAction(Context context, @NonNull CellEntity cellEntity,String type){
-        mEntity = GsonUtils.json2Object(cellEntity.getIntent(), ActionEntity.class);
+        mEntity = GsonUtil.json2Object(cellEntity.getIntent(), ActionEntity.class);
         if(mEntity!= null && !TextUtils.isEmpty(mEntity.getData())){
             mPara = IntentParamParseHelper.parseMap(mEntity.getData());
         }
@@ -67,7 +67,7 @@ public class ShopAction extends BaseAction {
             mobPara.put(MobclickConstants.PARA_PACKAGE,DEFAULT_PACKAGE_NAME);
             mobPara.put(MobclickConstants.PARA_CLASS,DEFAULT_ACTIVITY);
             MobclickAgent.onEvent(mContext, mType,mobPara);
-        }else if (mEntity != null && DEFAULT_PACKAGE_NAME.equals(mEntity.getPackageName()) && startActivity(mEntity.getPackageName(),mEntity.getClassName(),GsonUtils.mapToJson(mPara),mEntity.getAction())){
+        }else if (mEntity != null && DEFAULT_PACKAGE_NAME.equals(mEntity.getPackageName()) && startActivity(mEntity.getPackageName(),mEntity.getClassName(),GsonUtil.mapToJson(mPara),mEntity.getAction())){
             mobPara.put(MobclickConstants.PARA_PACKAGE,DEFAULT_PACKAGE_NAME);
             mobPara.put(MobclickConstants.PARA_CLASS,DEFAULT_ACTIVITY);
             mobPara.put(MobclickConstants.PARA_ACTION,mEntity.getAction());

@@ -32,7 +32,7 @@ import com.ppfuns.ppfunstv.R;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.data.PopupBitmapEntity;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.TvView.CellView.CellClickAction.DefaultAction;
 import com.ppfuns.ppfunstv.view.TvView.CellView.CellType;
@@ -344,7 +344,7 @@ public class PopupAnimatView extends TvPageItemView implements IPopupAnimatView,
             tv.getPaint().setAntiAlias(true);
             tv.setBackgroundResource(R.drawable.tv_rectangle);
             tv.setPadding(roundPix, (int) (4 * screenScale), 0, 0);
-            Map mLangMap = GsonUtils.json2Map(cell.getText());
+            Map mLangMap = GsonUtil.json2Map(cell.getText());
             String text = null;
             if (mLangMap != null) {
                 text = Utils.getLocalLanguageString(mLangMap);
@@ -588,7 +588,7 @@ public class PopupAnimatView extends TvPageItemView implements IPopupAnimatView,
             setChildTextViews(cellEntity.getSubCellList());
             setChildImageViews(cellEntity.getSubCellList());
         } else {
-            Map mLangMap = GsonUtils.json2Map(cellEntity.getText());
+            Map mLangMap = GsonUtil.json2Map(cellEntity.getText());
             String text = null;
             if (mLangMap != null) {
                 text = Utils.getLocalLanguageString(mLangMap);

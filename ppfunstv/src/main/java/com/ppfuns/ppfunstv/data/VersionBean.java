@@ -14,10 +14,10 @@ public class VersionBean {
      * versionInterval : 10000000 版本更新间隔
      */
 
-    private String msg;
-    private int ret;
-    private String version;
-    private int versionInterval;
+    public String msg;
+    public int ret;
+    public String version;
+    public int versionInterval;
 
     public String getMsg() {
         return msg;

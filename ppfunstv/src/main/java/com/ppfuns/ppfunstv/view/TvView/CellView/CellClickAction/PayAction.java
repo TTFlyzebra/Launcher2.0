@@ -12,7 +12,7 @@ import com.ppfuns.ppfunstv.data.ActionEntity;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DialogUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.IntentParamParseHelper;
 import com.umeng.analytics.MobclickAgent;
 
@@ -33,9 +33,9 @@ public class PayAction  extends BaseAction {
     private HashMap<String, String> mAppendAttr = null;
 
     public PayAction(Context context, @NonNull CellEntity cellEntity, String type){
-        mEntity = GsonUtils.json2Object(cellEntity.getIntent(), ActionEntity.class);
+        mEntity = GsonUtil.json2Object(cellEntity.getIntent(), ActionEntity.class);
         if(mEntity != null && !TextUtils.isEmpty(mEntity.getAppendAttr())){
-            mAppendAttr = GsonUtils.json2HashMap(mEntity.getAppendAttr());
+            mAppendAttr = GsonUtil.json2HashMap(mEntity.getAppendAttr());
         }
         this.mNeedAuth = cellEntity.getNeedAuth();
         mContext = context;

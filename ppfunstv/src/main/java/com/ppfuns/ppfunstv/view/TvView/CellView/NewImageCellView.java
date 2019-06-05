@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ppfuns.ppfunstv.data.CellEntity;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 
 import java.util.Map;
@@ -56,7 +56,7 @@ public class NewImageCellView extends TvPageItemView {
         lp1.topMargin = mCell.getHeight()+10;
         textView1.setLayoutParams(lp1);
 
-        Map mLangMap = GsonUtils.json2Map(mCell.getText());
+        Map mLangMap = GsonUtil.json2Map(mCell.getText());
         String text = null;
         if (mLangMap != null) {
             text = Utils.getLocalLanguageString(mLangMap);

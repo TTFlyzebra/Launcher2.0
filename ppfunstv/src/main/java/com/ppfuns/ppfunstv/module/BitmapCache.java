@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.LruCache;
 
-import com.ppfuns.ppfunstv.utils.EncodeHelper;
+import com.ppfuns.ppfunstv.utils.EncodeUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 
 import java.io.File;
@@ -75,7 +75,7 @@ public class BitmapCache {
         try {
             String filename;
             if(url.startsWith("http://")){
-                filename = "file://" + context.getFilesDir().getAbsolutePath() + File.separator + "ppfuns/" + EncodeHelper.md5(url) + ".0";
+                filename = "file://" + context.getFilesDir().getAbsolutePath() + File.separator + "ppfuns/" + EncodeUtil.md5(url) + ".0";
             }else{
                 filename = url;
             }
@@ -84,7 +84,7 @@ public class BitmapCache {
                 bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
             } else {
                 AssetManager am = context.getResources().getAssets();
-                InputStream is = am.open("ppfuns/" + EncodeHelper.md5(url) + ".0");
+                InputStream is = am.open("ppfuns/" + EncodeUtil.md5(url) + ".0");
                 bitmap = BitmapFactory.decodeStream(is);
                 is.close();
             }

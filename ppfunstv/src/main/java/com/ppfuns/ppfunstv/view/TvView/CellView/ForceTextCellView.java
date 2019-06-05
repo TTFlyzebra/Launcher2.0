@@ -13,12 +13,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.exoplayer2.C;
 import com.ppfuns.ppfunstv.R;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 
 /**
@@ -69,7 +68,7 @@ public class ForceTextCellView extends SimpleCellView {
     public void initView() {
         LayoutParams lp = new LayoutParams(mCell.getWidth(), mCell.getHeight());
         setLayoutParams(lp);
-        mLangMap = GsonUtils.json2Map(mCell.getText());
+        mLangMap = GsonUtil.json2Map(mCell.getText());
         float scaleScreen = DisplayUtils.getMetrices((Activity) mContext).widthPixels / 1920f;
 //        textSize = (int) (textSize * scaleScreen);
 

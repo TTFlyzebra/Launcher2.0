@@ -12,7 +12,7 @@ import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.BehavioralUtil;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.SPUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.ClearTopRectView;
@@ -156,7 +156,7 @@ public class PopupTvView extends BaseTvView {
             if (mTabEntityList != null && mTabEntityList.size() > age_range) {
                 String name = mTabEntityList.get(age_range).getName();
                 try {
-                    String tabName = Utils.getLocalLanguageString(GsonUtils.json2Map(name));
+                    String tabName = Utils.getLocalLanguageString(GsonUtil.json2Map(name));
                     if (!TextUtils.isEmpty(tabName)) {
                         String id = mTabEntityList.get(age_range).getId() + "";
                         BehavioralUtil.reportPageEvent(mContext, tabName, id);

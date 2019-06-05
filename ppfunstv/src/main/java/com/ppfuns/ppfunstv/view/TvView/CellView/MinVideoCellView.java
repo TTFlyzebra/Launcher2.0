@@ -18,7 +18,7 @@ import com.ppfuns.ppfunstv.data.ActionEntity;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.receiver.NetworkReceiver;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.view.SuperVideoView.SuperVideoPlayer;
 import com.ppfuns.ppfunstv.view.TvView.IPageChangeListener;
 
@@ -124,7 +124,7 @@ public class MinVideoCellView extends SimpleCellView implements IPageChangeListe
         mImageView = (ImageView) findViewById(R.id.live_bg);
         subScriptView = (SubScriptView) findViewById(R.id.tv_iv_sub);
         subScriptView.setCell(mCell,mBitmapCache);
-        mEntity = GsonUtils.json2Object(mCell.getIntent(), ActionEntity.class);
+        mEntity = GsonUtil.json2Object(mCell.getIntent(), ActionEntity.class);
     }
 
     @Override

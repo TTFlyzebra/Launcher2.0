@@ -13,7 +13,7 @@ import com.ppfuns.ppfunstv.data.ActionEntity;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DialogUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.IntentParamParseHelper;
 import com.umeng.analytics.MobclickAgent;
 
@@ -42,7 +42,7 @@ public class BoYiLeAction extends BaseAction {
      * @param cellEntity
      */
     public BoYiLeAction(Context context, @NonNull CellEntity cellEntity, String type){
-        mEntity = GsonUtils.json2Object(cellEntity.getIntent(), ActionEntity.class);
+        mEntity = GsonUtil.json2Object(cellEntity.getIntent(), ActionEntity.class);
         if(mEntity!= null && !TextUtils.isEmpty(mEntity.getData())){
             mPara = IntentParamParseHelper.parseMap(mEntity.getData());
         }
@@ -55,7 +55,7 @@ public class BoYiLeAction extends BaseAction {
     protected void doActionImpl(int flag) {
         FlyLog.v("do aciton ...."+mEntity);
         if (mEntity != null && mPara != null) {
-            if(!startActivity(mEntity.getPackageName(),mEntity.getClassName(), GsonUtils.mapToJson(mPara))){
+            if(!startActivity(mEntity.getPackageName(),mEntity.getClassName(), GsonUtil.mapToJson(mPara))){
                 if(!TextUtils.isEmpty(mEntity.getDownIntent()) && CommondTool.execStartActivity(mContext,mEntity.getDownIntent(),mEntity.getDownPara(),mNeedAuth,flag)){
 
                 }else{

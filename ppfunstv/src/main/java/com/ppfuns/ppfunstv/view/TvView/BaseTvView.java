@@ -22,7 +22,7 @@ import com.ppfuns.ppfunstv.data.TemplateEntity;
 import com.ppfuns.ppfunstv.module.BitmapCache;
 import com.ppfuns.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.SPUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.TvView.CellView.ITvPageItemView;
@@ -240,7 +240,7 @@ public abstract class BaseTvView extends RelativeLayout {
                     float textScale = 0.56f;
 
                     if(mMarqueeEntity.getText()!=null){
-                        Map<String, String> str = GsonUtils.json2Map(mMarqueeEntity.getText());
+                        Map<String, String> str = GsonUtil.json2Map(mMarqueeEntity.getText());
                         text = Utils.getLocalLanguageString(str);
                     }
 

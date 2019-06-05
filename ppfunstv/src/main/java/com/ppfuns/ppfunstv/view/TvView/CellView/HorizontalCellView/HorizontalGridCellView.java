@@ -17,7 +17,7 @@ import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.FontManager;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.TvView.CellView.CellClickAction.ActionFactory;
 import com.ppfuns.ppfunstv.view.TvView.CellView.TvPageItemView;
@@ -103,7 +103,7 @@ public class HorizontalGridCellView extends TvPageItemView {
             addView(menuTextView);
 
             String textStr = mCell.getText();
-            Map str = GsonUtils.json2Map(textStr);
+            Map str = GsonUtil.json2Map(textStr);
             menuTextView.setText(Utils.getLocalLanguageString(str));
 
             countTextView = new TextView(mContext);
@@ -117,7 +117,7 @@ public class HorizontalGridCellView extends TvPageItemView {
             mHorizontalGridView = new HorizontalGridView(mContext);
             //判断子项有多少行文字，确定子项高度
             if (mCell.getSubCellList().size() > 0) {
-                Map strm = GsonUtils.json2Map(mCell.getSubCellList().get(0).getText());
+                Map strm = GsonUtil.json2Map(mCell.getSubCellList().get(0).getText());
                 String text = Utils.getLocalLanguageString(strm);
                 text.replace(" ", "");
                 if (TextUtils.isEmpty(text)) {

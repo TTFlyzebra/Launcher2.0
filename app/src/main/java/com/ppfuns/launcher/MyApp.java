@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 
 import com.ppfuns.launcher.base.BaseApplication;
-import com.ppfuns.ppfunstv.http.MyOkHttp;
+import com.ppfuns.ppfunstv.http.FlyOkHttp;
 import com.ppfuns.ppfunstv.utils.AppUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.wallpaper.FastWallpaper;
@@ -22,7 +22,7 @@ public class MyApp extends BaseApplication {
         super.onCreate();
 
         registerActivityChange();
-        MyOkHttp.getInstance().Init(getApplicationContext());
+        FlyOkHttp.getInstance().Init(getApplicationContext());
         //测试,开始严格模式,查找问题
 //        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
 //                .detectDiskReads().detectDiskWrites().detectNetwork()

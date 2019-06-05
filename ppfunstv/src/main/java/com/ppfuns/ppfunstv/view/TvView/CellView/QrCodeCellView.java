@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.Toast;
@@ -17,8 +16,8 @@ import android.widget.Toast;
 import com.ppfuns.ppfunstv.R;
 import com.ppfuns.ppfunstv.constant.Constants;
 import com.ppfuns.ppfunstv.constant.NetConstants;
+import com.ppfuns.ppfunstv.http.FlyOkHttp;
 import com.ppfuns.ppfunstv.http.IHttp;
-import com.ppfuns.ppfunstv.http.MyOkHttp;
 import com.ppfuns.ppfunstv.module.EventMessage;
 import com.ppfuns.ppfunstv.receiver.CaReceiver;
 import com.ppfuns.ppfunstv.utils.FlyLog;
@@ -98,7 +97,7 @@ public class QrCodeCellView extends SimpleCellView implements CaReceiver.EventLi
     private void updateApInfo(){
         final Map<String ,String > para = new HashMap<>();
         para.put(NetConstants.PARA_DATA,NetConstants.PARA_SSID_REQUEST);
-        MyOkHttp.getInstance().postString(mUrl,para,"create qr code",new IHttp.HttpResult(){
+        FlyOkHttp.getInstance().postString(mUrl,para,"create qr code",new IHttp.HttpResult(){
             @Override
             public void succeed(Object object) {
                 FlyLog.d("succeed,return object:"+object);

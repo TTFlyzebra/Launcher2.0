@@ -14,10 +14,10 @@ import android.widget.TextView;
 import com.ppfuns.ppfunstv.R;
 import com.ppfuns.ppfunstv.constant.Constants;
 import com.ppfuns.ppfunstv.data.TemperatureEntity;
+import com.ppfuns.ppfunstv.http.FlyOkHttp;
 import com.ppfuns.ppfunstv.http.IHttp;
-import com.ppfuns.ppfunstv.http.MyOkHttp;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.SystemPropertiesProxy;
 
 import java.util.HashMap;
@@ -74,12 +74,12 @@ public class WeatherTemView extends RelativeLayout {
         }
         String url = "http://wthrcdn.etouch.cn/weather_mini?city=";
         url += city;
-        MyOkHttp.getInstance().getString(url, TAG, new IHttp.HttpResult() {
+        FlyOkHttp.getInstance().getString(url, TAG, new IHttp.HttpResult() {
             @Override
             public void succeed(Object object) {
                 if (object != null) {
                     FlyLog.d("onSuccess msg:" + " city: " + city + object);
-                    TemperatureEntity entity = GsonUtils.json2Object(object.toString(), TemperatureEntity.class);
+                    TemperatureEntity entity = GsonUtil.json2Object(object.toString(), TemperatureEntity.class);
                     if (entity != null && entity.getData() != null) {
                         List<TemperatureEntity.DataBean.ForecastBean> forecast = entity.getData()
                                 .getForecast();

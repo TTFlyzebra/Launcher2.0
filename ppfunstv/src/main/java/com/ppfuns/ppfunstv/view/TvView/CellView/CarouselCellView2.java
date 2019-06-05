@@ -25,7 +25,7 @@ import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DisplayUtils;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.FontManager;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.EmptyInvisibleTextView;
 import com.ppfuns.ppfunstv.view.LoopPlayView.ILoopPlayView;
@@ -317,7 +317,7 @@ public class CarouselCellView2 extends TvPageItemView {
 
             addView(textView);
             String textStr = mCell.getSubCellList().get(0).getText();
-            Map str = GsonUtils.json2Map(textStr);
+            Map str = GsonUtil.json2Map(textStr);
             textView.setText(Utils.getLocalLanguageString(str));
 
         } else {
@@ -348,7 +348,7 @@ public class CarouselCellView2 extends TvPageItemView {
     private void showText(int currentItem) {
         try {
             String textStr = mCell.getSubCellList().get(currentItem).getText();
-            Map str = GsonUtils.json2Map(textStr);
+            Map str = GsonUtil.json2Map(textStr);
             textView.setText(Utils.getLocalLanguageString(str));
         } catch (Exception e) {
             FlyLog.d(e.toString());

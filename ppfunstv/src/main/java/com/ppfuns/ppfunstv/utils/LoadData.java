@@ -48,7 +48,7 @@ public class LoadData {
             is = context.getAssets().open(path);
             String fileInfo = FileUtil.readFile(is);
             if(fileInfo != null){
-                return  GsonUtils.json2Object(fileInfo,TemplateBean.class);
+                return  GsonUtil.json2Object(fileInfo,TemplateBean.class);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +59,7 @@ public class LoadData {
     private TemplateBean getTemplate(Context context,String path){
         String fileInfo = FileUtil.readFile(path);
         if(fileInfo != null){
-            return  GsonUtils.json2Object(fileInfo,TemplateBean.class);
+            return  GsonUtil.json2Object(fileInfo,TemplateBean.class);
         }
         return null;
     }
@@ -70,7 +70,7 @@ public class LoadData {
             is = context.getAssets().open(path);
             String fileInfo = FileUtil.readFile(is);
             if(fileInfo != null){
-                return  GsonUtils.json2Object(fileInfo,CellBean.class);
+                return  GsonUtil.json2Object(fileInfo,CellBean.class);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class LoadData {
     public CellBean getCellsInfo(String path){
         String fileInfo = FileUtil.readFile(path);
         if(fileInfo != null){
-            return  GsonUtils.json2Object(fileInfo, CellBean.class);
+            return  GsonUtil.json2Object(fileInfo, CellBean.class);
         }
         return null;
     }
@@ -96,7 +96,7 @@ public class LoadData {
             is = context.getAssets().open(path);
             String fileInfo = FileUtil.readFile(is);
             if(fileInfo != null){
-                return  GsonUtils.json2Object(fileInfo,ControlBean.class);
+                return  GsonUtil.json2Object(fileInfo,ControlBean.class);
             }
         } catch (IOException e) {
             FlyLog.d(e.toString());
@@ -108,14 +108,14 @@ public class LoadData {
     public ControlBean getControlInfo(Context context,String path){
         String fileInfo = FileUtil.readFile(path);
         if(fileInfo != null){
-            return  GsonUtils.json2Object(fileInfo,ControlBean.class);
+            return  GsonUtil.json2Object(fileInfo,ControlBean.class);
         }
         return null;
     }
 
     public TemplateBean loadTemplateData(Context context,String URL_TempLate_DISK){
         String path = URL_TempLate_DISK;
-        String templatePath = DEFAULT_WEB_DATA_PATH + EncodeHelper.md5(path)+".0";
+        String templatePath = DEFAULT_WEB_DATA_PATH + EncodeUtil.md5(path)+".0";
         TemplateBean bean = getInstance().getAssetTemplate(context,templatePath);
         return bean;
     }
@@ -126,7 +126,7 @@ public class LoadData {
         if(templates != null && templates.size() >0){
             for(TemplateEntity entity :templates){
                 int key = entity.getTemplateId();
-                String controlPath = DEFAULT_WEB_DATA_PATH + EncodeHelper.md5(URL_RESOURCE_DISK + key)+".0";
+                String controlPath = DEFAULT_WEB_DATA_PATH + EncodeUtil.md5(URL_RESOURCE_DISK + key)+".0";
                 ControlBean controlBean = getInstance().getAssetControlInfo(context,controlPath);
                 map.put(key,controlBean);
             }
@@ -166,7 +166,7 @@ public class LoadData {
 //            FlyLog.d("tab.." + tab.getName());
 //            String path = SystemPropertiesProxy.get(context,Constants.URL_BASE_DEFAULT,IUpdataVersion.URL_BASE) + IUpdataVersion.URL_CellBean_suffix;
             String path = URL_CellBean_DISK;
-            String tabPath = DEFAULT_WEB_DATA_PATH + EncodeHelper.md5(path+tab.getId())+".0";
+            String tabPath = DEFAULT_WEB_DATA_PATH + EncodeUtil.md5(path+tab.getId())+".0";
             CellBean cell = LoadData.getInstance().getAssetCells(context, tabPath);
             if (cell != null) {
                 cells.add(cell);
@@ -177,7 +177,7 @@ public class LoadData {
 
 
     public Bitmap loadAssetBitmap(Context context,String url){
-        url = DEFAULT_WEB_DATA_PATH + EncodeHelper.md5(url) + ".0";
+        url = DEFAULT_WEB_DATA_PATH + EncodeUtil.md5(url) + ".0";
         Bitmap bitmap = null;
         AssetManager assets = context.getAssets();
         InputStream is = null;

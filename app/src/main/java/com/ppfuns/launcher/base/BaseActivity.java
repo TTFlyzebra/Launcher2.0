@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.ppfuns.launcher.R;
 import com.ppfuns.launcher.view.LoadingDialog;
@@ -33,7 +32,7 @@ public class BaseActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     @Override

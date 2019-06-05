@@ -9,7 +9,7 @@ import com.ppfuns.ppfunstv.data.ActionEntity;
 import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.utils.DialogUtil;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -25,7 +25,7 @@ public class DefaultAction extends BaseAction{
     protected String mType;
 
     public DefaultAction(Context context, String cmd,boolean needAuth,@NonNull String type){
-        mEntity = GsonUtils.json2Object(cmd, ActionEntity.class);
+        mEntity = GsonUtil.json2Object(cmd, ActionEntity.class);
         this.mNeedAuth = needAuth;
         mContext = context;
         mType = type;
@@ -53,7 +53,7 @@ public class DefaultAction extends BaseAction{
      */
     public DefaultAction(Context context,String cmd,boolean needAuth){
         this(context,needAuth);
-        mEntity = GsonUtils.json2Object(cmd, ActionEntity.class);
+        mEntity = GsonUtil.json2Object(cmd, ActionEntity.class);
     }
 
     /**

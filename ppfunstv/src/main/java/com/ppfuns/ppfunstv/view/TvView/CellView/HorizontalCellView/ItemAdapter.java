@@ -21,7 +21,7 @@ import com.ppfuns.ppfunstv.data.CellEntity;
 import com.ppfuns.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.ppfuns.ppfunstv.utils.FlyLog;
 import com.ppfuns.ppfunstv.utils.FontManager;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.Utils;
 import com.ppfuns.ppfunstv.view.MarqueeTextView;
 
@@ -171,7 +171,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.SimpleItemView
             }
         });
         String textStr = list.get(position).getText();
-        Map str = GsonUtils.json2Map(textStr);
+        Map str = GsonUtil.json2Map(textStr);
         String texts = Utils.getLocalLanguageString(str);
         if (!TextUtils.isEmpty(texts)) {
             texts.replace("\\\\n", "\\n");

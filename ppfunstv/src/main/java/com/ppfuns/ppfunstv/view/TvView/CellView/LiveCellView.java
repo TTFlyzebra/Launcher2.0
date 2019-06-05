@@ -20,7 +20,7 @@ import com.ppfuns.ppfunstv.constant.YinheConstants;
 import com.ppfuns.ppfunstv.data.ActionEntity;
 import com.ppfuns.ppfunstv.service.PlayerServiceConnect;
 import com.ppfuns.ppfunstv.utils.FlyLog;
-import com.ppfuns.ppfunstv.utils.GsonUtils;
+import com.ppfuns.ppfunstv.utils.GsonUtil;
 import com.ppfuns.ppfunstv.utils.LivePlayHelper;
 import com.ppfuns.ppfunstv.view.TvView.CellView.CellClickAction.CommondTool;
 import com.ppfuns.ppfunstv.view.TvView.IPageChangeListener;
@@ -153,7 +153,7 @@ public class LiveCellView extends SimpleCellView implements SurfaceHolder.Callba
     @Override
     public void setActionEntity() {
         FlyLog.d("setActionEntity....");
-        mEntity = GsonUtils.json2Object(mCell.getIntent(), ActionEntity.class);
+        mEntity = GsonUtil.json2Object(mCell.getIntent(), ActionEntity.class);
     }
 
     @Override

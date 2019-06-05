@@ -37,7 +37,7 @@ import okhttp3.TlsVersion;
  *
  * Created by FlyZebra on 2016/3/30.
  */
-public class MyOkHttp implements IHttp {
+public class FlyOkHttp implements IHttp {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     //TODO:以下请求网址将使用EncodedRequestBody编码
     public static final String URL_REGEXP = "http://192.168.*/boafrm/get_parameter";
@@ -62,10 +62,10 @@ public class MyOkHttp implements IHttp {
                     CipherSuite.TLS_DHE_RSA_WITH_AES_128_GCM_SHA256)
             .build();
 
-    private MyOkHttp() {
+    private FlyOkHttp() {
     }
 
-    public static MyOkHttp getInstance() {
+    public static FlyOkHttp getInstance() {
         return MyOkHttpHolder.sInstance;
     }
 
@@ -78,7 +78,7 @@ public class MyOkHttp implements IHttp {
 
     public OkHttpClient getHttpClient() {
         if (mOkHttpClient == null) {
-            synchronized (MyOkHttp.class) {
+            synchronized (FlyOkHttp.class) {
                 OkHttpClient.Builder builder = new OkHttpClient.Builder()
                         .cache(new Cache(getDiskCacheDir("okhttp"), 50 * 1024 * 1024))
                         .connectTimeout(30, TimeUnit.SECONDS)
@@ -297,7 +297,7 @@ public class MyOkHttp implements IHttp {
     }
 
     private static class MyOkHttpHolder {
-        public static final MyOkHttp sInstance = new MyOkHttp();
+        public static final FlyOkHttp sInstance = new FlyOkHttp();
     }
 
     /**
