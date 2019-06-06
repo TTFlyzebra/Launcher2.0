@@ -15,7 +15,6 @@ import android.widget.ProgressBar;
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.base.BaseActivity;
 import com.flyzebra.launcher.utils.FlyLog;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by 李宗源 on 2016/7/25.
@@ -39,13 +38,11 @@ public class WebActivity extends BaseActivity {
 
     @Override
     protected void onResume() {
-        MobclickAgent.onPageStart(TAG);
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        MobclickAgent.onPageEnd(TAG);
         super.onPause();
     }
 

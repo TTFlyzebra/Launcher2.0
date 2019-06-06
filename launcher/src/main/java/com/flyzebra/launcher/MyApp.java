@@ -10,7 +10,6 @@ import com.flyzebra.ppfunstv.http.FlyOkHttp;
 import com.flyzebra.ppfunstv.utils.AppUtil;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.wallpaper.FastWallpaper;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  *
@@ -32,7 +31,6 @@ public class MyApp extends BaseApplication {
 //                .detectActivityLeaks().detectAll()
 //                .penaltyLog().penaltyDeath().build());
 //        LeakCanary.install(this);
-        MobclickAgent.setDebugMode(true);
 //        CrashHandler crashHandler = CrashHandler.getInstance();
 //        crashHandler.init(getApplicationContext());
     }

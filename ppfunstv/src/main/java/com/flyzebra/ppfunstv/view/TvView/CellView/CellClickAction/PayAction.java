@@ -14,7 +14,6 @@ import com.flyzebra.ppfunstv.utils.DialogUtil;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.GsonUtil;
 import com.flyzebra.ppfunstv.utils.IntentParamParseHelper;
-import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
 
@@ -65,7 +64,6 @@ public class PayAction  extends BaseAction {
                 it.putExtras(budle);
             }
             if (CommondTool.execStartActivityAndShowTip(mContext, it, mContext.getString(R.string.tv_app_not_install), mNeedAuth,flag)) {
-                MobclickAgent.onEvent(mContext, MobclickConstants.TYPE_PAY,mobPara);
             }
         }else{
             DialogUtil.showDialog(mContext, mContext.getString(R.string.tv_data_is_null));

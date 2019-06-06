@@ -10,7 +10,6 @@ import com.flyzebra.ppfunstv.data.CellEntity;
 import com.flyzebra.ppfunstv.utils.DialogUtil;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.GsonUtil;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by 李宗源 on 2016/9/6.
@@ -74,21 +73,16 @@ public class DefaultAction extends BaseAction{
             mobPara.put(MobclickConstants.PARA_PACKAGE, mEntity.getPackageName());
             mobPara.put(MobclickConstants.PARA_CLASS, mEntity.getClassName());
             mobPara.put(MobclickConstants.PARA_DATAS, mEntity.getData());
-            MobclickAgent.onEvent(mContext, mType, mobPara);
         } else if (mEntity != null && CommondTool.execStartPackage(mContext, mEntity.getPackageName(),mEntity.getData(),flag)) {
             mobPara.put(MobclickConstants.PARA_PACKAGE, mEntity.getPackageName());
-            MobclickAgent.onEvent(mContext, mType, mobPara);
         } else if (mEntity != null && !TextUtils.isEmpty(mEntity.getIntent()) && CommondTool.execStartActivity(mContext, mEntity.getIntent(), mEntity.getData(), mEntity.getUrl(), mNeedAuth,flag)) {//启动第三方应用
             mobPara.put(MobclickConstants.PARA_ACTION, mEntity.getIntent());
-            MobclickAgent.onEvent(mContext, mType, mobPara);
         } else if (mEntity != null && !TextUtils.isEmpty(mEntity.getDownIntent()) && CommondTool.execStartActivity(mContext, mEntity.getDownIntent(), mEntity.getDownPara(), mNeedAuth,flag)) {//去下载第三方应用
             mobPara.put(MobclickConstants.PARA_ACTION, mEntity.getDownIntent());
             mobPara.put(MobclickConstants.PARA_DATAS, mEntity.getDownPara());
-            MobclickAgent.onEvent(mContext, mType, mobPara);
         } else if (mEntity != null && !TextUtils.isEmpty(mEntity.getCmd())) {
             FlyLog.d("exec command...click:" + mEntity.getCmd());
             CommondTool.execCommand(mEntity.getCmd());
-            MobclickAgent.onEvent(mContext, mType, mEntity.getCmd());
         } else {
             if (!TextUtils.equals(mType, MobclickConstants.TYPE_ADS)) {
                 DialogUtil.showDialog(mContext, mContext.getResources().getString(R.string.tv_data_err));

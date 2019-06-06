@@ -16,9 +16,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.R;
 import com.flyzebra.ppfunstv.data.CellEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.FontManager;
 import com.flyzebra.ppfunstv.utils.GsonUtil;

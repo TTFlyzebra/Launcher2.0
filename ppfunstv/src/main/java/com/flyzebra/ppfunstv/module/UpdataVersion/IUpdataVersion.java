@@ -1,10 +1,11 @@
 package com.flyzebra.ppfunstv.module.UpdataVersion;
 
 
-import com.flyzebra.ppfunstv.data.CellBean;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.TemplateBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 
 import java.util.List;
 
@@ -83,7 +84,7 @@ public interface IUpdataVersion {
         /**
          * 更新成功
          */
-        void upVersionOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean);
+        void upVersionOK(TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean);
 
         /**
          * 更新进度
@@ -109,7 +110,7 @@ public interface IUpdataVersion {
         /**
          * 缓存数据已成功读出
          */
-        void getCacheDataOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean);
+        void getCacheDataOK(TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean);
 
         /**
          * 读取缓存出错

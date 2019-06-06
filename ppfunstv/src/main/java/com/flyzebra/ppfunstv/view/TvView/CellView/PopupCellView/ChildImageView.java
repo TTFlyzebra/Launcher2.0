@@ -8,8 +8,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.CellEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction.DefaultAction;
 import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.IAnimatView;
 import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.ITvFocusAnimat;

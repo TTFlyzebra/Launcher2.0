@@ -1,5 +1,6 @@
 package com.flyzebra.launcher.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -8,15 +9,11 @@ import android.widget.TextView;
 
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.utils.FlyLog;
-import com.flyzebra.launcher.utils.GsonUtils;
 import com.flyzebra.launcher.utils.SystemPropertiesProxy;
 import com.flyzebra.ppfunstv.constant.Constants;
-import com.flyzebra.ppfunstv.data.AreaInfoEntity;
 import com.flyzebra.ppfunstv.http.FlyOkHttp;
 import com.flyzebra.ppfunstv.http.IHttp;
-import com.flyzebra.ppfunstv.module.EventMessage;
 
-import org.greenrobot.eventbus.EventBus;
 
 
 /**
@@ -28,6 +25,7 @@ import org.greenrobot.eventbus.EventBus;
  * 目前采用方案:通过设置系统属性(persist.sys.areaname)获取地区信息
  * 对接地址:http://apistore.baidu.com/apiworks/servicedetail/114.html
  */
+@SuppressLint("AppCompatCustomView")
 public class AreaTextView extends TextView{
     private static final String TAG = AreaTextView.class.getSimpleName();
     private final int DELAY_TIME = 300;
@@ -75,17 +73,6 @@ public class AreaTextView extends TextView{
         FlyOkHttp.getInstance().getString(url, Constants.API_STORE_KEY_NAME, Constants.API_STORE_KEY, Constants.API_STORE_TAG_AREA, new IHttp.HttpResult() {
             @Override
             public void succeed(Object object) {
-                if(object != null){
-                    FlyLog.d( "onSuccess msg:"+object.toString());
-                    AreaInfoEntity entity = GsonUtils.json2Object(object.toString(),AreaInfoEntity.class);
-                    if(entity != null && entity.getRetData() != null) {
-                        setText(entity.getRetData().getCity());
-                        EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_TEMPERATURE, entity.getRetData().getCity()));
-                        mHandler.removeCallbacks(task);
-                    }else{
-                        mHandler.postDelayed(task,DELAY_TIME);
-                    }
-                }
             }
 
             @Override

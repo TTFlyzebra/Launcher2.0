@@ -10,12 +10,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
+import com.flyzebra.flyui.chache.DiskCache;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.launcher.R;
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.DiskCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.module.UpdataVersion.IUpdataVersion;
 import com.flyzebra.ppfunstv.module.UpdataVersion.UpdataVersion;
 import com.flyzebra.ppfunstv.service.MarqueeService;
@@ -109,7 +109,7 @@ public class MainActivity extends Activity implements IUpdataVersion.CheckCacheR
     }
 
 
-    private void upDateView (TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+    private void upDateView (TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean) {
         mItvView = TvViewFactory.create(this,templateEntity.getTemplateDetail());
         mItvView.createLogoView(controlBean.getLogo(),iDiskCache);
         mItvView.createMaqueeView(controlBean.getMarqueeEntity());
@@ -119,7 +119,7 @@ public class MainActivity extends Activity implements IUpdataVersion.CheckCacheR
     }
 
     @Override
-    public void getCacheDataOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+    public void getCacheDataOK(TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean) {
         FlyLog.d();
         upDateView(templateEntity,cellBeanList,controlBean);
         iUpDataVersion.startUpVersion(this);
@@ -131,7 +131,7 @@ public class MainActivity extends Activity implements IUpdataVersion.CheckCacheR
     }
 
     @Override
-    public void upVersionOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+    public void upVersionOK(TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean) {
         FlyLog.d();
         upDateView(templateEntity,cellBeanList,controlBean);
     }

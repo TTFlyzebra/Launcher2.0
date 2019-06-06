@@ -1,10 +1,10 @@
 package com.flyzebra.ppfunstv.view.TvView;
 
-import com.flyzebra.ppfunstv.data.CellBean;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.LogoEntity;
 import com.flyzebra.ppfunstv.data.MarqueeEntity;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public interface ITvView {
     /**
      *
      */
-    void createPageView(TemplateEntity templateEntity, List<CellBean> list, IDiskCache iDiskCache);
+    void createPageView(TemplateEntity templateEntity, List<TvCellBean> list, IDiskCache iDiskCache);
 
     /**
      *

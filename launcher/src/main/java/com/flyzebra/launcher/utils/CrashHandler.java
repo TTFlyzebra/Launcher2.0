@@ -3,8 +3,6 @@ package com.flyzebra.launcher.utils;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.umeng.analytics.MobclickAgent;
-
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -94,7 +92,6 @@ public class CrashHandler implements UncaughtExceptionHandler {
         ex.printStackTrace();
         FlyLog.e(ex.toString());
         //上报异常信息
-        MobclickAgent.reportError(mContext,ex);
         return true;
     }
 

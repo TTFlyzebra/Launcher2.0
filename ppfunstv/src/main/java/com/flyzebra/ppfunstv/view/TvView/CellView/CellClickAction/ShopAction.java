@@ -1,5 +1,6 @@
 package com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +16,6 @@ import com.flyzebra.ppfunstv.utils.DialogUtil;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.GsonUtil;
 import com.flyzebra.ppfunstv.utils.IntentParamParseHelper;
-import com.umeng.analytics.MobclickAgent;
 
 import java.util.Map;
 
@@ -66,27 +66,22 @@ public class ShopAction extends BaseAction {
             //前端没有配置的话,默认进入主页
             mobPara.put(MobclickConstants.PARA_PACKAGE,DEFAULT_PACKAGE_NAME);
             mobPara.put(MobclickConstants.PARA_CLASS,DEFAULT_ACTIVITY);
-            MobclickAgent.onEvent(mContext, mType,mobPara);
         }else if (mEntity != null && DEFAULT_PACKAGE_NAME.equals(mEntity.getPackageName()) && startActivity(mEntity.getPackageName(),mEntity.getClassName(),GsonUtil.mapToJson(mPara),mEntity.getAction())){
             mobPara.put(MobclickConstants.PARA_PACKAGE,DEFAULT_PACKAGE_NAME);
             mobPara.put(MobclickConstants.PARA_CLASS,DEFAULT_ACTIVITY);
             mobPara.put(MobclickConstants.PARA_ACTION,mEntity.getAction());
             mobPara.put(MobclickConstants.PARA_DATAS,mPara.toString());
-            MobclickAgent.onEvent(mContext, mType,mobPara);
         }else if(CommondTool.execStartPackage(mContext,mEntity.getPackageName(),mEntity.getClassName(),mEntity.getData(),flag)){
             mobPara.put(MobclickConstants.PARA_PACKAGE,DEFAULT_PACKAGE_NAME);
             mobPara.put(MobclickConstants.PARA_CLASS,DEFAULT_ACTIVITY);
             mobPara.put(MobclickConstants.PARA_DATAS,mPara.toString());
-            MobclickAgent.onEvent(mContext, mType,mobPara);
         }else if(!TextUtils.isEmpty(mEntity.getDownIntent()) && CommondTool.execStartActivity(mContext,mEntity.getDownIntent(),mEntity.getDownPara(),mNeedAuth,flag)){
             //去下载第三方应用
             mobPara.put(MobclickConstants.PARA_ACTION,mEntity.getDownIntent());
             mobPara.put(MobclickConstants.PARA_DATAS,mEntity.getDownPara());
-            MobclickAgent.onEvent(mContext, MobclickConstants.TYPE_APP,mobPara);
         }else if(mEntity != null && !TextUtils.isEmpty(mEntity.getCmd())){//执行shell指令
             FlyLog.d("exec command...click:"+mEntity.getCmd());
             CommondTool.execCommand(mEntity.getCmd());
-            MobclickAgent.onEvent(mContext,MobclickConstants.TYPE_SHOP,mEntity.getCmd());
         }else{
             DialogUtil.showDialog(mContext, mContext.getResources().getString(R.string.tv_data_err));
         }
@@ -114,7 +109,7 @@ public class ShopAction extends BaseAction {
             intent.putExtra(ACTION, action);
         }
         intent.setComponent(cn);
-        ActivityInfo info = intent.resolveActivityInfo(mContext.getPackageManager(), PackageManager.GET_ACTIVITIES);
+        @SuppressLint("WrongConstant") ActivityInfo info = intent.resolveActivityInfo(mContext.getPackageManager(), PackageManager.GET_ACTIVITIES);
         if (info != null) {
             FlyLog.d(info.toString());
             mContext.startActivity(intent);

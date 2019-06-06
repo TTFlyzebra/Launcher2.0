@@ -7,11 +7,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
-import com.flyzebra.ppfunstv.data.CellBean;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.LogoEntity;
 import com.flyzebra.ppfunstv.data.MarqueeEntity;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.SPUtil;
 import com.flyzebra.ppfunstv.view.MarqueeView.IMarquee;
@@ -104,7 +104,7 @@ public class SimpleTvView extends RelativeLayout implements ITvView{
     }
 
     @Override
-    public void createPageView(TemplateEntity templateEntity, List<CellBean> mCellBeanList, IDiskCache iDiskCache) {
+    public void createPageView(TemplateEntity templateEntity, List<TvCellBean> mCellBeanList, IDiskCache iDiskCache) {
         if (mCellBeanList != null && mCellBeanList.size() > 0) {
             PopupTvViewLayout popupTvViewLayout = new PopupTvViewLayout.Builder()
                     .context(mContext)

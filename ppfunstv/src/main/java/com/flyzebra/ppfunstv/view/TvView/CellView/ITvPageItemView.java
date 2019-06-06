@@ -4,9 +4,9 @@ import android.support.annotation.DrawableRes;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.CellEntity;
 import com.flyzebra.ppfunstv.module.BitmapCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.view.ReflectImageView;
 
 /**

@@ -12,10 +12,10 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 
+import com.flyzebra.flyui.chache.DiskCache;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.constant.Constants;
 import com.flyzebra.ppfunstv.data.AdsEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.DiskCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.module.ads.AdsClient;
 import com.flyzebra.ppfunstv.module.ads.AdsInfo;
 import com.flyzebra.ppfunstv.module.ads.DataEmptyException;

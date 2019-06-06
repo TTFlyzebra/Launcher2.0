@@ -5,11 +5,11 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.TabEntity;
 import com.flyzebra.ppfunstv.data.TemplateBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -64,13 +64,13 @@ public class LoadData {
         return null;
     }
 
-    public CellBean getAssetCells(Context context, String path){
+    public TvCellBean getAssetCells(Context context, String path){
         InputStream is = null;
         try {
             is = context.getAssets().open(path);
             String fileInfo = FileUtil.readFile(is);
             if(fileInfo != null){
-                return  GsonUtil.json2Object(fileInfo,CellBean.class);
+                return  GsonUtil.json2Object(fileInfo,TvCellBean.class);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -82,10 +82,10 @@ public class LoadData {
      * @param path 每页json文件路径
      * @return
      */
-    public CellBean getCellsInfo(String path){
+    public TvCellBean getCellsInfo(String path){
         String fileInfo = FileUtil.readFile(path);
         if(fileInfo != null){
-            return  GsonUtil.json2Object(fileInfo, CellBean.class);
+            return  GsonUtil.json2Object(fileInfo, TvCellBean.class);
         }
         return null;
     }
@@ -160,14 +160,14 @@ public class LoadData {
         return templateEntity;
     }
 
-    public List<CellBean> loadCellList(Context context,List<TabEntity> tabs,String URL_CellBean_DISK){
-        List<CellBean> cells = new ArrayList<>();
+    public List<TvCellBean> loadCellList(Context context, List<TabEntity> tabs, String URL_CellBean_DISK){
+        List<TvCellBean> cells = new ArrayList<>();
         for (TabEntity tab : tabs) {
 //            FlyLog.d("tab.." + tab.getName());
 //            String path = SystemPropertiesProxy.get(context,Constants.URL_BASE_DEFAULT,IUpdataVersion.URL_BASE) + IUpdataVersion.URL_CellBean_suffix;
             String path = URL_CellBean_DISK;
             String tabPath = DEFAULT_WEB_DATA_PATH + EncodeUtil.md5(path+tab.getId())+".0";
-            CellBean cell = LoadData.getInstance().getAssetCells(context, tabPath);
+            TvCellBean cell = LoadData.getInstance().getAssetCells(context, tabPath);
             if (cell != null) {
                 cells.add(cell);
             }

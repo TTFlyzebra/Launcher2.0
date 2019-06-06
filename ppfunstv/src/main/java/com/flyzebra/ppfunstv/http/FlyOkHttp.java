@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.flyzebra.ppfunstv.utils.FlyLog;
-import com.flyzebra.ppfunstv.utils.RegexpUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +22,6 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.CipherSuite;
 import okhttp3.ConnectionSpec;
-import okhttp3.EncodedRequestBody;
 import okhttp3.FormBody;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
@@ -34,7 +32,6 @@ import okhttp3.Response;
 import okhttp3.TlsVersion;
 
 /**
- *
  * Created by FlyZebra on 2016/3/30.
  */
 public class FlyOkHttp implements IHttp {
@@ -159,19 +156,11 @@ public class FlyOkHttp implements IHttp {
         FlyLog.d("postString:url=" + url);
         try {
             RequestBody formBody;
-            if(RegexpUtil.isAccept(url, URL_REGEXP)){
-                EncodedRequestBody.Builder builder = new EncodedRequestBody.Builder();
-                for (Map.Entry<String, String> entry : params.entrySet()) {
-                    builder.addEncoded(entry.getKey(), entry.getValue());
-                }
-                formBody = builder.build();
-            }else{
-                FormBody.Builder builder = new FormBody.Builder();
-                for (Map.Entry<String, String> entry : params.entrySet()) {
-                    builder.add(entry.getKey(), entry.getValue());
-                }
-                formBody = builder.build();
+            FormBody.Builder builder = new FormBody.Builder();
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                builder.add(entry.getKey(), entry.getValue());
             }
+            formBody = builder.build();
             final Request request = new Request.Builder()
                     .tag(tag)
                     .url(url)
@@ -227,13 +216,13 @@ public class FlyOkHttp implements IHttp {
 
     public File getDiskCacheDir(String uniqueName) {
         String cachePath;
-        try{
+        try {
             if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
                 cachePath = mContext.getExternalCacheDir().getPath();
             } else {
                 cachePath = mContext.getCacheDir().getPath();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             cachePath = mContext.getCacheDir().getPath();
         }
         return new File(cachePath + File.separator + uniqueName);

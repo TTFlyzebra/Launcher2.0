@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.View;
 
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.CellEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.utils.BehavioralUtil;
 import com.flyzebra.ppfunstv.utils.DisplayUtils;
 import com.flyzebra.ppfunstv.utils.FlyLog;
@@ -65,7 +65,7 @@ public class PopupTvView extends BaseTvView {
                 age_range = 0;
             }
 
-            CellBean cellBean = mCellBeanList.get(age_range);
+            TvCellBean cellBean = mCellBeanList.get(age_range);
 
             ClearTopRectView clearTopRectView = new ClearTopRectView(mContext);
             LayoutParams lp1 = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);

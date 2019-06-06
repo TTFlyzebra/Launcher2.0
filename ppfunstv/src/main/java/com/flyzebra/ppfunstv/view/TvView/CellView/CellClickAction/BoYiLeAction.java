@@ -1,5 +1,6 @@
 package com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +16,6 @@ import com.flyzebra.ppfunstv.utils.DialogUtil;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.GsonUtil;
 import com.flyzebra.ppfunstv.utils.IntentParamParseHelper;
-import com.umeng.analytics.MobclickAgent;
 
 import java.util.Map;
 
@@ -65,12 +65,10 @@ public class BoYiLeAction extends BaseAction {
                 mobPara.put(MobclickConstants.PARA_PACKAGE,mEntity.getPackageName());
                 mobPara.put(MobclickConstants.PARA_CLASS,mEntity.getClassName());
                 mobPara.put(MobclickConstants.PARA_DATAS,mEntity.getData());
-                MobclickAgent.onEvent(mContext,MobclickConstants.TYPE_SHOP,mobPara);
             }
         }else if(mEntity != null){//执行shell指令
             FlyLog.d("exec command...click:"+mEntity.getCmd());
             CommondTool.execCommand(mEntity.getCmd());
-            MobclickAgent.onEvent(mContext,MobclickConstants.TYPE_SHOP,mEntity.getCmd());
         }else{
             DialogUtil.showDialog(mContext, mContext.getResources().getString(R.string.tv_data_err));
         }
@@ -93,6 +91,7 @@ public class BoYiLeAction extends BaseAction {
         ComponentName cn = new ComponentName(packageName, className);
         intent.putExtra(PARA, para);
         intent.setComponent(cn);
+        @SuppressLint("WrongConstant")
         ActivityInfo info = intent.resolveActivityInfo(mContext.getPackageManager(), PackageManager.GET_ACTIVITIES);
         if (info != null) {
             FlyLog.d(info.toString());

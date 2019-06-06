@@ -3,10 +3,10 @@ package com.flyzebra.ppfunstv.view.TvView;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.flyzebra.ppfunstv.data.CellBean;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.view.TvView.PPfunsTV.PPfunsTvView;
 import com.flyzebra.ppfunstv.view.TvView.PopupTV.PopupTvView;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * Created by FlyZebra on 2016/8/31.
  */
 public class TvViewFactory {
-    public static BaseTvView create(Context context, IDiskCache iDiskCache, TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+    public static BaseTvView create(Context context, IDiskCache iDiskCache, TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean) {
         BaseTvView mTvView = null;
         String TYPE = TextUtils.isEmpty(templateEntity.getTemplateDetail())?"":templateEntity.getTemplateDetail();
         switch (TYPE) {

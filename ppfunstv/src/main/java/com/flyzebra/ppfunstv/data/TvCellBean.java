@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by lenovo on 2016/6/13.
  */
-public class CellBean implements Serializable{
+public class TvCellBean implements Serializable{
 
     /**
      * msg : 下载成功

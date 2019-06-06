@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.Scroller;
 import android.widget.TextView;
 
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.R;
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.CellEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.module.BitmapCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.utils.DisplayUtils;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.view.ReflectImageView;
@@ -634,7 +634,7 @@ public class PopupTvViewLayout extends ViewGroup {
      *
      * @param cellBean
      */
-    public void setData(@NonNull CellBean cellBean) {
+    public void setData(@NonNull TvCellBean cellBean) {
         List<CellEntity> list = cellBean.getCellList();
         setData(list);
     }

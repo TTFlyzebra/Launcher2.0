@@ -14,24 +14,19 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.flyzebra.flyui.chache.DiskCache;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.base.BaseActivity;
 import com.flyzebra.launcher.module.SoundPlay;
 import com.flyzebra.launcher.utils.FlyLog;
-import com.flyzebra.launcher.utils.GsonUtils;
 import com.flyzebra.launcher.utils.SPUtil;
 import com.flyzebra.launcher.utils.SystemPropertiesProxy;
 import com.flyzebra.ppfunstv.constant.Constants;
 import com.flyzebra.ppfunstv.data.TemplateBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
-import com.flyzebra.ppfunstv.module.EventMessage;
-import com.flyzebra.ppfunstv.module.UpdataVersion.DiskCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.utils.LoadData;
 import com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction.CommondTool;
-import com.umeng.analytics.MobclickAgent;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -93,13 +88,11 @@ public class BackDoorActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void onResume() {
-        MobclickAgent.onPageStart(TAG);
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        MobclickAgent.onPageEnd(TAG);
         super.onPause();
     }
 
@@ -151,9 +144,6 @@ public class BackDoorActivity extends BaseActivity implements View.OnClickListen
         tvSvn.setText(getUserConfig(KEY_SVN_VERSION) + "");
         String templateString = iDiskCache.getString("/api/ui-operation/api/v/launcher_tab.json");
         TemplateBean bean = null;
-        if (templateString != null) {
-            bean = GsonUtils.json2Object(templateString, TemplateBean.class);
-        }
         if (bean == null) {
             bean = LoadData.getInstance().loadTemplateData(this,"/api/ui-operation/api/v/launcher_tab.json");
         }
@@ -172,7 +162,6 @@ public class BackDoorActivity extends BaseActivity implements View.OnClickListen
                             if (curTemplate != templateId) {
                                 FlyLog.d( "curTemplate id != select template id,need to change template");
                                 SPUtil.setTemplate(BackDoorActivity.this, SPUtil.TEMPLATE_ID, templateId);
-                                EventBus.getDefault().post(new EventMessage(EventMessage.MSG_CHANGE_TEMPLATE));
                                 finish();
                             } else {
                                 FlyLog.d("curTemplate id == select template id, no need to change template");
@@ -198,7 +187,6 @@ public class BackDoorActivity extends BaseActivity implements View.OnClickListen
                     @Override
                     public void onClick(View v) {
                         SPUtil.set(mContext, SPUtil.FILE_CONFIG, SPUtil.CONFIG_SOUND_INDEX, index);
-                        EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_SOUND_INDEX));
                         setSoundRadio();
                         soundPlay.stopSound();
                         soundPlay.playSound(index,0);
@@ -350,7 +338,6 @@ public class BackDoorActivity extends BaseActivity implements View.OnClickListen
                 break;
             }
             case R.id.btn_update:{
-                EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_VERSION));
                 break;
             }
             case R.id.btn_shake:{

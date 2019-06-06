@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.R;
 import com.flyzebra.ppfunstv.data.ActionEntity;
 import com.flyzebra.ppfunstv.data.LogoEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.receiver.UsbStateReceiver;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.SPUtil;

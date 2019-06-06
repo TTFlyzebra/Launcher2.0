@@ -32,7 +32,6 @@ import com.flyzebra.ppfunstv.receiver.NetworkReceiver;
 import com.flyzebra.ppfunstv.receiver.UsbStateReceiver;
 import com.flyzebra.ppfunstv.utils.DialogUtil;
 import com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction.CommondTool;
-import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 
@@ -128,7 +127,6 @@ public class SetActivity extends BaseActivity implements UsbStateReceiver.EventL
 
     @Override
     protected void onResume() {
-        MobclickAgent.onPageStart(TAG);
         super.onResume();
         updateVisivable();
         mGridView.requestFocus();
@@ -167,7 +165,6 @@ public class SetActivity extends BaseActivity implements UsbStateReceiver.EventL
 
     @Override
     protected void onPause() {
-        MobclickAgent.onPageEnd(TAG);
         super.onPause();
     }
 

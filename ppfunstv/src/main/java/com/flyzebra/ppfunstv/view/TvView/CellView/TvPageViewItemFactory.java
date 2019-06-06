@@ -5,10 +5,10 @@ import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
 
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.data.CellEntity;
 import com.flyzebra.ppfunstv.data.FlyBean;
 import com.flyzebra.ppfunstv.module.BitmapCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.utils.DisplayUtils;
 import com.flyzebra.ppfunstv.utils.GsonUtil;
 import com.flyzebra.ppfunstv.view.TvView.CellView.PopupCellView.IPopupAnimatView;

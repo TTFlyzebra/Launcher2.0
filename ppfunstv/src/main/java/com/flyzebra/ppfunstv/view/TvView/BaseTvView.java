@@ -10,17 +10,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
-import com.bumptech.glide.Glide;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.marqueeservice.IMarqueeService;
 import com.flyzebra.ppfunstv.R;
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.CellEntity;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.MarqueeEntity;
 import com.flyzebra.ppfunstv.data.TabEntity;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.module.BitmapCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
 import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.GsonUtil;
 import com.flyzebra.ppfunstv.utils.SPUtil;
@@ -29,7 +28,6 @@ import com.flyzebra.ppfunstv.view.TvView.CellView.ITvPageItemView;
 import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.ITvFocusAnimat;
 import com.flyzebra.ppfunstv.view.TvView.HeaderView.HeaderLayout;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +39,7 @@ import java.util.Map;
 public abstract class BaseTvView extends RelativeLayout {
     protected static final String TAG = BaseTvView.class.getSimpleName();
     protected List<TabEntity> mTabEntityList = new ArrayList<>();
-    protected List<CellBean> mCellBeanList = new ArrayList<>();
+    protected List<TvCellBean> mCellBeanList = new ArrayList<>();
     protected ControlBean mControlBean;
     private int mPageSize;
     protected static boolean bBgShowing = true;
@@ -86,8 +84,8 @@ public abstract class BaseTvView extends RelativeLayout {
 
     public BaseTvView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        Glide.get(context).clearMemory();
-        releaseGlide();
+//        Glide.get(context).clearMemory();
+//        releaseGlide();
         mContext = context;
         shake = AnimationUtils.loadAnimation(context, R.anim.tv_shake);
         setClipChildren(false);
@@ -95,17 +93,17 @@ public abstract class BaseTvView extends RelativeLayout {
         mBitmapCache = new BitmapCache(mContext);
     }
 
-    private void releaseGlide() {
-        try {
-            Class clazz = Class.forName("com.bumptech.glide.Glide");
-            Method m = clazz.getDeclaredMethod("tearDown",new Class[]{});
-            m.setAccessible(true);// 调用private方法的关键一句话
-            FlyLog.d("call Glide tearDown" );
-            m.invoke(clazz,new Object[]{});
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    private void releaseGlide() {
+//        try {
+//            Class clazz = Class.forName("com.bumptech.glide.Glide");
+//            Method m = clazz.getDeclaredMethod("tearDown",new Class[]{});
+//            m.setAccessible(true);// 调用private方法的关键一句话
+//            FlyLog.d("call Glide tearDown" );
+//            m.invoke(clazz,new Object[]{});
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public BaseTvView setDiskCache(IDiskCache iDiskCache) {
         this.iDiskCache = iDiskCache;
@@ -205,7 +203,7 @@ public abstract class BaseTvView extends RelativeLayout {
      */
     public static final double ADJUST_MEMORY_FACTOR = 0.75f;
 
-    public BaseTvView setTvPageData(List<CellBean> cellBeanList) {
+    public BaseTvView setTvPageData(List<TvCellBean> cellBeanList) {
         if (cellBeanList != null && cellBeanList.size() > 0) {
             this.mCellBeanList.clear();
             if (cellBeanList.size() > 1) {
@@ -287,7 +285,7 @@ public abstract class BaseTvView extends RelativeLayout {
      */
     public static int GLIDE_IMAGE_BYTES_PER_PIXEL = 2;
 
-    protected int adjustMemory(List<CellBean> cellBeanList, double adjustFactor) {
+    protected int adjustMemory(List<TvCellBean> cellBeanList, double adjustFactor) {
         int length = cellBeanList.size();
         if (cellBeanList != null) {
             int oldSize = cellBeanList.size();
@@ -324,7 +322,7 @@ public abstract class BaseTvView extends RelativeLayout {
      * @param length       调整的页面大小
      * @return 返回调整后的页面数据
      */
-    protected List<CellBean> adjustCellSize(List<CellBean> cellBeanList, int length) {
+    protected List<TvCellBean> adjustCellSize(List<TvCellBean> cellBeanList, int length) {
         if (cellBeanList != null && cellBeanList.size() > length) {
             for (int i = cellBeanList.size() - 1; i >= length; i--) {
                 cellBeanList.remove(i);

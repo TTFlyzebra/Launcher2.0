@@ -7,14 +7,16 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.flyzebra.flyui.chache.DiskCache;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.ppfunstv.R;
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.CellEntity;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.SubScript;
 import com.flyzebra.ppfunstv.data.TabEntity;
 import com.flyzebra.ppfunstv.data.TemplateBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.data.VersionBean;
 import com.flyzebra.ppfunstv.http.FlyOkHttp;
 import com.flyzebra.ppfunstv.http.IHttp;
@@ -62,8 +64,8 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
     /**
      * 当前模板所有页面Cell数据列表
      */
-    private List<CellBean> mCurrentCellBeanList = new ArrayList<>();
-    private List<CellBean> mAllCellBeanList = new ArrayList<>();
+    private List<TvCellBean> mCurrentCellBeanList = new ArrayList<>();
+    private List<TvCellBean> mAllCellBeanList = new ArrayList<>();
     private Map<String, String> mAllControlJsons = new HashMap<>();
     private Map<Integer, ControlBean> mAllControlList = new HashMap<>();
     private String mTemplateBeanJson;
@@ -149,7 +151,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                 } else {
                     final int templateIndex = getDefaultTemplateIndex(mTemplateBean);
                     final TemplateEntity templateEntity = mTemplateBean.getTemplate().get(templateIndex);
-                    final List<CellBean> cellBeans = getCellBeanList(templateIndex);
+                    final List<TvCellBean> cellBeans = getCellBeanList(templateIndex);
                     final ControlBean controlBean = getControlBean(templateIndex);
                     mHandler.post(new Runnable() {
                         @Override
@@ -193,7 +195,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
         return mCurrentControlBean;
     }
 
-    public List<CellBean> getCellBeanList(int templateIndex) {
+    public List<TvCellBean> getCellBeanList(int templateIndex) {
         if (mTemplateBean == null) {
             mTemplateBean = getTemplateBean();
         }
@@ -213,7 +215,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                 if (TextUtils.isEmpty(json)) {
                     return null;
                 }
-                CellBean cell = GsonUtil.json2Object(json, CellBean.class);
+                TvCellBean cell = GsonUtil.json2Object(json, TvCellBean.class);
                 //TODO 前台数据错误处理
                 mCurrentCellBeanList.add(cell);
             }
@@ -437,7 +439,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
                             return;
                         }
                         String str = object.toString();
-                        CellBean cellBean = GsonUtil.json2Object(str, CellBean.class);
+                        TvCellBean cellBean = GsonUtil.json2Object(str, TvCellBean.class);
                         if (cellBean == null || !cellBean.isValid()) {
                             mHandler.post(new Runnable() {
                                 @Override
@@ -457,7 +459,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
 //                            mAllCellBeanList.clear();
                             //所有列表更新完毕。开始下载更新图片
 //                            for (Map.Entry<String, String> entry : mAllCellBeanJsons.entrySet()) {
-                            for (CellBean cell : mAllCellBeanList) {
+                            for (TvCellBean cell : mAllCellBeanList) {
 //                                CellBean cell = GsonUtils.json2Object(entry.getValue(), CellBean.class);
 //                                if (cell != null) {
 //                                    mAllCellBeanList.add(cell);
@@ -642,7 +644,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
         @Override
         protected String doInBackground(String... params) {
 
-            final boolean flag = iDiskCache.saveBitmapFromImgurl(this, params[0]);
+            final boolean flag = iDiskCache.saveBitmapFromImgurl(params[0]);
             if (!flag) {
                 isUpSuccess = false;
             }
@@ -695,7 +697,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
             }
             final int templateIndex = getDefaultTemplateIndex(mTemplateBean);
             final TemplateEntity templateEntity = mTemplateBean.getTemplate().get(templateIndex);
-            final List<CellBean> cellBeans = getCellBeanList(templateIndex);
+            final List<TvCellBean> cellBeans = getCellBeanList(templateIndex);
             final ControlBean controlBean = getControlBean(templateIndex);
             FlyLog.d("upVersion OK!");
             mHandler.post(new Runnable() {

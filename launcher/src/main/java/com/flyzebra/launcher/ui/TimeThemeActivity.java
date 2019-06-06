@@ -16,10 +16,7 @@ import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.base.BaseActivity;
 import com.flyzebra.launcher.utils.FlyLog;
 import com.flyzebra.launcher.utils.SPUtil;
-import com.flyzebra.ppfunstv.module.EventMessage;
 import com.flyzebra.ppfunstv.utils.ToastUtils;
-
-import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by lizongyuan on 2016/10/19.
@@ -73,7 +70,6 @@ public class TimeThemeActivity extends BaseActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_TIME_THEME));
     }
 
     @Override

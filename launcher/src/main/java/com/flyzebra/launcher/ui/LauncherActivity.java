@@ -19,7 +19,13 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.bumptech.glide.Glide;
+import com.flyzebra.flyui.bean.CellBean;
+import com.flyzebra.flyui.bean.PageBean;
+import com.flyzebra.flyui.bean.ThemeBean;
+import com.flyzebra.flyui.chache.DiskCache;
+import com.flyzebra.flyui.chache.IDiskCache;
+import com.flyzebra.flyui.chache.IUpdataVersion;
+import com.flyzebra.flyui.chache.UpdataVersion;
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.base.BaseActivity;
 import com.flyzebra.launcher.constant.Constants;
@@ -33,19 +39,12 @@ import com.flyzebra.launcher.utils.SPUtil;
 import com.flyzebra.launcher.utils.WallPaperUtils;
 import com.flyzebra.launcher.view.ChangeTemplateDialog;
 import com.flyzebra.marqueeservice.IMarqueeService;
-import com.flyzebra.ppfunstv.bean.PageBean;
-import com.flyzebra.ppfunstv.bean.ThemeBean;
-import com.flyzebra.ppfunstv.chache.IUpdataVersion2;
-import com.flyzebra.ppfunstv.chache.UpdataVersion2;
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.CellEntity;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.TabEntity;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.module.EventMessage;
-import com.flyzebra.ppfunstv.module.UpdataVersion.DiskCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.UpdataVersion;
 import com.flyzebra.ppfunstv.service.MarqueeService;
 import com.flyzebra.ppfunstv.utils.BehavioralUtil;
 import com.flyzebra.ppfunstv.utils.DialogUtil;
@@ -58,7 +57,6 @@ import com.flyzebra.ppfunstv.view.LoadAnimView.LoadAnimView;
 import com.flyzebra.ppfunstv.view.TvView.BaseTvView;
 import com.flyzebra.ppfunstv.view.TvView.CellView.AdsModule.AdsModule;
 import com.flyzebra.ppfunstv.view.TvView.CellView.AdsModule.IAdsModule;
-import com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction.MobclickConstants;
 import com.flyzebra.ppfunstv.view.TvView.CellView.CellType;
 import com.flyzebra.ppfunstv.view.TvView.CellView.ITvPageItemView;
 import com.flyzebra.ppfunstv.view.TvView.CellView.TvPageItemView;
@@ -69,17 +67,13 @@ import com.flyzebra.ppfunstv.view.TvView.IOnKeyDownOutEnvent;
 import com.flyzebra.ppfunstv.view.TvView.PPfunsTV.PPfunsTvView;
 import com.flyzebra.ppfunstv.view.TvView.PopupTV.PopupTvView;
 import com.flyzebra.ppfunstv.view.TvView.TvViewFactory;
-import com.umeng.analytics.MobclickAgent;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class LauncherActivity extends BaseActivity implements IUpdataVersion2.CheckCacheResult, IUpdataVersion2.UpResult, IOnKeyDownOutEnvent {
+public class LauncherActivity extends BaseActivity implements IUpdataVersion.CheckCacheResult, IUpdataVersion.UpResult, IOnKeyDownOutEnvent {
 
     private static final int MSG_UPDATE = 0x1;//更新消息
     private static final int MSG_UPDATE_TIME_THEME = 5000;//根据配置(状态栏-我的-UI定制)更换界面
@@ -90,7 +84,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
     private static String TAG = "LauncherActivity";
     public FrameLayout mActivityRoot;
     public BaseTvView mTvView;
-    public IUpdataVersion2 iUpDataVersion;
+    public IUpdataVersion iUpDataVersion;
     public IDiskCache iDiskCache;
     //鉴权服务
     public AAAServiceConnect aaaServiceConnect;
@@ -103,7 +97,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
     private MyBroadcast myBroadcast = new MyBroadcast();
     private ChangeTemplateDialog mChangeTemplateDialog;
     private TemplateEntity mTemplateEntity;
-    private List<CellBean> mCellList = new ArrayList<>();
+    private List<TvCellBean> mCellList = new ArrayList<>();
     private ControlBean mControlBean;
     //开机放大动画控件部分
     private long mAnimTime = 3000;
@@ -182,12 +176,11 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
         setContentView(R.layout.activity_launcher);
 
         initView();
-        EventBus.getDefault().register(this);
         registerReceiver();
         //NOTE:此类必须在Activity中实例化，TvPageLayout加载图片需调用其缓存
         //从磁盘读取已升级成功的数据，如磁盘没有升级数据，加载APK发布版本的数据
         iDiskCache = new DiskCache().init(this);
-        iUpDataVersion = new UpdataVersion2(getApplicationContext(), iDiskCache);
+        iUpDataVersion = new UpdataVersion(getApplicationContext(), iDiskCache);
 
         /**
          * 播放开机动画，延时更新
@@ -256,15 +249,15 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
 
     private boolean isUpdata = false;
     private TemplateEntity needUPtemplateEntity;
-    private List<CellBean> needUPcellBeanList;
+    private List<TvCellBean> needUPcellBeanList;
     private ControlBean needUPcontrolBean;
     private boolean isUpdataViewRunning = false;
 
     /**
      * 更新UI界面
      */
-    private void updataView(final TemplateEntity templateEntity, final List<CellBean> cellBeanList, final ControlBean controlBean) {
-        Glide.get(this).clearMemory();
+    private void updataView(final TemplateEntity templateEntity, final List<TvCellBean> cellBeanList, final ControlBean controlBean) {
+//        Glide.get(this).clearMemory();
         FlyLog.d("updataView start....");
         if (!AppUtil.isTop(LauncherActivity.this)) {
             FlyLog.d("Activity is not top, updataView return");
@@ -344,8 +337,6 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
                                         view.doAction();
                                     } else {
                                         DialogUtil.showDialog(LauncherActivity.this, getString(R.string.aaa_not_auth));
-                                        //友盟统计
-                                        MobclickAgent.onEvent(LauncherActivity.this, MobclickConstants.TYPE_NOT_AUTH, packageName);
                                     }
                                 } catch (Exception e) {
                                     DialogUtil.showDialog(LauncherActivity.this, getString(R.string.aaa_error));
@@ -365,7 +356,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
                      * 提取广告类型set
                      */
                     Set<Integer> adsTypes = new HashSet<>();
-                    for (CellBean bean : mCellList) {
+                    for (TvCellBean bean : mCellList) {
                         List<CellEntity> cellList = bean.getCellList();
                         if (cellList == null || cellList.size() == 0) {
                             continue;
@@ -540,8 +531,6 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
         }
         HomeWatcher.IS_HOME_KEY = false;
 //        Constants.cellNoFocus = (float) SPUtil.get(mContext, SPUtil.CONFIG_ALPHA_CELL, 1.0f);
-        EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_QRCODE));
-        EventBus.getDefault().post(new EventMessage(EventMessage.MSG_UPDATE_RECENT_APP));
         BehavioralUtil.reportInEvent(mContext);
 //        updataView(needUPtemplateEntity, needUPcellBeanList, needUPcontrolBean);
         FlyLog.d("onResume end....");
@@ -613,7 +602,6 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
         MemoryManager.fixInputMethodManagerLeak(this);
         aaaServiceConnect.unbindService(this);
 //        playerServiceConnect.unbindService(this);
-        EventBus.getDefault().unregister(this);
         AdsModule.getInstance().unRegisterReceiver(getApplicationContext());
     }
 
@@ -667,13 +655,13 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
         templateEntity.x = 0;
         templateEntity.y = 0;
         templateEntity.tabList = new ArrayList<>();
-        List<CellBean> cellBeanList = new ArrayList<>();
+        List<TvCellBean> cellBeanList = new ArrayList<>();
         for(PageBean pageBean:themeBean.pageList){
             TabEntity tabEntity = new TabEntity();
             tabEntity.name = pageBean.pageName;
             templateEntity.tabList.add(tabEntity);
 
-            CellBean cellBean = new CellBean();
+            TvCellBean cellBean = new TvCellBean();
             cellBean.cellList = converPageList(pageBean.cellList);
             cellBeanList.add(cellBean);
         }
@@ -683,9 +671,9 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
         updataView(templateEntity, cellBeanList, controlBean);
     }
 
-    private List<CellEntity> converPageList(List<com.flyzebra.ppfunstv.bean.CellBean> cellList) {
+    private List<CellEntity> converPageList(List<CellBean> cellList) {
         List<CellEntity> cellEntities = new ArrayList<>();
-        for(com.flyzebra.ppfunstv.bean.CellBean cell:cellList){
+        for(CellBean cell:cellList){
             try {
                 CellEntity cellEntity = new CellEntity();
                 cellEntity.imgUrl = cell.images.get(0).url;
@@ -760,7 +748,6 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
         FlyLog.d(TAG + "  initview end....");
     }
 
-    @Subscribe
     public void onEvent(EventMessage msg) {
         if (EventMessage.MSG_UPDATE_VERSION == msg.index) {
             FlyLog.d(TAG + " start update version");
@@ -800,10 +787,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion2.Ch
     private void showChangelTemplateTipAndReport(String info) {
         ToastUtils.showMessage(mContext, info);
         if (info.startsWith(getString(R.string.tip_switch_ui))) {
-            MobclickAgent.onEvent(mContext, MobclickConstants.TYPE_SWITCH_UI);
             showLoadingDialog();
-        } else {
-            MobclickAgent.reportError(mContext, info);
         }
     }
 

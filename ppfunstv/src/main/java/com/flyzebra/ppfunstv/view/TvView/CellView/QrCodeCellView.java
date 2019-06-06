@@ -24,8 +24,6 @@ import com.flyzebra.ppfunstv.utils.FlyLog;
 import com.flyzebra.ppfunstv.utils.IntentParamParseHelper;
 import com.flyzebra.ppfunstv.utils.QRCodeUtil;
 import com.flyzebra.ppfunstv.utils.SPUtil;
-import com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction.MobclickConstants;
-import com.umeng.analytics.MobclickAgent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -139,7 +137,6 @@ public class QrCodeCellView extends SimpleCellView implements CaReceiver.EventLi
     @Override
     public void doAction() {
         Toast.makeText(mContext,"请用聚视界客户端扫描关联机顶盒",Toast.LENGTH_SHORT).show();
-        MobclickAgent.onEvent(mContext, MobclickConstants.TYPE_QRCODE);
     }
 
     public Bitmap getBitmap(){

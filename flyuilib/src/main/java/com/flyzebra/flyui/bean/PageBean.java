@@ -4,6 +4,7 @@ import java.util.List;
 
 public class PageBean {
     public int pageId;
+    public String pageName;
     public String imageurl;
     public int rows = 0;
     public int x = 0;

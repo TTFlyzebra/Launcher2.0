@@ -14,7 +14,6 @@ import com.flyzebra.launcher.base.BaseActivity;
 import com.flyzebra.launcher.utils.FlyLog;
 import com.flyzebra.launcher.utils.SPUtil;
 import com.flyzebra.ppfunstv.constant.Constants;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * 设置儿童版显示页面
@@ -75,7 +74,6 @@ public class ChildUiSetActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void onResume() {
-        MobclickAgent.onPageStart(TAG);
         super.onResume();
         setSexFocus();
     }
@@ -114,7 +112,6 @@ public class ChildUiSetActivity extends BaseActivity implements View.OnClickList
 
     @Override
     protected void onPause() {
-        MobclickAgent.onPageEnd(TAG);
         super.onPause();
     }
 

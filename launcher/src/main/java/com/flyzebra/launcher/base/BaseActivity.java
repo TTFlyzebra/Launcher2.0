@@ -11,7 +11,6 @@ import android.view.View;
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.view.LoadingDialog;
 import com.flyzebra.ppfunstv.view.LoadAnimView.LoadAnimView;
-import com.umeng.analytics.MobclickAgent;
 
 /**
  * Created by Administrator on 2016/6/14.
@@ -38,13 +37,11 @@ public class BaseActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        MobclickAgent.onResume(this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
     }
 
     /**

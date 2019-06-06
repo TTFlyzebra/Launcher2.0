@@ -16,13 +16,8 @@ import android.widget.RelativeLayout;
 
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.utils.SPUtil;
-import com.flyzebra.ppfunstv.module.EventMessage;
 import com.flyzebra.ppfunstv.utils.BlurDrawable;
 import com.flyzebra.ppfunstv.utils.ToastUtils;
-import com.flyzebra.ppfunstv.view.TvView.CellView.CellClickAction.MobclickConstants;
-import com.umeng.analytics.MobclickAgent;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.Map;
 
@@ -72,7 +67,7 @@ public class ChangeTemplateDialog extends Dialog{
                     public void onClick(View v) {
                         if(selectId != templateId){
                             SPUtil.setTemplate(mContext, SPUtil.TEMPLATE_ID, templateId);
-                            EventBus.getDefault().post(new EventMessage(EventMessage.MSG_CHANGE_TEMPLATE));
+//                            EventBus.getDefault().post(new EventMessage(EventMessage.MSG_CHANGE_TEMPLATE));
                         }else{
 //                            Toast.makeText(mContext,R.string.template_is_the_same,Toast.LENGTH_SHORT).show();
                             showChangelTemplateTipAndReport(mContext.getString(R.string.template_is_the_same));
@@ -111,12 +106,6 @@ public class ChangeTemplateDialog extends Dialog{
 
     private void showChangelTemplateTipAndReport(String info){
         ToastUtils.showMessage(mContext,info);
-        if(info.startsWith(mContext.getString(R.string.tip_switch_ui))){
-            MobclickAgent.onEvent(mContext, MobclickConstants.TYPE_SWITCH_UI);
-
-        }else{
-            MobclickAgent.reportError(mContext,info);
-        }
     }
 
     @Override

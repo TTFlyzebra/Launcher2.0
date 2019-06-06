@@ -245,16 +245,6 @@
             </intent-filter>
         </receiver>
 
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="57c5341e67e58eebf9001b6fxxx" />
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="ppfuns launcher" />
-        <meta-data
-            android:name="com.flyzebra.launcher.module.GlideConfiguration"
-            android:value="GlideModule" />
-
         <activity android:name="com.flyzebra.launcher.ui.AppListActivity"></activity>
     </application>
 

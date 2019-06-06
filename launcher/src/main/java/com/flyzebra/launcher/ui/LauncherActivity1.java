@@ -22,15 +22,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.flyzebra.flyui.chache.DiskCache;
+import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.launcher.R;
 import com.flyzebra.launcher.constant.Constants;
 import com.flyzebra.launcher.service.AAAServiceConnect;
-import com.flyzebra.launcher.utils.GsonUtils;
-import com.flyzebra.ppfunstv.data.CellBean;
 import com.flyzebra.ppfunstv.data.ControlBean;
 import com.flyzebra.ppfunstv.data.TemplateEntity;
-import com.flyzebra.ppfunstv.module.UpdataVersion.DiskCache;
-import com.flyzebra.ppfunstv.module.UpdataVersion.IDiskCache;
+import com.flyzebra.ppfunstv.data.TvCellBean;
 import com.flyzebra.ppfunstv.module.UpdataVersion.IUpdataVersion;
 import com.flyzebra.ppfunstv.module.UpdataVersion.UpdataVersion;
 import com.flyzebra.ppfunstv.utils.FlyLog;
@@ -88,9 +87,9 @@ public class LauncherActivity1 extends Activity implements IUpdataVersion.CheckC
                 String tokenJson = aaaServiceConnect.query(Constants.AAA_TOKEN_QUERY_KEY);
                 String token = "";
                 if (!TextUtils.isEmpty(tokenJson)) {
-                    AAAServiceConnect.TokenBean tokenBean = GsonUtils.json2Object(tokenJson, AAAServiceConnect.TokenBean.class);
-                    if (tokenBean != null)
-                        token = tokenBean.result;
+//                    AAAServiceConnect.TokenBean tokenBean = GsonUtils.json2Object(tokenJson, AAAServiceConnect.TokenBean.class);
+//                    if (tokenBean != null)
+//                        token = tokenBean.result;
                 }
 
                 this.token = token;
@@ -187,7 +186,7 @@ public class LauncherActivity1 extends Activity implements IUpdataVersion.CheckC
         }
     }
 
-    private void upViewData(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean, boolean bDefaultData) {
+    private void upViewData(TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean, boolean bDefaultData) {
         if (mTvView != null) {
             root.removeView(mTvView);
         }
@@ -267,7 +266,7 @@ public class LauncherActivity1 extends Activity implements IUpdataVersion.CheckC
 
 
     @Override
-    public void getCacheDataOK(TemplateEntity templateEntity, List<CellBean> cellBeanList, ControlBean controlBean) {
+    public void getCacheDataOK(TemplateEntity templateEntity, List<TvCellBean> cellBeanList, ControlBean controlBean) {
         FlyLog.d();
         upViewData(templateEntity, cellBeanList, controlBean, false);
     }
