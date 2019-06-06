@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ppfuns.launcher.ui.VrPictureShowActivity">
+    tools:context="com.flyzebra.launcher.ui.VrPictureShowActivity">
 
   <!--  <ImageView
         android:layout_width="@dimen/DIMEN_1000PX"

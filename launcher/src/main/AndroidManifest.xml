@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ppfuns.launcher"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.flyzebra.launcher"
     android:sharedUserId="android.uid.system" >
 
     <!-- android:sharedUserId="android.uid.system" -->
@@ -26,7 +27,7 @@
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
-        android:name=".MyApp"
+        android:name="com.flyzebra.launcher.MyApp"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -34,9 +35,10 @@
         android:largeHeap="true"
         android:persistent="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.LauncherActivity"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity"
             android:hardwareAccelerated="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
@@ -45,180 +47,201 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.SetActivity"
+            android:name="com.flyzebra.launcher.ui.SetActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.statu.setting" />
+                <action android:name="com.flyzebra.launcher.statu.setting" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.MyInfoActivity"
+            android:name="com.flyzebra.launcher.ui.MyInfoActivity"
             android:theme="@style/MyInfo">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.my.info" />
+                <action android:name="com.flyzebra.launcher.my.info" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.DownloadQRActivity"
+            android:name="com.flyzebra.launcher.ui.DownloadQRActivity"
             android:theme="@style/MyInfo">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.my.download" />
+                <action android:name="com.flyzebra.launcher.my.download" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.TimeThemeActivity"
+            android:name="com.flyzebra.launcher.ui.TimeThemeActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen"
             android:windowSoftInputMode="stateAlwaysHidden">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.my.time.theme" />
+                <action android:name="com.flyzebra.launcher.my.time.theme" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.WelcomeActivity"
+            android:name="com.flyzebra.launcher.ui.WelcomeActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/Transparent" />
         <activity
-            android:name=".ui.BackDoorActivity"
+            android:name="com.flyzebra.launcher.ui.BackDoorActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.BACK_DOOR" />
+                <action android:name="com.flyzebra.launcher.BACK_DOOR" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.WebActivity"
+            android:name="com.flyzebra.launcher.ui.WebActivity"
             android:theme="@style/Transparent">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.HTML_DETAIL" />
+                <action android:name="com.flyzebra.launcher.HTML_DETAIL" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.VrPictureShowActivity"
+            android:name="com.flyzebra.launcher.ui.VrPictureShowActivity"
             android:theme="@style/Transparent">
             <intent-filter>
-                <action android:name="com.ppfuns.launcher.Vr_PictureShow" />
+                <action android:name="com.flyzebra.launcher.Vr_PictureShow" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.ChildUiSetActivity"
+            android:name="com.flyzebra.launcher.ui.ChildUiSetActivity"
             android:theme="@style/Transparent">
             <intent-filter>
-                <action android:name="com.ppfuns.action.ui.set" />
+                <action android:name="com.flyzebra.action.ui.set" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.RecentAppActivity"
+            android:name="com.flyzebra.launcher.ui.RecentAppActivity"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen">
             <intent-filter>
-                <action android:name="com.ppfuns.action.recent.app" />
+                <action android:name="com.flyzebra.action.recent.app" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity1"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity1"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
             <action android:name="android.intent.action.VIEW" />
 
             <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity2"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity2"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity3"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity3"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity4"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity4"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity5"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity5"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity6"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity6"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity7"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity7"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity8"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity8"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LauncherActivity9"
+            android:name="com.flyzebra.launcher.ui.LauncherActivity9"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-            <action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-            <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
-        <receiver android:name=".receiver.SimKeyReceiver">
+        <receiver android:name="com.flyzebra.launcher.receiver.SimKeyReceiver"
+            tools:ignore="ExportedReceiver">
             <intent-filter>
                 <action android:name="com.scy.tv.assistant.KEYCODE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".receiver.DlnaReceiver">
+        <receiver android:name="com.flyzebra.launcher.receiver.DlnaReceiver"
+            tools:ignore="ExportedReceiver">
             <intent-filter>
-                <action android:name="com.ppfuns.dlnaservice.DLNA_SERVICE_STARTED" />
+                <action android:name="com.flyzebra.dlnaservice.DLNA_SERVICE_STARTED" />
             </intent-filter>
         </receiver>
 
@@ -229,10 +252,10 @@
             android:name="UMENG_CHANNEL"
             android:value="ppfuns launcher" />
         <meta-data
-            android:name="com.ppfuns.launcher.module.GlideConfiguration"
+            android:name="com.flyzebra.launcher.module.GlideConfiguration"
             android:value="GlideModule" />
 
-        <activity android:name=".ui.AppListActivity"></activity>
+        <activity android:name="com.flyzebra.launcher.ui.AppListActivity"></activity>
     </application>
 
 </manifest>

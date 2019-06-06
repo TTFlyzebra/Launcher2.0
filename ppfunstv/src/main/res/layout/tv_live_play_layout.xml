@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.ppfuns.ppfunstv.view.TvView.CellView.LiveWMView.SuperVideoPlayer
+    <com.flyzebra.ppfunstv.view.TvView.CellView.LiveWMView.SuperVideoPlayer
         android:id="@+id/iv_cell"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

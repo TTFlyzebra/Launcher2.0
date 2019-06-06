@@ -4,17 +4,14 @@ buildscript {
     repositories {
 //        maven { url "http://192.168.1.12:8088/repository/ppfuns/" }
         jcenter()
-        maven {
-            url 'https://maven.google.com/'
-            name 'Google'
-        }
+        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.2.0'
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
-//        classpath 'com.ppfuns.build.toolkit:toolkit:1.0.1'
+//        classpath 'com.flyzebra.build.toolkit:toolkit:1.0.1'
 //        classpath 'pers.nelon.uploader:repoUploader:1.0.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -39,7 +36,7 @@ task clean(type: Delete) {
 
 ext {
     minSdkVersion = 19
-    targetSdkVersion = 27
-    buildToolsVersion = '27.0.3'
-    compileSdkVersion = 27
+    targetSdkVersion = 28
+    buildToolsVersion = '28.0.3'
+    compileSdkVersion = 28
 }

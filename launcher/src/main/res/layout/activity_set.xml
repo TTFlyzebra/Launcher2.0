@@ -20,7 +20,7 @@
             android:gravity="center_horizontal"
             >
 
-            <com.ppfuns.ppfunstv.view.DateView
+            <com.flyzebra.ppfunstv.view.DateView
                 android:id="@+id/set_status_top_time_info"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -49,7 +49,7 @@
                 <!--android:layout_toRightOf="@+id/status_division_two"-->
                 <!--&gt;-->
 
-                <!--<com.ppfuns.launcher.view.WeatherView-->
+                <!--<com.flyzebra.launcher.view.WeatherView-->
                     <!--android:id="@+id/set_status_top_weather_icon"-->
                     <!--android:layout_width="100px"-->
                     <!--android:layout_height="80px"-->
@@ -57,7 +57,7 @@
                     <!--android:scaleType="fitXY"-->
                     <!--android:src="@drawable/weather01"/>-->
 
-                <!--<com.ppfuns.launcher.view.TemperatureTextView-->
+                <!--<com.flyzebra.launcher.view.TemperatureTextView-->
                     <!--android:id="@+id/set_status_top_weather_temperature"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
@@ -67,7 +67,7 @@
                     <!--android:text="15~20℃"-->
                     <!--android:textSize="@dimen/set_status_top_date_text_size"/>-->
 
-                <!--<com.ppfuns.launcher.view.AreaTextView-->
+                <!--<com.flyzebra.launcher.view.AreaTextView-->
                     <!--android:id="@+id/set_status_top_weather_place"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->

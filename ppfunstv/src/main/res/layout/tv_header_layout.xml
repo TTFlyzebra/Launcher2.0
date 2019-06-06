@@ -53,7 +53,7 @@
         android:layout_marginRight="100px"
         android:gravity="center_vertical"
         android:orientation="horizontal">
-        <!--<com.ppfuns.ppfunstv.view.MessageView-->
+        <!--<com.flyzebra.ppfunstv.view.MessageView-->
         <!--android:id="@+id/tv_header_message"-->
         <!--android:layout_width="83px"-->
         <!--android:layout_height="36px"-->
@@ -64,7 +64,7 @@
         <!--android:layout_toRightOf="@+id/tv_header_usb"-->
         <!--android:scaleType="fitXY"-->
         <!--android:src="@drawable/tv_header_message" />-->
-        <!--<com.ppfuns.ppfunstv.view.TvView.WeatherView-->
+        <!--<com.flyzebra.ppfunstv.view.TvView.WeatherView-->
         <!--android:paddingTop="5px"-->
         <!--android:id="@+id/set_status_top_weather_icon"-->
         <!--android:layout_width="wrap_content"-->
@@ -72,7 +72,7 @@
         <!--android:scaleType="fitXY"-->
         <!--android:src="@drawable/weather3" />-->
 
-        <!--<com.ppfuns.ppfunstv.view.TemperatureTextView-->
+        <!--<com.flyzebra.ppfunstv.view.TemperatureTextView-->
         <!--android:id="@+id/set_status_top_weather_temperature"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="48px"-->
@@ -83,7 +83,7 @@
         <!--android:layout_marginTop="5px"-->
         <!--android:textColor="#99ffffff"-->
         <!--android:textSize="30px" />-->
-        <com.ppfuns.ppfunstv.view.WeatherTemView
+        <com.flyzebra.ppfunstv.view.WeatherTemView
             android:id="@+id/weather_temperature"
             android:layout_width="wrap_content"
             android:layout_height="45px" />
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20px">
 
-            <!--<com.ppfuns.ppfunstv.view.TvView.HeaderView.HeaderSearchView-->
+            <!--<com.flyzebra.ppfunstv.view.TvView.HeaderView.HeaderSearchView-->
             <!--android:id="@+id/tv_header_search"-->
             <!--android:layout_width="83px"-->
             <!--android:layout_height="36px"-->
@@ -104,7 +104,7 @@
             <!--android:layout_toRightOf="@+id/tv_header_user"-->
             <!--android:scaleType="fitXY"-->
             <!--android:src="@drawable/tv_header_search_unfocus" />-->
-            <!--<com.ppfuns.ppfunstv.view.TvView.HeaderView.HeaderSetView-->
+            <!--<com.flyzebra.ppfunstv.view.TvView.HeaderView.HeaderSetView-->
             <!--android:id="@+id/tv_header_setting"-->
             <!--android:layout_width="83px"-->
             <!--android:layout_height="36px"-->
@@ -114,7 +114,7 @@
             <!--android:layout_marginTop="2px"-->
             <!--android:scaleType="fitXY"-->
             <!--android:src="@drawable/tv_header_setting_unfocus" />-->
-            <com.ppfuns.ppfunstv.view.TvView.HeaderView.HeaderNetView
+            <com.flyzebra.ppfunstv.view.TvView.HeaderView.HeaderNetView
                 android:id="@+id/tv_header_wifi"
                 android:layout_width="27px"
                 android:layout_height="23px"
@@ -125,7 +125,7 @@
                 android:scaleType="fitXY" />
         </RelativeLayout>
 
-        <com.ppfuns.ppfunstv.view.DateView
+        <com.flyzebra.ppfunstv.view.DateView
             android:layout_width="wrap_content"
             android:layout_height="40px"
             android:alpha="0.5" />

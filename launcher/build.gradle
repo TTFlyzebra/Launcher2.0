@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'android-apt'
-//apply plugin: 'com.ppfuns.toolkit'
+//apply plugin: 'com.flyzebra.toolkit'
 
 //toolkit{
 //    projectName 'launcher'
@@ -32,12 +32,12 @@ def getGitCommitCount() {
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
+        applicationId "com.flyzebra.laun"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode gitCommitCount.toInteger()
         versionName "v1.0." + gitSHA
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        flavorDimensions "versionCode"
         lintOptions {
             abortOnError false
         }
@@ -85,53 +85,21 @@ android {
         }
     }
 
-    sourceSets {
-        hengyang {
-            res.srcDirs = ['src/hengyang/res']
-            java.srcDirs = ['src/hengyang/java']
-        }
-
-        alliance {
-            res.srcDirs = ['src/alliance/res']
-            java.srcDirs = ['src/alliance/java']
-        }
-    }
-
-    productFlavors {//分支信息，程序里添加分支项时名称及包名必须于该处定义一致
-        hengyang {
-            applicationId "com.ppfuns.launcher"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode gitCommitCount.toInteger()
-            versionName "v1.0." + gitSHA
-        }
-        alliance {
-            //com.alliance.homeshell
-            applicationId "com.alliance.homeshell"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            versionCode gitCommitCount.toInteger()
-            versionName "v1.0." + gitSHA
-        }
-
-    }
-
 }
 
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
-    implementation 'com.android.support:palette-v7:25.3.1'
-    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.android.support:palette-v7:28.0.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.umeng.analytics:analytics:5.6.7'
-    implementation project(path: ':ppfunstv')
 }

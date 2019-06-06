@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.ppfuns.ppfunstv.view.TimeTextView
+        <com.flyzebra.ppfunstv.view.TimeTextView
             android:id="@+id/ac_main_statebar_time_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

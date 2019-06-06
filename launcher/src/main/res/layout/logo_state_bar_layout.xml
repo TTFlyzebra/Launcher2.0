@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     >
 
-    <com.ppfuns.launcher.view.PPfunsTV.HeaderLayout
+    <com.flyzebra.launcher.view.PPfunsTV.HeaderLayout
         android:id="@+id/ac_main_header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/headerlayout_height"/>

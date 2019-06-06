@@ -145,7 +145,7 @@
             "y": 700
         },
         {
-            "action": "  {'packageName':'com.ppfuns.launcher','className':'com.ppfuns.launcher.ui.LauncherActivity1','data':'template=hunanvod#name=点播','cmd':''}",
+            "action": "  {'packageName':'com.flyzebra.launcher','className':'com.flyzebra.launcher.ui.LauncherActivity1','data':'template=hunanvod#name=点播','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -361,7 +361,7 @@
             "y": 580
         },
         {
-            "action": "{'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3756#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
+            "action": "{'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3756#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -397,7 +397,7 @@
             "y": 580
         },
         {
-            "action": "{'intent':'com.ppfuns.vod.action.ACTION_ENTRY_VOD','data':'col_contentId=(int)1','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns', 'cmd': '' }",
+            "action": "{'intent':'com.flyzebra.vod.action.ACTION_ENTRY_VOD','data':'col_contentId=(int)1','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns', 'cmd': '' }",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -866,7 +866,7 @@
             "y": 281
         },
         {
-            "action": "{'packageName':'com.ppfuns.launcher','className':'com.ppfuns.launcher.ui.LauncherActivity2','data':'template=hunanzw#name=政务','cmd':''}",
+            "action": "{'packageName':'com.flyzebra.launcher','className':'com.flyzebra.launcher.ui.LauncherActivity2','data':'template=hunanzw#name=政务','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -1395,7 +1395,7 @@
                     "y": null
                 },
                 {
-                    "action": "{'packageName':'com.ppfuns.vod'}",
+                    "action": "{'packageName':'com.flyzebra.vod'}",
                     "adsId": null,
                     "animation": null,
                     "canFocus": true,
@@ -2081,7 +2081,7 @@
                     "y": null
                 },
                 {
-                    "action": "{'packnames':'com.ppfuns.vod'}",
+                    "action": "{'packnames':'com.flyzebra.vod'}",
                     "adsId": null,
                     "animation": null,
                     "canFocus": true,
@@ -2455,7 +2455,7 @@
             "y": 281
         },
         {
-            "action": " {'intent':'com.ppfuns.vod.action.ACTION_VIEW_RECORD2','data':'col_contentId=(int)1#collectRecordId=(int)0#showRecentApp=(boolean)true','cmd':''}",
+            "action": " {'intent':'com.flyzebra.vod.action.ACTION_VIEW_RECORD2','data':'col_contentId=(int)1#collectRecordId=(int)0#showRecentApp=(boolean)true','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,

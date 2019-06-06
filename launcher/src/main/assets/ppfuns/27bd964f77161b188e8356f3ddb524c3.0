@@ -361,7 +361,7 @@
             "y": 281
         },
         {
-            "action": " {'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3992#col_contentId=(int)1','cmd':''}",
+            "action": " {'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3992#col_contentId=(int)1','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -397,7 +397,7 @@
             "y": 680
         },
         {
-            "action": " {'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)4092#col_contentId=(int)1','cmd':''}",
+            "action": " {'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)4092#col_contentId=(int)1','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -433,7 +433,7 @@
             "y": 680
         },
         {
-            "action": "{'packageName':'com.ppfuns.vod','className':'com.ppfuns.vod.activity.VodActivity','action':'','data':'col_contentId=(int)1#template=ijiayingyuan','cmd':''}",
+            "action": "{'packageName':'com.flyzebra.vod','className':'com.flyzebra.vod.activity.VodActivity','action':'','data':'col_contentId=(int)1#template=ijiayingyuan','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -469,7 +469,7 @@
             "y": 281
         },
         {
-            "action": " {'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)4138#col_contentId=(int)1','cmd':''}",
+            "action": " {'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)4138#col_contentId=(int)1','cmd':''}",
             "adsId": null,
             "animation": [],
             "canFocus": true,

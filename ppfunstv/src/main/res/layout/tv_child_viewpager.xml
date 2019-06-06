@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         />
 
-    <com.ppfuns.ppfunstv.view.FlyViewPager.NaviForViewPager
+    <com.flyzebra.ppfunstv.view.FlyViewPager.NaviForViewPager
         android:id="@+id/tv_count_vp"
         android:layout_width="match_parent"
         android:layout_height="30dp"

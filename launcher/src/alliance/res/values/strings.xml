@@ -1,8 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <!--正对不同厂商做特殊处理-->
-    <string name="product">alliance</string>
-    <string name="actionSettings">android.settings.SETTINGS</string>
-    <string name="actionSetinngNetwork">android.settings.SETTINGS</string>
-
-    <string name="showWeather">true</string>
-</resources>

@@ -11,7 +11,7 @@
         android:focusable="false"
         android:focusableInTouchMode="false" />
 
-    <com.ppfuns.ppfunstv.view.LoadAnimView.LoadAnimView
+    <com.flyzebra.ppfunstv.view.LoadAnimView.LoadAnimView
         android:id="@+id/ac_load_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

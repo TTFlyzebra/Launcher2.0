@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TVBox</string>
+    <string name="app_name">Launcher</string>
     <string name="str_sunday">星期日</string>
     <string name="str_monday">星期一</string>
     <string name="str_tuesday">星期二</string>
@@ -94,4 +94,10 @@
     <string name="backdoor_setting">原生设置</string>
     <string name="proper_url">环境设置</string>
     <string name="blur_setting">关闭高斯模糊</string>
+
+    <string name="product">alliance</string>
+    <string name="actionSettings">android.settings.SETTINGS</string>
+    <string name="actionSetinngNetwork">android.settings.SETTINGS</string>
+
+    <string name="showWeather">true</string>
 </resources>

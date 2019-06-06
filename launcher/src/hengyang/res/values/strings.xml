@@ -1,7 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
-    <string name="product">hengyang</string>
-    <string name="actionSettings">package|com.guoantvbox.cs.systemsetting</string>
-    <string name="actionSetinngNetwork">activity|com.guoantvbox.cs.systemsetting|com.yinhe.csga_net_setting.MainActivity_Net</string>
-
-    <string name="showWeather">false</string>
-</resources>

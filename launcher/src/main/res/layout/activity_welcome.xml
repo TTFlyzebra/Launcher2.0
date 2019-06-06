@@ -6,7 +6,7 @@
     android:layout_gravity="center"
     android:background="#000">
 
-    <com.ppfuns.launcher.view.Play3DView
+    <com.flyzebra.launcher.view.Play3DView
         android:id="@+id/ac_wel_play3d"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

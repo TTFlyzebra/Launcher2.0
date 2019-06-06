@@ -53,7 +53,7 @@
 
     </LinearLayout>
 
-    <com.ppfuns.ppfunstv.view.TvView.CellView.SubScriptView
+    <com.flyzebra.ppfunstv.view.TvView.CellView.SubScriptView
         android:id="@+id/tv_iv_cell"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

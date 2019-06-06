@@ -325,7 +325,7 @@
             "y": 225
         },
         {
-            "action": "{'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3915#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
+            "action": "{'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3915#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -361,7 +361,7 @@
             "y": 674
         },
         {
-            "action": "{'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3930#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
+            "action": "{'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3930#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -505,7 +505,7 @@
             "y": 449
         },
         {
-            "action": "{'intent':'com.ppfuns.vod.action.ACTION_ENTRY_VOD','data':'col_contentId=(int)1','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns', 'cmd': '' }",
+            "action": "{'intent':'com.flyzebra.vod.action.ACTION_ENTRY_VOD','data':'col_contentId=(int)1','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns', 'cmd': '' }",
             "adsId": null,
             "animation": [],
             "canFocus": true,
@@ -541,7 +541,7 @@
             "y": 225
         },
         {
-            "action": "{'intent':'com.ppfuns.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3908#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
+            "action": "{'intent':'com.flyzebra.vod.action.ACTION_VIEW_DETAILS','data':'albumId=(int)3908#col_contentId=(int)1','cmd':'','downIntent':'com.dangbeimarket.action.act.detail','downPara':'url=http://172.16.12.179:82/dbapinew/view.php?id=5274&page=1#transfer=ppfuns'}",
             "adsId": null,
             "animation": [],
             "canFocus": true,
