@@ -245,7 +245,7 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.flyzebra.launcher.ui.AppListActivity"></activity>
+        <activity android:name="com.flyzebra.launcher.ui.AppListActivity" />
     </application>
 
 </manifest>

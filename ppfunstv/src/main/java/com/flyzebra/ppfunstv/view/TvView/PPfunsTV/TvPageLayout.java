@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.DrawableRes;
-import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -89,10 +88,6 @@ public class TvPageLayout extends ViewGroup {
      */
     private int min_x;
     private boolean isDelayPlayAnim = false;
-    /**
-     * 我们有初始版本的缓存（位于assets中），更新版本后本地保存的缓存，存放于本地磁盘中
-     * 此参数决定TvPageLayout加载缓存图片的位置，ture为从assets加载，false从本地磁盘加载
-     */
     private int selectItem = -1;
     private boolean isAnimPlay = false;
     private Handler mHandler = new Handler(Looper.getMainLooper());
@@ -114,16 +109,7 @@ public class TvPageLayout extends ViewGroup {
 
 
     public TvPageLayout(Context context) {
-        this(context, null);
-    }
-
-    public TvPageLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-
-    public TvPageLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context);
         init(context);
     }
 
@@ -214,15 +200,6 @@ public class TvPageLayout extends ViewGroup {
             return this;
         }
 
-        //删除透明控件
-        for (int i = list.size() - 1; i >= 0; i--) {
-            if (list.get(i).getText().contains("透明控件")) {
-                FlyLog.d("remove cell = %s", list.get(i).toString());
-                list.remove(list.get(i));
-            }
-        }
-
-
         //排序
         Collections.sort(list, new Comparator<CellEntity>() {
             @Override
@@ -247,11 +224,6 @@ public class TvPageLayout extends ViewGroup {
                     entity = cell;
                 }
                 entity.setCarouselTime(entity.getCarouselTime());
-                entity.setX((int) (entity.getX() * screenScale));
-                entity.setY((int) (entity.getY() * screenScale));
-                entity.setWidth((int) (entity.getWidth() * screenScale) + (int) (entity.getWidth() * screenScale) % 2);
-                entity.setHeight((int) (entity.getHeight() * screenScale) + (int) (entity.getHeight() * screenScale) % 2);
-                entity.setSize((int) (entity.getSize() * screenScale));
                 min_x = Math.min(min_x, entity.getX());
                 max_x = Math.max(max_x, entity.getX() + entity.getWidth());
                 mCellEntityList.add(entity);

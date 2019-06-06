@@ -32,7 +32,7 @@ def getGitCommitCount() {
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.flyzebra.launcher"
+        applicationId "com.flyzebra.launcher2"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode gitCommitCount.toInteger()
