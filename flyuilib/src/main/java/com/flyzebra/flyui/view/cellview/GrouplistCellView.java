@@ -211,7 +211,7 @@ public class GrouplistCellView extends BaseRecyclerCellView {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             SimplePageView simplePageView = new SimplePageView(getContext());
-            simplePageView.setPageBean(mCellBean.pages.get(viewType));
+            simplePageView.setmPageBean(mCellBean.pages.get(viewType));
             return new ViewHolder(simplePageView);
         }
 

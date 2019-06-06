@@ -24,7 +24,7 @@ public class CellBean implements Parcelable{
     public List<PageBean> pages;
     public List<CellBean> subCells;
     public String remark;
-    public boolean isFoucus;
+    public boolean isFocus;
 
     public int left;
     public int right;

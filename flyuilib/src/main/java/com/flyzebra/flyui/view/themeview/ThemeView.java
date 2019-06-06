@@ -198,7 +198,7 @@ public class ThemeView extends FrameLayout implements ITheme {
         if (mThemeBean.topPage != null && mThemeBean.topPage.cellList != null && !mThemeBean.topPage.cellList.isEmpty()) {
             topPageView = new SimplePageView(mContext);
             addView(topPageView);
-            topPageView.setPageBean(mThemeBean.topPage);
+            topPageView.setmPageBean(mThemeBean.topPage);
         }
 
 

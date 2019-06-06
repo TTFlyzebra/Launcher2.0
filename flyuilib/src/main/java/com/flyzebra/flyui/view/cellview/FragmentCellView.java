@@ -99,7 +99,7 @@ public class FragmentCellView extends BaseLayoutCellView {
             public void run() {
                 removeAllViews();
                 SimplePageView view = new SimplePageView(getContext());
-                view.setPageBean(pageBean);
+                view.setmPageBean(pageBean);
                 addView(view);
             }
         });

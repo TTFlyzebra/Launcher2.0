@@ -4,7 +4,7 @@ import com.flyzebra.flyui.bean.PageBean;
 
 public interface IPage {
 
-    void setPageBean(PageBean pageBean);
+    void setmPageBean(PageBean mPageBean);
 
     void showMirror(boolean flag);
 

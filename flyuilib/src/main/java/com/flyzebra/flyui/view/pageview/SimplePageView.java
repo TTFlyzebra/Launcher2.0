@@ -51,21 +51,18 @@ public class SimplePageView extends FrameLayout implements IPage {
 
 
     @Override
-    public void setPageBean(PageBean pageBean) {
-        this.pageBean = pageBean;
-        List<CellBean> appInfoList = pageBean.cellList;
-        if (appInfoList == null || appInfoList.isEmpty()) return;
-        addAllItemView(appInfoList);
+    public void setmPageBean(PageBean mPageBean) {
+        this.pageBean = mPageBean;
+        List<CellBean> cellBeans = mPageBean.cellList;
+        if (cellBeans == null || cellBeans.isEmpty()) return;
+        addAllItemView(cellBeans);
     }
 
-    private void addAllItemView(List<CellBean> appInfoList) {
-        if (appInfoList == null || appInfoList.isEmpty()) return;
-        int sx = 0;
-        int sy = 0;
-        FlyLog.d("sx=%d,sy=%d", sx, sy);
-        for (int i = 0; i < appInfoList.size(); i++) {
+    private void addAllItemView(List<CellBean> cellBeans) {
+        if (cellBeans == null || cellBeans.isEmpty()) return;
+        for (int i = 0; i < cellBeans.size(); i++) {
             //多出的Cell不进行绘制
-            CellBean cellBean = appInfoList.get(i);
+            CellBean cellBean = cellBeans.get(i);
             ICell iCellView = CellViewFactory.createView(getContext(), cellBean);
             LayoutParams lp;
 

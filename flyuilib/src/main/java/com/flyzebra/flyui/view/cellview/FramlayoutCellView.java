@@ -47,7 +47,7 @@ public class FramlayoutCellView extends BaseLayoutCellView {
     public void init(CellBean cellBean) {
         SimplePageView simplePageView = new SimplePageView(getContext());
         addView(simplePageView);
-        simplePageView.setPageBean(mCellBean.pages.get(0));
+        simplePageView.setmPageBean(mCellBean.pages.get(0));
 
         try {
             if (!TextUtils.isEmpty(mCellBean.backColor)) {
