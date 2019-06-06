@@ -21,7 +21,6 @@ import com.flyzebra.flyuitv.CellSortable;
 import com.flyzebra.flyuitv.ICellSortable;
 import com.flyzebra.ppfunstv.utils.DisplayUtils;
 import com.flyzebra.ppfunstv.utils.FlyLog;
-import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.IAnimatView;
 import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.TvPageAnimat;
 import com.flyzebra.ppfunstv.view.TvView.IOnKeyDownOutEnvent;
 import com.flyzebra.ppfunstv.view.TvView.IPageChangeListener;
@@ -512,9 +511,9 @@ public class TvPageView extends FrameLayout implements IPage {
             return;
         }
         if (selectItem == -1) {
-            iTvFocusAnimat.startAnim(null, (IAnimatView) cellViewList.get(currentItem));
+//            iTvFocusAnimat.startAnim(null, (IAnimatView) cellViewList.get(currentItem));
         } else {
-            iTvFocusAnimat.startAnim((IAnimatView) cellViewList.get(selectItem), (IAnimatView) cellViewList.get(currentItem));
+//            iTvFocusAnimat.startAnim((IAnimatView) cellViewList.get(selectItem), (IAnimatView) cellViewList.get(currentItem));
         }
         isAnimPlay = true;
         mHandler.postDelayed(animTask, mAnimDuration);
