@@ -19,13 +19,13 @@ apply plugin: 'com.android.library'
 //}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     useLibrary 'org.apache.http.legacy'
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -38,16 +38,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile files('libs/core-3.2.0.jar')
-    compile files('libs/android_hided_sdk.jar')
-        compile 'com.android.support:leanback-v17:25.3.1'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.google.code.gson:gson:2.8.1'
-    compile 'com.squareup.okhttp3:okhttp:3.2.0'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.google.android.exoplayer:exoplayer:r2.2.0'
-    compile 'com.umeng.analytics:analytics:5.6.7'
-    compile 'org.greenrobot:eventbus:3.0.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/core-3.2.0.jar')
+    implementation files('libs/android_hided_sdk.jar')
+    implementation 'com.android.support:leanback-v17:25.3.1'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:recyclerview-v7:25.3.1'
+    implementation 'com.google.code.gson:gson:2.8.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.google.android.exoplayer:exoplayer:r2.2.0'
+    implementation 'com.umeng.analytics:analytics:5.6.7'
+    implementation 'org.greenrobot:eventbus:3.0.0'
 }
