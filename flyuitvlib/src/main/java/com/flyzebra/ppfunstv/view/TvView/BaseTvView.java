@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
+import com.bumptech.glide.Glide;
 import com.flyzebra.flyui.chache.IDiskCache;
 import com.flyzebra.marqueeservice.IMarqueeService;
 import com.flyzebra.ppfunstv.R;
@@ -28,6 +29,7 @@ import com.flyzebra.ppfunstv.view.TvView.CellView.ITvPageItemView;
 import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.ITvFocusAnimat;
 import com.flyzebra.ppfunstv.view.TvView.HeaderView.HeaderLayout;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -84,8 +86,8 @@ public abstract class BaseTvView extends RelativeLayout {
 
     public BaseTvView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-//        Glide.get(context).clearMemory();
-//        releaseGlide();
+        Glide.get(context).clearMemory();
+        releaseGlide();
         mContext = context;
         shake = AnimationUtils.loadAnimation(context, R.anim.tv_shake);
         setClipChildren(false);
@@ -93,17 +95,17 @@ public abstract class BaseTvView extends RelativeLayout {
         mBitmapCache = new BitmapCache(mContext);
     }
 
-//    private void releaseGlide() {
-//        try {
-//            Class clazz = Class.forName("com.bumptech.glide.Glide");
-//            Method m = clazz.getDeclaredMethod("tearDown",new Class[]{});
-//            m.setAccessible(true);// 调用private方法的关键一句话
-//            FlyLog.d("call Glide tearDown" );
-//            m.invoke(clazz,new Object[]{});
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    private void releaseGlide() {
+        try {
+            Class clazz = Class.forName("com.bumptech.glide.Glide");
+            Method m = clazz.getDeclaredMethod("tearDown",new Class[]{});
+            m.setAccessible(true);// 调用private方法的关键一句话
+            FlyLog.d("call Glide tearDown" );
+            m.invoke(clazz,new Object[]{});
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public BaseTvView setDiskCache(IDiskCache iDiskCache) {
         this.iDiskCache = iDiskCache;
