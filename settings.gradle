@@ -1,1 +1,1 @@
-include ':launcher', ':ppfunstv', ':flyuilib'
+include ':launcher', ':flyuitvlib', ':flyuilib'
