@@ -30,7 +30,7 @@ public class ThemeView extends FrameLayout implements ITheme {
     private float screenWidth = 1024;
     private float screenHeigh = 600;
     private float screenScacle = 1.0f;
-    private PagesViewPager pagesView;
+    private SimplePagesView pagesView;
     private SimplePageView topPageView;
 
     public ThemeView(Context context) {
@@ -66,7 +66,7 @@ public class ThemeView extends FrameLayout implements ITheme {
     /**
      * 匹配屏幕分辨率
      */
-    private void matchResolution() {
+    private void matchResolution(ThemeBean mThemeBean) {
         //如果设置的分辨率无效，设置为系统获取的分辨率和有效区域。
         if (mThemeBean.screenWidth <= 0 || mThemeBean.screenHeight <= 0) {
             mThemeBean.screenWidth = (int) screenWidth;
@@ -169,11 +169,11 @@ public class ThemeView extends FrameLayout implements ITheme {
         }
     }
 
-    private void upView() {
+    private void upView(ThemeBean mThemeBean) {
         if (mThemeBean.pageList != null && !mThemeBean.pageList.isEmpty()) {
             switch (mThemeBean.themeType) {
                 default:
-                    pagesView = new PagesViewPager(mContext);
+                    pagesView = new SimplePagesView(mContext);
 
             }
             LayoutParams lp = new LayoutParams(mThemeBean.right - mThemeBean.left, mThemeBean.bottom - mThemeBean.top);
@@ -192,7 +192,7 @@ public class ThemeView extends FrameLayout implements ITheme {
                     break;
             }
             pagesView.setOffscreenPageLimit(20);
-            pagesView.upData(mThemeBean);
+            pagesView.setData(mThemeBean);
         }
 
         if (mThemeBean.topPage != null && mThemeBean.topPage.cellList != null && !mThemeBean.topPage.cellList.isEmpty()) {
@@ -219,8 +219,8 @@ public class ThemeView extends FrameLayout implements ITheme {
         FlyLog.d("setCellBean");
         removeAllViews();
         mThemeBean = themeBean;
-        matchResolution();
-        upView();
+        matchResolution(themeBean);
+        upView(mThemeBean);
     }
 
     @Override

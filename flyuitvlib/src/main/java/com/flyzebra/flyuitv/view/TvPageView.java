@@ -3,6 +3,7 @@ package com.flyzebra.flyuitv.view;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.KeyEvent;
@@ -21,7 +22,8 @@ import com.flyzebra.flyuitv.CellSortable;
 import com.flyzebra.flyuitv.ICellSortable;
 import com.flyzebra.ppfunstv.utils.DisplayUtils;
 import com.flyzebra.ppfunstv.utils.FlyLog;
-import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.TvPageAnimat;
+import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.ITvFocusAnimat;
+import com.flyzebra.ppfunstv.view.TvView.FocusAnimat.PopupTvAnimat;
 import com.flyzebra.ppfunstv.view.TvView.IOnKeyDownOutEnvent;
 import com.flyzebra.ppfunstv.view.TvView.IPageChangeListener;
 
@@ -80,7 +82,7 @@ public class TvPageView extends FrameLayout implements IPage {
     private int leftUpIndex = -1; //左上角cell index
     private int rightUpIndex = -1;//右上角cell index
     private PageBean mPageBean;
-    private TvPageAnimat iTvFocusAnimat;
+    private ITvFocusAnimat iTvFocusAnimat;
 
 
     public TvPageView(Context context) {
@@ -91,7 +93,7 @@ public class TvPageView extends FrameLayout implements IPage {
     private void init(Context context) {
         this.context = context;
         setFocusable(false);
-        iTvFocusAnimat = new TvPageAnimat(this);
+        iTvFocusAnimat = new PopupTvAnimat(this);
 
         iCellSortable = new CellSortable();
         mScroller = new Scroller(context);
@@ -439,7 +441,10 @@ public class TvPageView extends FrameLayout implements IPage {
             int j_y1 = cellBeans.get(j).y;
             int j_y2 = j_y1 + cellBeans.get(j).height;
             if (j != meNum) {
-                if (((j_x1 >= i_x1 && j_x1 <= i_x2) || (j_x2 >= i_x1 && j_x2 <= i_x2)) || ((i_x1 >= j_x1 && i_x1 <= j_x2) || (i_x2 >= j_x1 && i_x2 <= j_x2))) {
+                if (((j_x1 >= i_x1 && j_x1 <= i_x2)
+                        || (j_x2 >= i_x1 && j_x2 <= i_x2))
+                        || ((i_x1 >= j_x1 && i_x1 <= j_x2)
+                        || (i_x2 >= j_x1 && i_x2 <= j_x2))) {
                     if (j_y2 > i_y2) {
                         flag = false;
                         break;
@@ -511,9 +516,21 @@ public class TvPageView extends FrameLayout implements IPage {
             return;
         }
         if (selectItem == -1) {
-//            iTvFocusAnimat.startAnim(null, (IAnimatView) cellViewList.get(currentItem));
+            int left = cellBeans.get(currentItem).x;
+            int top = cellBeans.get(currentItem).y;
+            int right = left+cellBeans.get(currentItem).width;
+            int bottom = top + cellBeans.get(currentItem).height;
+            iTvFocusAnimat.flyWhiteBorder(null,new Rect(left,top,right,bottom),false);
         } else {
-//            iTvFocusAnimat.startAnim((IAnimatView) cellViewList.get(selectItem), (IAnimatView) cellViewList.get(currentItem));
+            int left1 = cellBeans.get(selectItem).x;
+            int top1 = cellBeans.get(selectItem).y;
+            int right1 = left1+cellBeans.get(selectItem).width;
+            int bottom1 = top1 + cellBeans.get(selectItem).height;
+            int left2 = cellBeans.get(currentItem).x;
+            int top2 = cellBeans.get(currentItem).y;
+            int right2 = left2+cellBeans.get(currentItem).width;
+            int bottom2 = top2 + cellBeans.get(currentItem).height;
+            iTvFocusAnimat.flyWhiteBorder(new Rect(left1,top1,right1,bottom1),new Rect(left2,top2,right2,bottom2),false);
         }
         isAnimPlay = true;
         mHandler.postDelayed(animTask, mAnimDuration);

@@ -3,31 +3,46 @@ package com.flyzebra.flyui.view.themeview;
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.flyzebra.flyui.bean.CellBean;
 import com.flyzebra.flyui.bean.PageBean;
 import com.flyzebra.flyui.bean.ThemeBean;
+import com.flyzebra.flyui.config.GV;
+import com.flyzebra.flyui.event.FlyEvent;
+import com.flyzebra.flyui.event.IFlyEvent;
+import com.flyzebra.flyui.utils.ByteUtil;
 import com.flyzebra.flyui.utils.FlyLog;
+import com.flyzebra.flyui.view.pageview.IPage;
 import com.flyzebra.flyui.view.pageview.SimplePageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagesFragment extends ViewPager {
+public class SimplePagesView extends ViewPager implements IFlyEvent {
     private List<PageBean> pageList = new ArrayList<>();
     private ThemeBean themeBean;
     private MyPgaeAdapter myPgaeAdapter = new MyPgaeAdapter();
 
-    public PagesFragment(Context context) {
-        this(context, null);
+    public SimplePagesView(Context context) {
+        super(context);
+        init(context);
     }
 
-    public PagesFragment(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context);
+    @Override
+    protected void onAttachedToWindow() {
+        FlyLog.v("onAttachedToWindow");
+        super.onAttachedToWindow();
+        FlyEvent.register(this);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        FlyLog.v("onDetachedFromWindow");
+        FlyEvent.unregister(this);
+        super.onDetachedFromWindow();
     }
 
     private void init(Context context) {
@@ -39,7 +54,7 @@ public class PagesFragment extends ViewPager {
         super.setPageTransformer(reverseDrawingOrder, transformer);
     }
 
-    public void upData(ThemeBean themeBean) {
+    public void setData(ThemeBean themeBean) {
         if (themeBean == null || themeBean.pageList == null || themeBean.pageList.isEmpty()) {
             return;
         }
@@ -60,12 +75,38 @@ public class PagesFragment extends ViewPager {
 
     }
 
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (GV.viewPage_scoller) {
+            return super.onInterceptTouchEvent(ev);
+        } else {
+            return false;
+        }
+    }
+
     public void selectPage(int page) {
 
     }
 
     public void selectCell(CellBean cell) {
 
+    }
+
+    @Override
+    public boolean recvEvent(byte[] key) {
+        switch (ByteUtil.bytes2HexString(key)) {
+            case "400301":
+                Object obj = FlyEvent.getValue(key);
+                if (obj instanceof String) {
+                    byte[] data = ByteUtil.hexString2Bytes((String) obj);
+                    if (data.length > 1) {
+                        int page = data[0];
+                        setCurrentItem(page,false);
+                    }
+                }
+                break;
+        }
+        return false;
     }
 
     public class MyPgaeAdapter extends PagerAdapter {
@@ -92,39 +133,49 @@ public class PagesFragment extends ViewPager {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            SimplePageView simplePageView = new SimplePageView(getContext());
-            simplePageView.setTag(position);
-            simplePageView.showMirror(themeBean.isMirror != 0);
-            simplePageView.setmPageBean(pageList.get(position));
-            container.addView(simplePageView);
-            return simplePageView;
+            IPage pageView = getNewPageView(getContext());
+            ((View) pageView).setTag(position);
+            pageView.showMirror(themeBean.isMirror != 0);
+            pageView.setmPageBean(pageList.get(position));
+            container.addView((View) pageView);
+            return pageView;
         }
 
         @Override
         public void setPrimaryItem(ViewGroup container, int position, Object object) {
+            FlyEvent.saveValue("400301", new byte[]{(byte) position, (byte) (getCount() - 2)});
+            FlyEvent.sendEvent("400301");
             //循环滚动
             try {
                 if (position == 0 && pageList != null && pageList.size() > 1) {
                     setCurrentItem(pageList.size() - 2, false);
                     for (int i = 0; i < getCount(); i++) {
                         View view = getChildAt(i);
-                        view.setTranslationX(0);
-                        view.setRotation(0);
+                        if (view != null) {
+                            view.setTranslationX(0);
+                            view.setRotation(0);
+                        }
                     }
                 }
-                if (position == pageList.size() - 1 && pageList != null && pageList.size() > 1) {
+                if (pageList != null && position == pageList.size() - 1 && pageList.size() > 1) {
                     setCurrentItem(1, false);
                     for (int i = 0; i < getCount(); i++) {
                         View view = getChildAt(i);
-                        view.setTranslationX(0);
-                        view.setRotation(0);
+                        if (view != null) {
+                            view.setTranslationX(0);
+                            view.setRotation(0);
+                        }
                     }
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 FlyLog.e(e.toString());
             }
         }
 
+    }
+
+    protected IPage getNewPageView(Context context) {
+        return new SimplePageView(context);
     }
 
 

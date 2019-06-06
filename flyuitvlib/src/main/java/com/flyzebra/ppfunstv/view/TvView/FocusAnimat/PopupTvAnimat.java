@@ -2,7 +2,6 @@ package com.flyzebra.ppfunstv.view.TvView.FocusAnimat;
 
 import android.app.Activity;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.DrawableRes;
@@ -189,7 +188,6 @@ public class PopupTvAnimat implements ITvFocusAnimat {
 
     public class AnimTask implements Runnable {
         private static final float ONE_TIME = 20;
-        private IAnimatView tView;
         private int from_x, from_y, to_x, to_y;
         private int from_width, from_height, to_width, to_height;
         private int duration;
@@ -198,7 +196,6 @@ public class PopupTvAnimat implements ITvFocusAnimat {
         private Interpolator interpolator = new DecelerateInterpolator(1f);
 
         public AnimTask(IAnimatView toView, Rect rect1, Rect rect2, int duration, boolean isMoveCenter) {
-            this.tView = toView;
             this.from_x = rect1.left;
             this.from_y = rect1.top;
             this.from_width = rect1.width();
@@ -247,30 +244,6 @@ public class PopupTvAnimat implements ITvFocusAnimat {
 
         @Override
         public void run() {
-            if (tView != null) {
-                final int type = tView.getFocusType();
-                if (type == -1) {
-                } else {
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            shadowView.setVisibility(View.VISIBLE);
-                        }
-                    });
-                }
-
-                if (type != -1 && type != currentID) {
-                    currentID = type;
-                    final int res_id = resIDs[currentID];
-                    final Drawable drawable = shadowView.getResources().getDrawable(res_id);
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            shadowView.setBackground(drawable);
-                        }
-                    });
-                }
-            }
             isCancel.set(false);
             isAnimRunning.set(true);
             final int num = (int) (duration / ONE_TIME);
