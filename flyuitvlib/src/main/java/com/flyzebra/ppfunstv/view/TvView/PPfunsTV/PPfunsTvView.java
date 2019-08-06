@@ -143,7 +143,7 @@ public class PPfunsTvView extends BaseTvView {
 
         //创建添加顶部状态栏菜单
         if (isCreateHeaderLayout) {
-//            addHeaderView(context, mHeaderLayout, screenScale);
+            addHeaderView(context, mHeaderLayout, screenScale);
         }
         //创建导航菜单
         if (mTabEntityList != null && isCreateNavLayout) {
@@ -227,7 +227,7 @@ public class PPfunsTvView extends BaseTvView {
             mViewPager = new ViewPager(context);
             RelativeLayout.LayoutParams lp3 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             mViewPager.setLayoutParams(lp3);
-            mViewPager.setOffscreenPageLimit(20);
+//            mViewPager.setOffscreenPageLimit(20);
             mAdapter = new MyPgaeAdapter();
             mViewPager.setAdapter(mAdapter);
 //            mViewPager.setPageTransformer(true,new ViewPager3DTransformer());

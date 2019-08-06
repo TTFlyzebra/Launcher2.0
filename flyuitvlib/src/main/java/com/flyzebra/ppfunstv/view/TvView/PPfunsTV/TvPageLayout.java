@@ -69,7 +69,7 @@ public class TvPageLayout extends ViewGroup {
     /**
      * 默认屏幕宽度
      */
-    private double SCREEN_WIDTH = 1920;
+    private double SCREEN_WIDTH = 1024;
     /**
      * 多分辨率适配系数
      */
@@ -120,7 +120,7 @@ public class TvPageLayout extends ViewGroup {
 
         iCellSortable = new CellSortable();
         mScroller = new Scroller(context);
-        screenScale = DisplayUtils.getMetrices((Activity) context).widthPixels / 1920f;
+        screenScale = DisplayUtils.getMetrices((Activity) context).widthPixels / 1024f;
         setClipChildren(false);
         setClipToPadding(false);
     }
@@ -224,6 +224,11 @@ public class TvPageLayout extends ViewGroup {
                     entity = cell;
                 }
                 entity.setCarouselTime(entity.getCarouselTime());
+                entity.setX((int) (entity.getX() * screenScale));
+                entity.setY((int) (entity.getY() * screenScale));
+                entity.setWidth((int) (entity.getWidth() * screenScale) + (int) (entity.getWidth() * screenScale) % 2);
+                entity.setHeight((int) (entity.getHeight() * screenScale) + (int) (entity.getHeight() * screenScale) % 2);
+                entity.setSize((int) (entity.getSize() * screenScale));
                 min_x = Math.min(min_x, entity.getX());
                 max_x = Math.max(max_x, entity.getX() + entity.getWidth());
                 mCellEntityList.add(entity);

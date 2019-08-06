@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.flyzebra.ppfunstv.R;
 import com.flyzebra.ppfunstv.constant.Constants;
 import com.flyzebra.ppfunstv.data.CellEntity;
@@ -261,7 +260,7 @@ public class SimpleCellView extends TvPageItemView {
         Glide.with(mContext)
                 .load(filePath)
 //                    .transform(new GlideRoundTransform(context, (int) (4 * screenScale)))
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(mImageView);
     }
 

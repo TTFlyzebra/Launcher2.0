@@ -198,7 +198,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
         initAdsModule();
         init();
         String themeName = (String) SPUtil.get(this, "themeName", "Launcher-AP1");
-        String url =  "http://192.168.1.119:801/uiweb";
+        String url =  "http://192.168.1.88/uiweb";
         String token = "1234567890";
         String ApiTheme = "/api/app?type=%s&themeName=%s&version=%s";
         String type = "launcher";
@@ -318,7 +318,7 @@ public class LauncherActivity extends BaseActivity implements IUpdataVersion.Che
                             .setControlData(mControlBean)
                             .setShowReflect(true)//是否生成镜像
                             .setHeadEntity(headEntity)
-                            .setAnimStyle(ITvFocusAnimat.TV_PAGE_MOVE_ANIM)
+                            .setAnimStyle(ITvFocusAnimat.TV_PAGE_NOT_MOVE_ANIM)
                             .setShadowAmend(12)
                             .setAnimDuration(500)
                             .setCreateNavLayout(true)

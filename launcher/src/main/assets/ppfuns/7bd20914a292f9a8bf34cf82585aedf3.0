@@ -2275,7 +2275,7 @@
             "y": 281
         },
         {
-            "action": "{'packageName':'com.yinhe.hunan.dtv','className':'com.yinhe.hunan.dtv.EPGCable','intent':'','downIntent':'','downPara':'','data':'','cmd':'','url':''}",
+            "action": "{'packageName':'com.android.launcher3','className':'com.android.launcher3.launcher','intent':'','downIntent':'','downPara':'','data':'','cmd':'','url':''}",
             "adsId": "10",
             "animation": [],
             "canFocus": true,

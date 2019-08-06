@@ -174,9 +174,9 @@ public abstract class BaseTvView extends RelativeLayout {
         List<TabEntity> tabEntityList = templateEntity.getTabList();
         if (tabEntityList != null && tabEntityList.size() > 0) {
             this.mTabEntityList.clear();
-            if (mPageSize > 0) {
-                tabEntityList = adjustTabSize(tabEntityList, mPageSize);
-            }
+//            if (mPageSize > 0) {
+//                tabEntityList = adjustTabSize(tabEntityList, mPageSize);
+//            }
             this.mTabEntityList.addAll(tabEntityList);
         }
         return this;
@@ -208,10 +208,10 @@ public abstract class BaseTvView extends RelativeLayout {
     public BaseTvView setTvPageData(List<TvCellBean> cellBeanList) {
         if (cellBeanList != null && cellBeanList.size() > 0) {
             this.mCellBeanList.clear();
-            if (cellBeanList.size() > 1) {
-                mPageSize = adjustMemory(cellBeanList, ADJUST_MEMORY_FACTOR);
-                cellBeanList = adjustCellSize(cellBeanList, mPageSize);
-            }
+//            if (cellBeanList.size() > 1) {
+//                mPageSize = adjustMemory(cellBeanList, ADJUST_MEMORY_FACTOR);
+//                cellBeanList = adjustCellSize(cellBeanList, mPageSize);
+//            }
             this.mCellBeanList.addAll(cellBeanList);
         }
         return this;

@@ -70,7 +70,7 @@ public class UpdataVersion implements IUpdataVersion, IUpDataVersionError {
     /**
      * 对应请求API接口
      */
-    protected String ApiUrl = "http://192.168.1.119:801/uiweb";
+    protected String ApiUrl = "http://192.168.1.88/uiweb";
     protected String token = "";
     protected String tokenFromat = "&token=%s";
     protected String ApiVersion = "/api/version?areaCode=%s&type=launcher&version=%s&versionSw=%s&devCode=%s&versionHw=%s&userId=%s";
